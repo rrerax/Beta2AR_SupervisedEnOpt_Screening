@@ -17,6 +17,11 @@ This index lists the files needed to review or rerun the β2-AR supervised EnOpt
 - `results/tables/conformation_weights.csv` — receptor conformation weights used in ranking.
 - `results/figures/enopt_weighted_top_hits.png` — top-hit weighted score figure.
 - `results/figures/score_distributions.png` — docking score distributions across receptor conformations.
+- - `results/supervised_enopt/enopt_model.pkl` — trained supervised EnOpt model (XGBoost).
+- `results/supervised_enopt/enopt_model_card.json` — model card: training data, features, validation metrics.
+- `results/supervised_enopt/enopt_supervised_metrics.csv` — OOF AUROC and enrichment metrics.
+- `results/supervised_enopt/enopt_supervised_ranking.csv` — full 30,000-compound re-ranked leaderboard.
+- `results/supervised_enopt/enopt_report_card.html` — visual report card (raw vs supervised EnOpt).
 
 ## Input and Metadata
 
