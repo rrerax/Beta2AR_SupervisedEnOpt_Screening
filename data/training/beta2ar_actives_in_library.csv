@@ -1,0 +1,49 @@
+molecule_chembl_id,smiles,best_pchembl,best_standard_type,best_source,n_records,sources
+CHEMBL15245,COC(=O)[C@@H]1[C@H]2C[C@H]3c4[nH]c5ccccc5c4CCN3C[C@@H]2CC[C@@H]1O,10.4,Ki,Scientific Literature,1,Scientific Literature
+CHEMBL36060,CC(C)(C)NC[C@H](O)COc1cccc2[nH]c(O)nc12,10.0,Ki,Scientific Literature,1,Scientific Literature
+CHEMBL434,CC(C)NCC(O)c1ccc(O)c(O)c1,9.8,EC50,Scientific Literature,34,DrugMatrix|Scientific Literature
+CHEMBL723,COc1ccccc1OCCNCC(O)COc1cccc2[nH]c3ccccc3c12,9.78,Ki,DrugMatrix,3,DrugMatrix|Scientific Literature
+CHEMBL499,CC(C)(C)NC[C@H](O)COc1nsnc1N1CCOCC1,9.7,Ki,DrugMatrix,5,DrugMatrix|EUbOPEN Chemogenomic Library|Scientific Literature
+CHEMBL32800,CC(Cc1ccc(O)cc1)NCC(O)c1cc(O)cc(O)c1,9.61,EC50,Scientific Literature,2,Scientific Literature
+CHEMBL27,CC(C)NCC(O)COc1cccc2ccccc12,9.49,Ki,Scientific Literature,9,DrugMatrix|Scientific Literature
+CHEMBL38486,COC(=O)COc1ccc(C[C@@H](C)NC[C@H](O)c2cccc(Cl)c2)cc1,8.49,Ki,Scientific Literature,1,Scientific Literature
+CHEMBL29141,CNCC(O)c1ccc(O)c2nc(O)sc12,8.3,Ki,Scientific Literature,1,Scientific Literature
+CHEMBL26183,COc1cccc2c(C[C@@H](C)NC[C@H](O)c3cccc(Cl)c3)c[nH]c12,8.28,EC50,Scientific Literature,1,Scientific Literature
+CHEMBL12994,C[C@@H](CCc1ccc(O)cc1)NC[C@H](O)COc1ccc(O)cc1,8.0,IC50,Scientific Literature,1,Scientific Literature
+CHEMBL429,CC(CCc1ccccc1)NCC(O)c1ccc(O)c(C(N)=O)c1,7.96,Ki,DrugMatrix,2,DrugMatrix
+CHEMBL13102,CC(=O)Nc1ccc(CCNC[C@H](O)COc2ccc(O)cc2)cc1,7.96,IC50,Scientific Literature,1,Scientific Literature
+CHEMBL13079,O=S(=O)(Cc1ccccc1)Nc1ccc(CCNC[C@H](O)COc2ccc(O)cc2)cc1,7.68,IC50,Scientific Literature,1,Scientific Literature
+CHEMBL4435895,COc1ccccc1OCCNC[C@H](O)COc1ccc(O)c(O)c1,7.68,Ki,Scientific Literature,3,Scientific Literature
+CHEMBL25133,CC(Cc1c[nH]c2ccccc12)NCC(O)c1cccc(Cl)c1,7.64,EC50,Scientific Literature,1,Scientific Literature
+CHEMBL26393,C[C@H](Cc1c[nH]c2ccccc12)NC[C@H](O)c1cccc(Cl)c1,7.6,EC50,Scientific Literature,2,Scientific Literature
+CHEMBL4436343,COc1ccccc1OCCNCCc1cccc2[nH]c3ccccc3c12,7.58,Ki,Scientific Literature,1,Scientific Literature
+CHEMBL12719,COc1ccc(CC[C@@H](C)NC[C@@H](O)COc2ccc(O)cc2)cc1,7.52,EC50,Scientific Literature,1,Scientific Literature
+CHEMBL6913,CC(C)N[C@@H]1CCc2c(ccc(O)c2O)[C@H]1O,7.5,Ki,Scientific Literature,1,Scientific Literature
+CHEMBL24778,C[C@H](Cc1cc2c(c(C(N)=O)c1)N(CCCO)CC2)NCCOc1ccccc1OCC(F)(F)F,7.48,Ki,EUbOPEN Chemogenomic Library,2,EUbOPEN Chemogenomic Library
+CHEMBL631,CCCNCC(O)COc1ccccc1C(=O)CCc1ccccc1,7.44,Ki,DrugMatrix,2,DrugMatrix
+CHEMBL36568,CS(=O)(=O)Nc1cc([C@@H](O)CNC2CCN(c3ccc(C(=O)NCC(=O)O)cc3)CC2)ccc1O,7.4,EC50,Scientific Literature,1,Scientific Literature
+CHEMBL41189,CC(C)NC[C@H](O)COc1ccccc1OCCOCCOc1ccccc1OC[C@@H](O)CNC(C)C,7.33,IC50,Scientific Literature,1,Scientific Literature
+CHEMBL13238,CC(C)S(=O)(=O)Nc1ccc(CCNC[C@H](O)COc2ccc(O)cc2)cc1,7.24,IC50,Scientific Literature,1,Scientific Literature
+CHEMBL12633,C[C@@H](Cc1ccc(O)cc1)NC[C@H](O)COc1ccc(O)cc1,7.08,IC50,Scientific Literature,1,Scientific Literature
+CHEMBL39596,C[C@H](Cc1ccc(OCC(=O)NO)cc1)NC[C@H](O)c1cccc(Cl)c1,6.95,Ki,Scientific Literature,1,Scientific Literature
+CHEMBL12674,O=S(=O)(CCc1ccccc1)Nc1ccc(CCNC[C@H](O)COc2ccc(O)cc2)cc1,6.92,IC50,Scientific Literature,1,Scientific Literature
+CHEMBL13003,O=S(=O)(CCCc1ccccc1)Nc1ccc(CCNC[C@H](O)COc2ccc(O)cc2)cc1,6.89,IC50,Scientific Literature,1,Scientific Literature
+CHEMBL12876,Oc1ccc(CCNC[C@H](O)COc2ccc(O)cc2)cc1,6.82,IC50,Scientific Literature,1,Scientific Literature
+CHEMBL38569,C[C@H](Cc1ccc(OCC(N)=O)cc1)NC[C@H](O)c1cccc(Cl)c1,6.77,Ki,Scientific Literature,1,Scientific Literature
+CHEMBL12718,Cc1ccc(S(=O)(=O)Nc2ccc(CCNC[C@H](O)COc3ccc(O)cc3)cc2)cc1,6.77,IC50,Scientific Literature,1,Scientific Literature
+CHEMBL12686,COc1ccc(S(=O)(=O)Nc2ccc(CCNC[C@H](O)COc3ccc(O)cc3)cc2)cc1,6.72,IC50,Scientific Literature,1,Scientific Literature
+CHEMBL13,COCCc1ccc(OCC(O)CNC(C)C)cc1,6.66,Ki,Scientific Literature,1,Scientific Literature
+CHEMBL12943,CCC(=O)Nc1ccc(S(=O)(=O)Nc2ccc(CCNC[C@H](O)COc3ccc(O)cc3)cc2)cc1,6.66,IC50,Scientific Literature,1,Scientific Literature
+CHEMBL12188,CS(=O)(=O)Nc1ccc(CCNC[C@H](O)COc2ccc(O)cc2)cc1,6.66,IC50,Scientific Literature,1,Scientific Literature
+CHEMBL13453,CCCC(=O)Nc1ccc(S(=O)(=O)Nc2ccc(CCNC[C@H](O)COc3ccc(O)cc3)cc2)cc1,6.64,IC50,Scientific Literature,1,Scientific Literature
+CHEMBL12769,O=S(=O)(Nc1ccc(CCNC[C@H](O)COc2ccc(O)cc2)cc1)c1cnc2ccccc2c1,6.62,IC50,Scientific Literature,1,Scientific Literature
+CHEMBL12498,CCCCCS(=O)(=O)Nc1ccc(CCNC[C@H](O)COc2ccc(O)cc2)cc1,6.6,IC50,Scientific Literature,1,Scientific Literature
+CHEMBL41113,C[C@H](Cc1ccc(OCCO)cc1)NC[C@H](O)c1cccc(Cl)c1,6.58,Ki,Scientific Literature,1,Scientific Literature
+CHEMBL12450,O=S(=O)(Nc1ccc(CCNC[C@H](O)COc2ccc(O)cc2)cc1)c1ccc(Cl)cc1,6.55,IC50,Scientific Literature,1,Scientific Literature
+CHEMBL471,CC(C)NCC(O)c1ccc(NS(C)(=O)=O)cc1,6.53,Ki,DrugMatrix,2,DrugMatrix
+CHEMBL12911,CCOC(=O)Nc1ccc(S(=O)(=O)Nc2ccc(CCNC[C@H](O)COc3ccc(O)cc3)cc2)cc1,6.4,IC50,Scientific Literature,1,Scientific Literature
+CHEMBL13398,CNC(=O)Nc1ccc(S(=O)(=O)Nc2ccc(CCNC[C@H](O)COc3ccc(O)cc3)cc2)cc1,6.4,IC50,Scientific Literature,1,Scientific Literature
+CHEMBL13389,COC(=O)Nc1ccc(S(=O)(=O)Nc2ccc(CCNC[C@H](O)COc3ccc(O)cc3)cc2)cc1,6.37,IC50,Scientific Literature,1,Scientific Literature
+CHEMBL13068,CC(C)C(=O)Nc1ccc(S(=O)(=O)Nc2ccc(CCNC[C@H](O)COc3ccc(O)cc3)cc2)cc1,6.35,IC50,Scientific Literature,1,Scientific Literature
+CHEMBL13034,Nc1ccc(CCNC[C@H](O)COc2ccc(O)cc2)cc1,6.3,IC50,Scientific Literature,1,Scientific Literature
+CHEMBL13278,O=S(=O)(Nc1ccc(CCNC[C@H](O)COc2ccc(O)cc2)cc1)c1ccc2ccccc2c1,6.2,IC50,Scientific Literature,1,Scientific Literature

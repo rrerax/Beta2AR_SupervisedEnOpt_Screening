@@ -26,6 +26,14 @@
 | inactive_carazolol_2RH1 |   0.2031 |
 | inactive_carazolol_5D5A |   0.2028 |
 
+## Supervised EnOpt Model
+
+- Training: 48 known β2-AR actives (positives) vs 29,817 assumed negatives; features are the five per-conformation docking scores.
+- Model: XGBoost, 3-fold stratified cross-validation, out-of-fold predictions.
+- OOF AUROC: 0.6647 (vs 0.4133 for ensemble mean and 0.4667 for ensemble best).
+- Known actives median rank: top 39% → top 22.6%.
+- Deliverables: `results/supervised_enopt/`.
+- Next: dock 3,000 DUD-E decoys (`configs/decoy_screen.yml`) as an external negative-control validation.
 ## Top 10 Ranked Compounds
 
 |   rank | ligand_id     |   weighted_score |   best_score |   mean_score |   score_sd |   n_conf |
@@ -51,7 +59,10 @@
 - `results/tables/receptor_manifest.csv`
 - `results/figures/enopt_weighted_top_hits.png`
 - `results/figures/score_distributions.png`
+- `results/supervised_enopt/enopt_model.pkl`
+- `results/supervised_enopt/enopt_supervised_ranking.csv`
+- `results/supervised_enopt/enopt_report_card.html`
 
 ## Interpretation
 
-The complete run satisfies the planned second-stage workflow: β2-AR receptor preparation, 30,000-compound ligand processing, five-conformation docking, ensemble score integration, EnOpt-style weighted ranking, result tables, figures, and reproducible scripts. The results are suitable for a computational portfolio project and should be described as virtual screening prioritization rather than experimentally confirmed activity.
+The complete run satisfies the planned workflow: β2-AR receptor preparation, 30,000-compound ligand processing, five-conformation docking, ensemble score integration, supervised EnOpt model training (OOF AUROC 0.6647; actives median rank 39% → 22.6%), re-ranked leaderboard, result tables, figures, and reproducible scripts. The results are suitable for a computational portfolio project and should be described as virtual screening prioritization rather than experimentally confirmed activity.

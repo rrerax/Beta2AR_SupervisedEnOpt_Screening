@@ -4,7 +4,7 @@ project:
   generated_at: '2026-07-28'
 
 ligands:
-  input_csv: data/raw/chembl37_ligand_library_30000.csv
+  input_csv: data/training/dude_decoys_for_dock.csv
   id_column: ligand_id
   smiles_column: smiles
   full_limit: 30000

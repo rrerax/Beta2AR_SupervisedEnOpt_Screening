@@ -1,6 +1,6 @@
 # Project Index
 
-This index lists the files needed to review or rerun the β2-AR ensemble virtual screening project.
+This index lists the files needed to review or rerun the β2-AR supervised EnOpt screening project.
 
 ## Start Here
 
@@ -17,6 +17,12 @@ This index lists the files needed to review or rerun the β2-AR ensemble virtual
 - `results/tables/conformation_weights.csv` — receptor conformation weights used in ranking.
 - `results/figures/enopt_weighted_top_hits.png` — top-hit weighted score figure.
 - `results/figures/score_distributions.png` — docking score distributions across receptor conformations.
+- `results/supervised_enopt/enopt_model.pkl` — trained supervised EnOpt model (XGBoost).
+- `results/supervised_enopt/enopt_model_card.json` — model card: training data, features, validation metrics.
+- `results/supervised_enopt/enopt_supervised_metrics.csv` — OOF AUROC and enrichment metrics.
+- `results/supervised_enopt/enopt_supervised_ranking.csv` — full 30,000-compound re-ranked leaderboard.
+- `results/supervised_enopt/enopt_report_card.html` — visual report card (raw vs supervised EnOpt).
+
 
 ## Input and Metadata
 
@@ -24,6 +30,9 @@ This index lists the files needed to review or rerun the β2-AR ensemble virtual
 - `results/tables/ligand_manifest.csv` — ligand preparation status table.
 - `results/tables/receptor_manifest.csv` — receptor preparation metadata.
 - `configs/beta2ar_screen.yml` — workflow parameters.
+- `configs/decoy_screen.yml` — DUD-E decoy docking workflow parameters.
+- `data/training/beta2ar_actives_in_library.csv` — 48 known β2-AR actives used as positive labels.
+- `data/training/dude_decoys_for_dock.csv` — 3,000 DUD-E decoys for negative-control screening.
 
 ## Scripts
 
@@ -33,5 +42,6 @@ This index lists the files needed to review or rerun the β2-AR ensemble virtual
 - `scripts/03_prepare_ligands.py` — prepare ligand structures.
 - `scripts/04_run_vina.py` — run batch AutoDock Vina docking.
 - `scripts/05_analyze_enopt.py` — build the ensemble matrix, weights, ranking table, and figures.
+- `scripts/06_train_supervised_enopt.py` — train the supervised EnOpt model and produce the re-ranked leaderboard.
 - `scripts/run_smoke_test.sh` — quick validation run.
 - `scripts/run_pipeline.sh` — full pipeline entry point.

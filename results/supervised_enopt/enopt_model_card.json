@@ -1,0 +1,33 @@
+{
+  "模型名称": "Beta2AR 监督式 EnOpt（XGBoost 决策树森林）",
+  "训练时间": "2026-08-10 15:41",
+  "训练数据": {
+    "分子总数": 29865,
+    "已知活性(正例)": 48,
+    "假设负样本": 29817
+  },
+  "输入特征(顺序)": [
+    "active_bi167107_4LDE",
+    "active_gs_complex_3SN6",
+    "active_hbi_4LDL",
+    "inactive_carazolol_2RH1",
+    "inactive_carazolol_5D5A"
+  ],
+  "超参数": {
+    "n_estimators": 15,
+    "learning_rate": 0.3,
+    "max_depth": 6,
+    "eval_metric": "auc",
+    "random_state": 42,
+    "n_jobs": 1
+  },
+  "正负样本平衡权重 scale_pos_weight": 621.1875,
+  "交叉验证(OOF) AUROC": 0.6647,
+  "特征重要性": {
+    "active_bi167107_4LDE": 0.2272000014781952,
+    "active_gs_complex_3SN6": 0.16459999978542328,
+    "active_hbi_4LDL": 0.18770000338554382,
+    "inactive_carazolol_2RH1": 0.21570000052452087,
+    "inactive_carazolol_5D5A": 0.20489999651908875
+  }
+}

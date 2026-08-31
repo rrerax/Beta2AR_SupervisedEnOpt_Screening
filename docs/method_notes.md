@@ -22,7 +22,7 @@ The screen starts from a 30,000-compound ChEMBL37 ligand table. Structures that 
 
 ## Docking and Ranking
 
-Each prepared ligand was docked against each receptor conformation. Docking scores were merged into a single matrix, and an EnOpt-style weighted consensus score was calculated to prioritize ligands that perform consistently across the receptor ensemble.
+Each prepared ligand was docked against each receptor conformation. Docking scores were merged into a single ligand-by-conformation matrix. A stage-1 EnOpt-style weighted consensus score provides a baseline ranking. The final ranking comes from a supervised EnOpt model (XGBoost) trained on the receptor's own experimental data: 48 known β2-AR actives from ChEMBL as positives and the remaining library molecules as assumed negatives. The model learns how to combine the per-conformation scores for β2-AR specifically; out-of-fold predictions reach an AUROC of 0.66, and known actives' median rank improves from the top 39% to the top 22.6% of the library.
 
 The final ranking table reports:
 
@@ -33,4 +33,4 @@ The final ranking table reports:
 
 ## Interpretation
 
-The results should be interpreted as a computational shortlist. Strong docking scores can suggest promising candidates, but they do not prove binding or biological activity. Follow-up work could include binding-site visual inspection, decoy benchmarking, molecular dynamics, MM/GBSA rescoring, or experimental validation.
+Both the stage-1 and supervised results should be interpreted as a computational shortlist. The supervised EnOpt model improves ranking over the stage-1 baselines (OOF AUROC 0.66; actives median rank 39% → 22.6%), and a 3,000-compound DUD-E decoy screen (`configs/decoy_screen.yml`) is prepared as an external negative control. Strong docking scores can suggest promising candidates, but they do not prove binding or biological activity. Follow-up work could include binding-site visual inspection, decoy benchmarking, molecular dynamics, MM/GBSA rescoring, or experimental validation.

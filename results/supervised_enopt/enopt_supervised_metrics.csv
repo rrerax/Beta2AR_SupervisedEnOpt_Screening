@@ -1,0 +1,4 @@
+method,auroc,ef_1pct,ef_5pct
+EnOpt (supervised OOF),0.6647,4.167,2.5
+ensemble_mean,0.4133,0.0,0.0
+ensemble_best,0.4667,0.0,0.0
