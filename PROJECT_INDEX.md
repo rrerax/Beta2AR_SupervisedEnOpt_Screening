@@ -1,6 +1,6 @@
 # Project Index
 
-This index lists the files needed to review or rerun the β2-AR ensemble virtual screening project.
+This index lists the files needed to review or rerun the β2-AR supervised EnOpt screening project.
 
 ## Start Here
 
@@ -33,5 +33,6 @@ This index lists the files needed to review or rerun the β2-AR ensemble virtual
 - `scripts/03_prepare_ligands.py` — prepare ligand structures.
 - `scripts/04_run_vina.py` — run batch AutoDock Vina docking.
 - `scripts/05_analyze_enopt.py` — build the ensemble matrix, weights, ranking table, and figures.
+- `scripts/06_train_supervised_enopt.py
 - `scripts/run_smoke_test.sh` — quick validation run.
 - `scripts/run_pipeline.sh` — full pipeline entry point.
