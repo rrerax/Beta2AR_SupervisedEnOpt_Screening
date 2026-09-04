@@ -11,7 +11,7 @@ The approach follows the EnOpt (Ensemble Optimizer) concept of Bhatt, Wang & Dur
 
 Classical high-throughput virtual screening often docks each ligand against a single receptor structure. For GPCR targets, this can be limiting because transmembrane helix rearrangements, especially around TM6 activation-associated motion, change the binding pocket geometry. This project therefore uses an ensemble of inactive and active β2-AR conformations, then combines docking results into a single ranking matrix.
 
-Naive ways of combining the scores (simple mean or best score) are dominated by molecular size and perform worse than random for this screen (AUROC 0.41–0.47). The supervised EnOpt model instead learns which conformations matter for β2-AR binding and substantially improves ranking.
+Raw score-averaging appears worse than random for this screen (AUROC 0.41–0.47) only when the score sign is ignored — docking scores are *more negative = better*. Once baselines are oriented correctly, plain 5-pocket averaging reaches AUROC ≈ 0.72 against property-matched DUD-E decoys and ≈ 0.67 on the full library. The supervised EnOpt model adds the most value at the top of the list (≈2× top-1% enrichment vs averaging) and in the full-library accounting; see Stage 3.
 
 ## Stage 1: Ensemble Docking
 
@@ -86,9 +86,61 @@ The EnOpt paper (Bhatt et al., 2024) shows that mapping each compound's docking-
 | ensemble mean (baseline)  | 0.4133    | 0.00  | 0.00  |
 | ensemble best (baseline)  | 0.4667    | 0.00  | 0.00  |
 
+*Baseline rows use raw scores without sign correction. Correctly oriented baselines are compared in [Stage 3](#stage-3-dud-e-decoy-validation).*
+
 - Known actives' median rank improved from the top 39% to the top 22.6% of the library.
 - Learned conformation importances: `active_bi167107_4LDE` 0.26, `active_gs_complex_3SN6` 0.21, `inactive_carazolol_2RH1` 0.20, `active_hbi_4LDL` 0.18, `inactive_carazolol_5D5A` 0.16.
 - Deliverables: `results/supervised_enopt/` — trained model, model card, metrics, re-ranked leaderboard, and a visual report card.
+
+## Stage 3: DUD-E Decoy Validation
+
+The Stage-2 numbers were produced with two known weaknesses: negatives were
+"assumed-inactive" library molecules (no experimental basis), and only 48
+positives were available. Stage 3 fixes both.
+
+**What was done**
+
+- Docked **2,978 unique DUD-E decoys** (property-matched non-binders generated
+  from the β2-AR actives) against the same five conformations
+  (15,000 docking runs; `results/tables/docking_scores_decoy_set.csv`).
+- Added **158 newly docked ChEMBL literature actives** (pChEMBL ≥ 6, MW kept
+  inside the decoy window so the decoys stay a fair, hard negative set),
+  expanding positives from 48 to **206** (`data/training/beta2ar_actives_expand_docked.csv`).
+- Retrained and re-validated with 3-fold out-of-fold cross-validation
+  (`scripts/07_train_validated_enopt.py`).
+
+**Clean-label hard test — 206 actives vs 2,978 matched decoys (OOF)**
+
+| method                    | AUROC | 95% CI       | EF 1% | EF 5% |
+|:--------------------------|------:|:-------------|------:|------:|
+| EnOpt (supervised OOF)    | 0.696 | 0.655–0.737  | 3.88  | 2.72  |
+| ensemble mean (oriented)  | 0.719 | 0.679–0.760  | 1.94  | 3.30  |
+| ensemble best (oriented)  | 0.707 | 0.666–0.748  | 0.97  | 3.01  |
+
+**Screening-like accounting — library + decoys + new actives (OOF)**
+
+| method                    | AUROC | 95% CI       | EF 1% | EF 5% |
+|:--------------------------|------:|:-------------|------:|:------|
+| EnOpt (supervised OOF)    | 0.718 | 0.678–0.758  | 4.37  | 2.72  |
+| ensemble mean (oriented)  | 0.671 | 0.631–0.712  | 0.97  | 2.33  |
+| ensemble best (oriented)  | 0.636 | 0.595–0.677  | 0.49  | 0.97  |
+
+**Honest reading**
+
+- With 206 positives the AUROC estimate is tight (95% CI ± ~0.02): the
+  five-pocket docking scores carry real, reproducible signal against
+  property-matched decoys (AUROC ≈ 0.70, clearly above random).
+- The earlier 0.61 (48 positives) was a small-sample artefact; the earlier
+  0.6647 was partly inflated by easy, non-matched negatives (large library
+  molecules) and by an unoriented baseline comparison.
+- On the matched-decoy hard test, the trained model is **statistically tied
+  with a correctly oriented simple 5-pocket average** (CIs overlap). Its
+  demonstrable value is **top-of-list enrichment** (top-1% EF 3.9 vs 1.9)
+  and the **full-library accounting**, where EnOpt clearly beats averaging
+  (0.718 vs 0.671).
+- Deliverables: `results/supervised_enopt_decoy/` — model, model card,
+  metrics, decoy-validated re-ranked leaderboard, and comparison figure.
+  Full write-up: `docs/decoy_validation_notes.md`.
 
 ## Repository Structure
 
@@ -99,7 +151,8 @@ scripts/                    Preparation, docking, analysis, and training scripts
 notebooks/                  Analysis notebook for result review
 docs/                       Method notes and final run summary
 results/tables/             Docking scores, score matrix, weights, and top hits
-results/supervised_enopt/   Trained model, metrics, ranking, and report card
+results/supervised_enopt/   Stage-2 trained model, metrics, ranking, and report card
+results/supervised_enopt_decoy/  Stage-3 decoy-validated model, metrics, and leaderboard
 results/figures/            Publication-style result figures
 examples/top_hit_poses/     Representative top-hit docking outputs
 ```
@@ -125,11 +178,18 @@ Train the supervised EnOpt model (after docking):
 python scripts/06_train_supervised_enopt.py
 ```
 
+Run the DUD-E-decoy-validated model (Stage 3, after docking):
+
+```bash
+python scripts/07_train_validated_enopt.py
+```
+
 The full run is CPU-intensive because it performs docking across 30,000 ligands and five receptor conformations. The supplied results were generated with parallel CPU docking.
 
 ## Notes and Limitations
 
 - Docking scores are computational prioritization signals, not experimental binding affinities.
-- The default negative set assumes that library molecules without reported β2-AR activity are inactive; a DUD-E decoy screen is prepared as an external negative control.
+- The Stage-2 (06) model labelled uncharacterized library molecules as negatives by assumption. Stage 3 replaced the negative set with 2,978 real DUD-E decoys and expanded positives to 206 (see `docs/decoy_validation_notes.md`).
 - The ranking should be interpreted as a shortlist for follow-up analysis, not as confirmed biological activity.
-- Additional validation such as decoy screening, redocking controls, molecular dynamics, or experimental assays would be required before biological claims.
+- On the matched-decoy hard test, supervised EnOpt (AUROC 0.696, CI 0.655–0.737) is statistically tied with a correctly oriented simple average (0.719, CI 0.679–0.760). The model's demonstrable value is top-of-list enrichment, not overall AUROC separation.
+- Additional validation such as redocking controls, molecular dynamics, or experimental assays would be required before biological claims.

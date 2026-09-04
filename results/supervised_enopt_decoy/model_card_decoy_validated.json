@@ -1,0 +1,89 @@
+{
+  "模型名称": "Beta2AR 监督式 EnOpt（DUD-E decoy 验证版, XGBoost）",
+  "训练时间": "2026-09-04T11:19",
+  "相比 06 的改动": [
+    "负样本从'假设无效的库分子'换成 2978 个真实 DUD-E decoy",
+    "正例从 48 扩到 206（新增 158 个文献活性分子并按 decoy 分子量窗口筛选后对接）"
+  ],
+  "训练数据": {
+    "活性(正例)": 206,
+    "DUD-E decoy(负例)": 2978,
+    "正负平衡权重 scale_pos_weight": 14.456
+  },
+  "输入特征(顺序)": [
+    "active_bi167107_4LDE",
+    "active_gs_complex_3SN6",
+    "active_hbi_4LDL",
+    "inactive_carazolol_2RH1",
+    "inactive_carazolol_5D5A"
+  ],
+  "超参数": {
+    "n_estimators": 15,
+    "learning_rate": 0.3,
+    "max_depth": 6,
+    "eval_metric": "auc",
+    "random_state": 42
+  },
+  "clean_label_OOF_metrics": [
+    {
+      "method": "EnOpt_clean_OOF",
+      "auroc": 0.6959,
+      "auroc_se": 0.0209,
+      "auroc_ci95": "0.655-0.737",
+      "ef_1pct": 3.883,
+      "ef_5pct": 2.718
+    },
+    {
+      "method": "ensemble_neg_mean",
+      "auroc": 0.7192,
+      "auroc_se": 0.0206,
+      "auroc_ci95": "0.679-0.760",
+      "ef_1pct": 1.942,
+      "ef_5pct": 3.301
+    },
+    {
+      "method": "ensemble_neg_best",
+      "auroc": 0.7071,
+      "auroc_se": 0.0208,
+      "auroc_ci95": "0.666-0.748",
+      "ef_1pct": 0.971,
+      "ef_5pct": 3.01
+    }
+  ],
+  "clean_top_enrichment": {
+    "top_1pct_actives": 8,
+    "top_5pct_actives": 28
+  },
+  "merged_mirror_OOF_metrics": [
+    {
+      "method": "EnOpt_merged_OOF",
+      "auroc": 0.718,
+      "auroc_se": 0.0203,
+      "auroc_ci95": "0.678-0.758",
+      "ef_1pct": 4.369,
+      "ef_5pct": 2.718
+    },
+    {
+      "method": "ensemble_neg_mean",
+      "auroc": 0.6714,
+      "auroc_se": 0.0208,
+      "auroc_ci95": "0.631-0.712",
+      "ef_1pct": 0.971,
+      "ef_5pct": 2.33
+    },
+    {
+      "method": "ensemble_neg_best",
+      "auroc": 0.6359,
+      "auroc_se": 0.0209,
+      "auroc_ci95": "0.595-0.677",
+      "ef_1pct": 0.485,
+      "ef_5pct": 0.971
+    }
+  ],
+  "旧 06 成绩单": {
+    "auroc": 0.6647,
+    "ef_1pct": 4.167,
+    "ef_5pct": 2.5
+  },
+  "注意": "clean-label 硬测试下 EnOpt 与'简单平均分(正确方向)'的 AUROC 区间重叠;EnOpt 的优势在 top1% 富集与全库口径下相对平均分的领先,不是绝对的 AUROC 胜利"
+}

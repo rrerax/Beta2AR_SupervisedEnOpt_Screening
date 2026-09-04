@@ -1,0 +1,56 @@
+project:
+  name: Beta2AR_ActivesExpand
+  target: beta2_adrenergic_receptor
+  generated_at: '2026-09-04'
+
+ligands:
+  input_csv: data/raw/beta2ar_actives_expand_selected.csv
+  id_column: ligand_id
+  smiles_column: smiles
+  full_limit: 1000
+  smoke_limit: 50
+  shard_size: 200
+
+receptors:
+  entries:
+    - pdb_id: 2RH1
+      conformation_id: inactive_carazolol_2RH1
+      receptor_chain: A
+      native_ligand_resname: CAU
+      state_label: inactive
+    - pdb_id: 5D5A
+      conformation_id: inactive_carazolol_5D5A
+      receptor_chain: A
+      native_ligand_resname: CAU
+      state_label: inactive
+    - pdb_id: 3SN6
+      conformation_id: active_gs_complex_3SN6
+      receptor_chain: R
+      native_ligand_resname: P0G
+      state_label: active
+    - pdb_id: 4LDE
+      conformation_id: active_bi167107_4LDE
+      receptor_chain: A
+      native_ligand_resname: P0G
+      state_label: active
+    - pdb_id: 4LDL
+      conformation_id: active_hbi_4LDL
+      receptor_chain: A
+      native_ligand_resname: XQC
+      state_label: active
+  box_padding_angstrom: 8.0
+  default_box_size_angstrom: [24.0, 24.0, 24.0]
+
+docking:
+  exhaustiveness: 4
+  num_modes: 3
+  cpu_per_job: 1
+  seed: 20260728
+  parallel_jobs: 32
+
+analysis:
+  top_n: 200
+  consensus_metrics:
+    - ensemble_best_score_kcal_mol
+    - ensemble_mean_score_kcal_mol
+    - enopt_style_weighted_score_kcal_mol

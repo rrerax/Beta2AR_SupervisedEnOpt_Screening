@@ -22,6 +22,8 @@ This index lists the files needed to review or rerun the β2-AR supervised EnOpt
 - `results/supervised_enopt/enopt_supervised_metrics.csv` — OOF AUROC and enrichment metrics.
 - `results/supervised_enopt/enopt_supervised_ranking.csv` — full 30,000-compound re-ranked leaderboard.
 - `results/supervised_enopt/enopt_report_card.html` — visual report card (raw vs supervised EnOpt).
+- `results/supervised_enopt_decoy/` — Stage-3 DUD-E-decoy-validated model, metrics (with 95% CI), re-ranked leaderboard, and comparison figure.
+- `results/tables/docking_scores_decoy_set.csv` — DUD-E decoy + expanded-active docking scores (15,790 rows).
 
 
 ## Input and Metadata
@@ -33,6 +35,8 @@ This index lists the files needed to review or rerun the β2-AR supervised EnOpt
 - `configs/decoy_screen.yml` — DUD-E decoy docking workflow parameters.
 - `data/training/beta2ar_actives_in_library.csv` — 48 known β2-AR actives used as positive labels.
 - `data/training/dude_decoys_for_dock.csv` — 3,000 DUD-E decoys for negative-control screening.
+- `data/training/beta2ar_actives_expand_docked.csv` — 158 newly docked ChEMBL literature actives (Stage-3 positive expansion).
+- `docs/decoy_validation_notes.md` — Stage-3 decoy validation write-up.
 
 ## Scripts
 
@@ -42,6 +46,7 @@ This index lists the files needed to review or rerun the β2-AR supervised EnOpt
 - `scripts/03_prepare_ligands.py` — prepare ligand structures.
 - `scripts/04_run_vina.py` — run batch AutoDock Vina docking.
 - `scripts/05_analyze_enopt.py` — build the ensemble matrix, weights, ranking table, and figures.
-- `scripts/06_train_supervised_enopt.py` — train the supervised EnOpt model and produce the re-ranked leaderboard.
+- `scripts/06_train_supervised_enopt.py` — train the supervised EnOpt model and produce the re-ranked leaderboard (Stage 2).
+- `scripts/07_train_validated_enopt.py` — train the DUD-E-decoy-validated EnOpt model (Stage 3).
 - `scripts/run_smoke_test.sh` — quick validation run.
 - `scripts/run_pipeline.sh` — full pipeline entry point.

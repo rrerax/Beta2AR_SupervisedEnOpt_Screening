@@ -1,0 +1,4 @@
+method,auroc,auroc_se,auroc_ci95,ef_1pct,ef_5pct
+EnOpt_clean_OOF,0.6959,0.0209,0.655-0.737,3.883,2.718
+ensemble_neg_mean,0.7192,0.0206,0.679-0.760,1.942,3.301
+ensemble_neg_best,0.7071,0.0208,0.666-0.748,0.971,3.01
