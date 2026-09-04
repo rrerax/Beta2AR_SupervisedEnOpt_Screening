@@ -1,0 +1,2 @@
+molecule_chembl_id,activity_id,standard_type,standard_value,standard_units,pchembl_value,assay_chembl_id,document_chembl_id
+CHEMBL567,25751425,IC50,2777.1,nM,5.56,CHEMBL5442689,CHEMBL5442687

@@ -1,0 +1,6 @@
+metric,value
+documented_strong_unknowns,2.0
+library_unknowns,29817.0
+auc_doc_vs_rest,0.2466
+mannwhitney_p,0.8783520311031717
+median_rank_pct,0.755

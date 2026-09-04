@@ -1,0 +1,4 @@
+feature_set,method,auroc,auroc_se,auroc_ci95,ef_1pct,ef_5pct
+raw (5) merged,EnOpt_raw_merged,0.718,0.0203,0.678-0.758,4.369,2.718
+raw+ha (10) merged,EnOpt_raw_ha_merged,0.7349,0.02,0.696-0.774,4.854,3.786
+base mean (raw) merged,ensemble_neg_mean_raw,0.6714,0.0208,0.631-0.712,0.971,2.33

@@ -1,0 +1,96 @@
+{
+  "experiment": "per-heavy-atom feature comparison",
+  "protocol": "identical to scripts/07 (3-fold OOF, XGBoost n_estimators=15, lr=0.3, depth=6, scale_pos_weight=neg/pos)",
+  "heavy_atom_definition": "largest-fragment heavy-atom count (RDKit), recomputed from SMILES",
+  "clean_label_feature_sets": [
+    {
+      "feature_set": "raw (5)",
+      "method": "EnOpt_raw",
+      "auroc": 0.6959,
+      "auroc_se": 0.0209,
+      "auroc_ci95": "0.655-0.737",
+      "ef_1pct": 3.883,
+      "ef_5pct": 2.718
+    },
+    {
+      "feature_set": "raw+ha (10)",
+      "method": "EnOpt_raw_ha",
+      "auroc": 0.7514,
+      "auroc_se": 0.02,
+      "auroc_ci95": "0.712-0.791",
+      "ef_1pct": 7.282,
+      "ef_5pct": 4.757
+    },
+    {
+      "feature_set": "raw+ha+hac (11)",
+      "method": "EnOpt_raw_ha_hac",
+      "auroc": 0.7488,
+      "auroc_se": 0.0201,
+      "auroc_ci95": "0.709-0.788",
+      "ef_1pct": 6.796,
+      "ef_5pct": 4.175
+    },
+    {
+      "feature_set": "ha only (5)",
+      "method": "EnOpt_haonly",
+      "auroc": 0.6369,
+      "auroc_se": 0.0214,
+      "auroc_ci95": "0.595-0.679",
+      "ef_1pct": 2.913,
+      "ef_5pct": 1.845
+    },
+    {
+      "feature_set": "base mean (raw)",
+      "method": "ensemble_neg_mean_raw",
+      "auroc": 0.7192,
+      "auroc_se": 0.0206,
+      "auroc_ci95": "0.679-0.760",
+      "ef_1pct": 1.942,
+      "ef_5pct": 3.301
+    },
+    {
+      "feature_set": "base mean (per-ha)",
+      "method": "ensemble_neg_mean_ha",
+      "auroc": 0.5351,
+      "auroc_se": 0.0212,
+      "auroc_ci95": "0.494-0.577",
+      "ef_1pct": 0.971,
+      "ef_5pct": 0.583
+    }
+  ],
+  "merged_mirror": [
+    {
+      "feature_set": "raw (5) merged",
+      "method": "EnOpt_raw_merged",
+      "auroc": 0.718,
+      "auroc_se": 0.0203,
+      "auroc_ci95": "0.678-0.758",
+      "ef_1pct": 4.369,
+      "ef_5pct": 2.718
+    },
+    {
+      "feature_set": "raw+ha (10) merged",
+      "method": "EnOpt_raw_ha_merged",
+      "auroc": 0.7349,
+      "auroc_se": 0.02,
+      "auroc_ci95": "0.696-0.774",
+      "ef_1pct": 4.854,
+      "ef_5pct": 3.786
+    },
+    {
+      "feature_set": "base mean (raw) merged",
+      "method": "ensemble_neg_mean_raw",
+      "auroc": 0.6714,
+      "auroc_se": 0.0208,
+      "auroc_ci95": "0.631-0.712",
+      "ef_1pct": 0.971,
+      "ef_5pct": 2.33
+    }
+  ],
+  "leaderboard_topN_overlap_with_stage3": {
+    "200": 24,
+    "500": 84,
+    "1000": 236
+  },
+  "note": "best clean-label set chosen by AUROC, then merged-mirror and final ranking recomputed for it"
+}

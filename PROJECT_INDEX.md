@@ -24,6 +24,9 @@ This index lists the files needed to review or rerun the β2-AR supervised EnOpt
 - `results/supervised_enopt/enopt_report_card.html` — visual report card (raw vs supervised EnOpt).
 - `results/supervised_enopt_decoy/` — Stage-3 DUD-E-decoy-validated model, metrics (with 95% CI), re-ranked leaderboard, and comparison figure.
 - `results/tables/docking_scores_decoy_set.csv` — DUD-E decoy + expanded-active docking scores (15,790 rows).
+- `results/retrospective_top200/` — Stage-4a ChEMBL retrospective: whole-library documented-active flags, top-200 lookup, reports.
+- `results/review_top200/` — Stage-4a top-200 chemical review (clusters, scaffolds, novelty, PAINS flags).
+- `results/feature_experiment_heavy_atom/` — Stage-4c per-heavy-atom feature experiment (AUROC 0.696 -> 0.751) and heavy-atom re-ranked leaderboard.
 
 
 ## Input and Metadata
@@ -37,6 +40,7 @@ This index lists the files needed to review or rerun the β2-AR supervised EnOpt
 - `data/training/dude_decoys_for_dock.csv` — 3,000 DUD-E decoys for negative-control screening.
 - `data/training/beta2ar_actives_expand_docked.csv` — 158 newly docked ChEMBL literature actives (Stage-3 positive expansion).
 - `docs/decoy_validation_notes.md` — Stage-3 decoy validation write-up.
+- `docs/stage4_retrospective_and_heavy_atom_notes.md` — Stage-4 write-up: ChEMBL retrospective limits, top-200 review, per-heavy-atom experiment.
 
 ## Scripts
 
@@ -48,5 +52,8 @@ This index lists the files needed to review or rerun the β2-AR supervised EnOpt
 - `scripts/05_analyze_enopt.py` — build the ensemble matrix, weights, ranking table, and figures.
 - `scripts/06_train_supervised_enopt.py` — train the supervised EnOpt model and produce the re-ranked leaderboard (Stage 2).
 - `scripts/07_train_validated_enopt.py` — train the DUD-E-decoy-validated EnOpt model (Stage 3).
+- `scripts/08_retrospective_top200.py` — Stage-4a ChEMBL retrospective (top-200; `--only-full` whole-library rank test).
+- `scripts/09_review_top200.py` — Stage-4a top-200 chemical review (clusters/scaffolds/PAINS).
+- `scripts/10_feature_heavy_atom_experiment.py` — Stage-4c per-heavy-atom feature experiment.
 - `scripts/run_smoke_test.sh` — quick validation run.
 - `scripts/run_pipeline.sh` — full pipeline entry point.
