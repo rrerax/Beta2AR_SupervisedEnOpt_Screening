@@ -1,0 +1,10 @@
+[data] ex8 score rows -> wide matrix (3184, 5)
+[data] actives 206 | decoys 2978
+
+== ex8 re-docked validation (clean-label OOF) ==
+{'method': 'EnOpt_raw_ex8', 'auroc': 0.6536, 'auroc_se': 0.0213, 'auroc_ci95': '0.612-0.695', 'ef_1pct': 3.398, 'ef_5pct': 2.33}
+{'method': 'EnOpt_raw_ha_ex8', 'auroc': 0.7325, 'auroc_se': 0.0204, 'auroc_ci95': '0.692-0.772', 'ef_1pct': 6.311, 'ef_5pct': 4.175}
+
+reference (ex4): raw 0.696 (0.655-0.737), raw+ha 0.751 (0.712-0.791)
+
+NOTE: if ex8 CI overlaps ex4 CI, higher exhaustiveness did not change discrimination; if it is clearly above, the ex4 model was limited by docking quality. Also check raw+ha vs raw: if the per-ha gap narrows, part of the size-bias correction was a docking-sampling artefact.

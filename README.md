@@ -142,6 +142,72 @@ positives were available. Stage 3 fixes both.
   metrics, decoy-validated re-ranked leaderboard, and comparison figure.
   Full write-up: `docs/decoy_validation_notes.md`.
 
+## Stage 4: Per-Heavy-Atom Features and Top-200 Review
+
+Stage-3 follow-ups addressed two weaknesses: a molecular-size artefact in the
+leaderboard, and the absence of a real-world check on the top-200.
+
+**Per-heavy-atom feature experiment**
+(`results/feature_experiment_heavy_atom/`,
+script `scripts/10_feature_heavy_atom_experiment.py`)
+
+| feature set (clean-label hard test) | AUROC | 95% CI       | EF 1% | EF 5% |
+|:------------------------------------|------:|:-------------|------:|------:|
+| raw only (5)                        | 0.696 | 0.655-0.737  | 3.88  | 2.72  |
+| **raw + per-heavy-atom (10)**       | **0.751** | **0.712-0.791** | **7.28** | **4.76** |
+| ensemble mean, raw (reference)      | 0.719 | 0.679-0.760  | 1.94  | 3.30  |
+
+- Appending size-normalized (per-heavy-atom) scores to the five raw scores
+  raises the matched-decoy AUROC from 0.696 to 0.751 and more than doubles
+  top-1% enrichment, while removing the "large molecules rank too high"
+  artefact (top-200 median MW drops from 393 to 358, inside the active
+  window).
+- The raw+ha leaderboard
+  (`results/feature_experiment_heavy_atom/library_ranking_heavy_atom_model.csv`)
+  is the recommended list for candidate picking.
+
+**Top-200 chemical review** (`results/review_top200_ha/`, raw+ha leaderboard)
+
+- Only 50 of the 29,865 library molecules have ChEMBL-documented beta-2
+  activity (48 are the training actives), so a ChEMBL hit-rate test has no
+  statistical power here. The top-200 is instead reviewed chemically: 170
+  unique Bemis-Murcko scaffolds / 167 Butina clusters, 192/200 novel vs the
+  training actives (max-Tanimoto < 0.4), 75 PAINS/Brenk-flagged (hand-review,
+  not auto-discard).
+- Documented failure case: CHEMBL776 (orciprenaline, classic agonist, Kd ~ 500
+  nM) ranks 27,659/29,865; small flexible phenylethanolamines score with high
+  variance across conformations. Full details:
+  `docs/stage4_retrospective_and_heavy_atom_notes.md`.
+
+## Stage 5: Exhaustiveness-8 Re-Docking Validation
+
+Tests whether the ex4 results were limited by docking sampling quality: the
+Stage-3 validation set (206 actives + 2,978 DUD-E decoys x 5 pockets = 15,920
+docks) and the 201-ligand shortlist (raw+ha top-200 + CHEMBL776) were re-docked
+at exhaustiveness 8 (AutoDock Vina 1.2.5, num_modes 20, seed-fixed).
+
+**Validation-set discrimination (3-fold OOF XGBoost)**
+
+| feature set       | ex4 (reference)  | ex8                | interpretation |
+|:------------------|-----------------:|-------------------:|:---------------|
+| raw (5)           | 0.696 (0.655-0.737) | 0.654 (0.612-0.695) | CIs overlap -> no change |
+| raw + per-ha (10) | 0.751 (0.712-0.791) | 0.733 (0.692-0.772) | CIs overlap -> no change |
+
+- Higher sampling quality neither rescued nor degraded discrimination: the ex4
+  conclusions are not an exhaustiveness artefact, and more sampling is not the
+  path to higher AUROC.
+
+**Leaderboard robustness (ex4 vs ex8, 201 ligands)**
+
+- Spearman r = 0.87-0.91 across best / best-per-ha / mean rankings; 89/100 of
+  the ex4 top-100 remain in the ex8 top-100 (best-score ranking); median score
+  shift 0.00 kcal/mol, 3/201 ligands move > 1 kcal/mol.
+- CHEMBL776 remains rank 201/201 at ex8: a systematic rigid-receptor
+  under-scoring problem, motivating interaction-fingerprint and
+  flexible-sidechain features rather than more sampling.
+- Deliverables: `results/ex8_validation/`, `results/ex8_rerank/`; full
+  write-up: `docs/ex8_revalidation_note.md`; rerun runners in
+  `revalidation_ex8/`.
 ## Repository Structure
 
 ```text
@@ -155,6 +221,13 @@ results/supervised_enopt/   Stage-2 trained model, metrics, ranking, and report 
 results/supervised_enopt_decoy/  Stage-3 decoy-validated model, metrics, and leaderboard
 results/figures/            Publication-style result figures
 examples/top_hit_poses/     Representative top-hit docking outputs
+results/retrospective_top200/    Stage-4 ChEMBL ground-truth cross-check
+results/review_top200/           Stage-4 chemical review (Stage-3 top-200)
+results/feature_experiment_heavy_atom/  Stage-4 raw+per-ha model + leaderboard
+results/review_top200_ha/        Stage-4 chemical review (raw+ha top-200)
+results/ex8_validation/          Stage-5 ex8 re-docking scores + eval report
+results/ex8_rerank/              Stage-5 ex4-vs-ex8 leaderboard robustness
+revalidation_ex8/                Stage-5 ex8 re-docking rerun scripts
 ```
 
 ## Reproducing the Workflow
@@ -184,6 +257,13 @@ Run the DUD-E-decoy-validated model (Stage 3, after docking):
 python scripts/07_train_validated_enopt.py
 ```
 
+Rerun the Stage-4/5 analyses (after docking):
+
+```bash
+python scripts/10_feature_heavy_atom_experiment.py
+python scripts/11_ex4_ex8_rerank.py
+```
+
 The full run is CPU-intensive because it performs docking across 30,000 ligands and five receptor conformations. The supplied results were generated with parallel CPU docking.
 
 ## Notes and Limitations
@@ -192,4 +272,6 @@ The full run is CPU-intensive because it performs docking across 30,000 ligands 
 - The Stage-2 (06) model labelled uncharacterized library molecules as negatives by assumption. Stage 3 replaced the negative set with 2,978 real DUD-E decoys and expanded positives to 206 (see `docs/decoy_validation_notes.md`).
 - The ranking should be interpreted as a shortlist for follow-up analysis, not as confirmed biological activity.
 - On the matched-decoy hard test, supervised EnOpt (AUROC 0.696, CI 0.655–0.737) is statistically tied with a correctly oriented simple average (0.719, CI 0.679–0.760). The model's demonstrable value is top-of-list enrichment, not overall AUROC separation.
+- Adding per-heavy-atom features (Stage 4) raises the matched-decoy AUROC to 0.751 (CI 0.712-0.791) and fixes the large-molecule ranking artefact; the raw+ha leaderboard is the recommended candidate list for follow-up.
+- Re-docking at exhaustiveness 8 (Stage 5) leaves these conclusions unchanged (CIs overlap): the remaining bottleneck is receptor/pose modelling (rigid receptor, no interaction fingerprints), not docking sampling quality.
 - Additional validation such as redocking controls, molecular dynamics, or experimental assays would be required before biological claims.

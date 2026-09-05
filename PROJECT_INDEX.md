@@ -27,6 +27,9 @@ This index lists the files needed to review or rerun the β2-AR supervised EnOpt
 - `results/retrospective_top200/` — Stage-4a ChEMBL retrospective: whole-library documented-active flags, top-200 lookup, reports.
 - `results/review_top200/` — Stage-4a top-200 chemical review (clusters, scaffolds, novelty, PAINS flags).
 - `results/feature_experiment_heavy_atom/` — Stage-4c per-heavy-atom feature experiment (AUROC 0.696 -> 0.751) and heavy-atom re-ranked leaderboard.
+- `results/ex8_validation/` — Stage-5 exhaustiveness-8 re-dock of the DUD-E validation set (15,920 rows) + clean-label OOF eval report.
+- `results/ex8_rerank/` — Stage-5 ex4-vs-ex8 ranking-robustness analysis of the raw+ha top-200 shortlist (+ CHEMBL776).
+- `results/review_top200_ha/` — chemical review of the raw+ha leaderboard top-200 (clusters, scaffolds, novelty, PAINS flags).
 
 
 ## Input and Metadata
@@ -41,6 +44,10 @@ This index lists the files needed to review or rerun the β2-AR supervised EnOpt
 - `data/training/beta2ar_actives_expand_docked.csv` — 158 newly docked ChEMBL literature actives (Stage-3 positive expansion).
 - `docs/decoy_validation_notes.md` — Stage-3 decoy validation write-up.
 - `docs/stage4_retrospective_and_heavy_atom_notes.md` — Stage-4 write-up: ChEMBL retrospective limits, top-200 review, per-heavy-atom experiment.
+- `docs/ex8_revalidation_note.md` — Stage-5 write-up: ex8 validation-set re-dock and shortlist ranking robustness.
+- `configs/validation_redock.yml` — ex8 validation docking config (exhaustiveness 8, num_modes 20).
+- `data/training/validation_redock_ligands.csv` — merged ex8 validation ligand set (206 actives + 2,978 decoys).
+- `revalidation_ex8/` — rerun scripts for the ex8 validation job (run_stage5_redock.sh, make_validation_inputs.py, eval_ex8.py).
 
 ## Scripts
 
@@ -54,6 +61,8 @@ This index lists the files needed to review or rerun the β2-AR supervised EnOpt
 - `scripts/07_train_validated_enopt.py` — train the DUD-E-decoy-validated EnOpt model (Stage 3).
 - `scripts/08_retrospective_top200.py` — Stage-4a ChEMBL retrospective (top-200; `--only-full` whole-library rank test).
 - `scripts/09_review_top200.py` — Stage-4a top-200 chemical review (clusters/scaffolds/PAINS).
+  (accepts `--ranking` / `--rank-col` so any leaderboard can be reviewed, e.g. the raw+ha one).
 - `scripts/10_feature_heavy_atom_experiment.py` — Stage-4c per-heavy-atom feature experiment.
+- `scripts/11_ex4_ex8_rerank.py` — Stage-5 ex4-vs-ex8 ranking-robustness analysis (raw+ha top-200 shortlist).
 - `scripts/run_smoke_test.sh` — quick validation run.
 - `scripts/run_pipeline.sh` — full pipeline entry point.

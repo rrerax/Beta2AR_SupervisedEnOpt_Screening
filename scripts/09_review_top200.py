@@ -78,9 +78,11 @@ def main():
     ap.add_argument("--actives-158", default=str(REPO_ROOT / "data/training/beta2ar_actives_expand_docked.csv"))
     ap.add_argument("--out", default=str(REPO_ROOT / "results/review_top200"))
     ap.add_argument("--top-n", type=int, default=200)
+    ap.add_argument("--rank-col", default="enopt_decoy_rank",
+                        help="column holding the rank to sort by (default: enopt_decoy_rank)")
     args = ap.parse_args()
 
-    rank = pd.read_csv(args.ranking).sort_values("enopt_decoy_rank").head(args.top_n)
+    rank = pd.read_csv(args.ranking).sort_values(args.rank_col).head(args.top_n)
     lib = pd.read_csv(args.library)[["ligand_id", "smiles", "mol_weight",
                                      "heavy_atoms", "logp", "tpsa"]]
     df = rank.merge(lib, on="ligand_id", how="left")
@@ -119,7 +121,7 @@ def main():
         fps.append(fp)
         rec = {
             "ligand_id": row["ligand_id"],
-            "rank": int(row["enopt_decoy_rank"]),
+            "rank": int(row[args.rank_col]),
             "is_known_active": int(row["is_known_active"]),
             "smiles": row["smiles"],
             "mol_weight": row["mol_weight"],
@@ -194,7 +196,7 @@ def main():
 
     md = f"""# Top-{args.top_n} chemical review
 
-Ready-for-review summary of the Stage-3 leaderboard's top {args.top_n}
+Ready-for-review summary of the {args.rank_col} leaderboard's top {args.top_n}
 (molecules that the model was never given as actives unless flagged).
 
 | metric | value |
