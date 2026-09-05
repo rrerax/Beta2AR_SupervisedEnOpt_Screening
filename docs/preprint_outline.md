@@ -5,7 +5,7 @@
 
 ## 0. 决策日志 (Decisions)
 
-- [x] 组织方式:**单篇 preprint**,主线 = β2-AR 监督 EnOpt;FtsZ 作为"同一框架在无实验标签场景的可迁移性"case study 小节。
+- [x] 组织方式:**单篇 preprint(已确认 2026-09-05)**。主线 = β2-AR 监督 EnOpt;FtsZ 作为"同一框架在无实验标签场景的可迁移性"case study 小节。决策背景:作者硕士答辩已完成,FtsZ 无需独立可引用成果;两个代码仓库保持独立并互链,论文层面合一。
 - [ ] 目标平台:建议先投 **bioRxiv**(bioinformatics/methods 板块)抢占时间戳,再视反馈投期刊(JCIM / J. Chem. Inf. Model. 这类纯计算方法学期刊最对口)。
 - [ ] 托管位置:正式手稿建议新建独立仓库或放 Beta2AR 仓库 `paper/` 目录;本文档先放在本仓库 `docs/` 供两仓库共用引用。
 - [ ] 语言:先英文成稿(目标期刊语言),中文版留给答辩/组会材料。
@@ -78,6 +78,7 @@ High-throughput virtual screening against a single rigid receptor structure is c
 - 4.5 局限:无湿实验;decoy 匹配依赖性质;ChEMBL 回顾无统计功效;FtsZ 无标签 + ANM 构象 + 重建 box。
 
 ### 5 Data & Code Availability
+- 归属与溯源:FtsZ 重构部分是作者硕士项目成果、早于本工作;在 Acknowledgement / Methods 中写明 lineage("the ensemble reranking idea was piloted in the author's FtsZ reconstruction, refs/URL")。β2-AR 为本工作主线。
 - Beta2AR:数据全部 ChEMBL-derived 可公开;30k 库、分数表、模型、榜单在 `results/`、`data/`(models 是 XGBoost pickle)。
 - FtsZ:重构表与结果公开;原始 thesis 工作簿与受体 PDB 在本地 `raw_inputs_staging/`(不随仓库发布),数据可用性说明见 FtsZ `docs/data_availability.md`。
 - 环境:`environment-vina.yml` / `requirements.txt`。
@@ -138,7 +139,8 @@ High-throughput virtual screening against a single rigid receptor structure is c
 
 - **Paper A(β2-AR 主线)**:上述 3.1-3.6 + Discussion,删掉 FtsZ 小节 → 更"深"。
 - **Paper B(工具/流程)**:把通用框架 + 两案例写成"可复现 ensemble-screening 模板 + 诚实评估清单",更像 software/method note。
-- 决策标准:若 β2-AR 后续补了 IFP/柔性侧链实验并冲到 AUROC 0.8,建议走 Paper A;若想尽快出预印本占坑,单篇先发更快。
+- 现状决策:答辩已完成 → **已锁定单篇**,本备选仅在 FtsZ 未来想单独投 reproducibility note 时启用。
+- 决策标准(备忘):若 β2-AR 后续补了 IFP/柔性侧链实验并冲到 AUROC 0.8,可再考虑拆 Paper A。
 
 ## 8. 下一步 checklist
 
@@ -151,7 +153,7 @@ High-throughput virtual screening against a single rigid receptor structure is c
 
 ## 9. 需要你拍板的决定
 
-1. 单篇(默认,本文档按此搭)还是两篇?
-2. 标题选 EN1/EN2/EN3 还是新拟?
+1. ~~单篇还是两篇?~~ **已定:单篇(2026-09-05,硕士答辩已完成)**。
+2. 标题选 EN1/EN2/EN3 还是新拟?【待定】
 3. 手稿仓库放哪:Beta2AR 仓库 `paper/`、FtsZ 仓库、还是新建独立仓库?
 4. 第一作者与贡献者清单(决定"我们"的表述和致谢)。
