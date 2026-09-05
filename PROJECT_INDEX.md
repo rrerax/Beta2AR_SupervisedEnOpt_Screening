@@ -8,6 +8,7 @@ This index lists the files needed to review or rerun the β2-AR supervised EnOpt
 - `notebooks/beta2ar_ensemble_screening_analysis.ipynb` — analysis notebook for the completed screen.
 - `docs/final_run_summary.md` — concise final run summary and result counts.
 - `docs/method_notes.md` — method rationale and interpretation notes.
+- `docs/preprint_outline.md` — preprint outline bridging the β2-AR mainline with the FtsZ case study.
 
 ## Main Results
 
