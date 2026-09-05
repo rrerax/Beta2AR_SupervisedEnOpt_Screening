@@ -1,4 +1,5 @@
 # Preprint Outline — Supervised EnOpt Virtual Screening (β2-AR), with an FtsZ Transfer Case Study
+> Note (2026-09-05): 手稿已迁至新建独立仓库 `supervised-enopt-preprint`;本文件为其镜像施工图,此后以新仓库 `docs/preprint_outline.md` 版本为准。
 
 > Status: v0 draft outline · 2026-09-05
 > 用法:本文件是把两个仓库(Beta2AR_EnOpt_GPCR_Screening 主线 + FtsZ_Coumarin_HTVS_Reconstruction case study)写成一篇方法学 pre-print 的"施工图"。每一节都标注了:写什么、从哪个仓库文件取素材、哪些素材还需要新做。
@@ -7,7 +8,7 @@
 
 - [x] 组织方式:**单篇 preprint(已确认 2026-09-05)**。主线 = β2-AR 监督 EnOpt;FtsZ 作为"同一框架在无实验标签场景的可迁移性"case study 小节。决策背景:作者硕士答辩已完成,FtsZ 无需独立可引用成果;两个代码仓库保持独立并互链,论文层面合一。
 - [ ] 目标平台:建议先投 **bioRxiv**(bioinformatics/methods 板块)抢占时间戳,再视反馈投期刊(JCIM / J. Chem. Inf. Model. 这类纯计算方法学期刊最对口)。
-- [ ] 托管位置:正式手稿建议新建独立仓库或放 Beta2AR 仓库 `paper/` 目录;本文档先放在本仓库 `docs/` 供两仓库共用引用。
+- [x] 托管位置:**已定(2026-09-05):新建独立仓库 `supervised-enopt-preprint`**。本文档已镜像至该仓库 `docs/preprint_outline.md`,此后以新仓库为准;本文件保留为 Beta2AR 侧导航入口。
 - [ ] 语言:先英文成稿(目标期刊语言),中文版留给答辩/组会材料。
 
 ## 1. 论文定位
@@ -154,6 +155,6 @@ High-throughput virtual screening against a single rigid receptor structure is c
 ## 9. 需要你拍板的决定
 
 1. ~~单篇还是两篇?~~ **已定:单篇(2026-09-05,硕士答辩已完成)**。
-2. 标题选 EN1/EN2/EN3 还是新拟?【待定】
-3. 手稿仓库放哪:Beta2AR 仓库 `paper/`、FtsZ 仓库、还是新建独立仓库?
+2. ~~标题选项~~ **已定:新拟(2026-09-05)**。候选见新仓库 README 与 `manuscript/00_title_abstract.md`(默认采用推荐款,待最终选定)。
+3. ~~手稿仓库放哪?~~ **已定:新建独立仓库 `supervised-enopt-preprint`**。
 4. 第一作者与贡献者清单(决定"我们"的表述和致谢)。
