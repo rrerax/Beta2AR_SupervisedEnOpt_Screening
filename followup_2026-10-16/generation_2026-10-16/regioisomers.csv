@@ -1,0 +1,7 @@
+mw,logp,hbd,hba,hac,positions,smiles,in_window,known_id,isomer_id
+211.26,1.13,4,4,15,"2,3",CC(C)NCC(O)c1cccc(O)c1O,True,,ISO01
+211.26,1.13,4,4,15,"2,4",CC(C)NCC(O)c1ccc(O)cc1O,True,,ISO02
+211.26,1.13,4,4,15,"2,5",CC(C)NCC(O)c1cc(O)ccc1O,True,,ISO03
+211.26,1.13,4,4,15,"2,6",CC(C)NCC(O)c1c(O)cccc1O,True,,ISO04
+211.26,1.13,4,4,15,"3,4",CC(C)NCC(O)c1ccc(O)c(O)c1,True,CHEMBL434,ISO05
+211.26,1.13,4,4,15,"3,5",CC(C)NCC(O)c1cc(O)cc(O)c1,True,CHEMBL776,ISO06

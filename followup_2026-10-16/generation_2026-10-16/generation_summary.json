@@ -1,0 +1,22 @@
+{
+  "window": {
+    "parent_smiles": "CC(C)NCC(O)c1ccccc1",
+    "phenolic_oh_count": 2,
+    "mw_center": 211.26,
+    "mw_tolerance": 0.5,
+    "logp_center": 1.13,
+    "logp_tolerance": 0.5,
+    "hbd": 4,
+    "hba": 4,
+    "hac": 15,
+    "max_molecules": 30,
+    "stereoisomers": false
+  },
+  "raw_combinations": 10,
+  "unique_constitutions": 6,
+  "kept": 6,
+  "known_found": [
+    "CHEMBL434",
+    "CHEMBL776"
+  ]
+}

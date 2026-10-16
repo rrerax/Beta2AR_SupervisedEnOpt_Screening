@@ -1,0 +1,6 @@
+list,n,missing_smiles,n_known_actives,logp_median,logp_q25,logp_q75,mw_median,note
+labeled_actives_206,206,[],206,3.0034,2.3971,3.9485,401.72,Crippen logP on the 206 docked actives
+labeled_decoys_2978,2978,[],0,1.9102,0.8178,2.9703,384.94,Crippen logP on the 2978 docked decoys
+heavy_atom_model_top200,200,[],3,3.8115,3.136,4.4663,358.1,existing per-heavy-atom shortlist in work/review_ha/out/top200_chemical_review.csv
+learned_full_library_top200,200,[],5,3.9733,2.94,4.6579,392.51,library_ranking_with_decoy_model_v2.csv ranks 1-200
+descriptor_oof_top200_seed42_within_3184,200,[],53,3.1834,2.6815,4.1029,382.05,"OOF probabilities from MW, logP, and heavy-atom count; labeled 3184 only"

@@ -7,6 +7,12 @@ This repository contains a reproducible computational screening workflow for the
 
 The approach follows the EnOpt (Ensemble Optimizer) concept of Bhatt, Wang & Durrant, *Sci Rep* 14:20722 (2024), doi:10.1038/s41598-024-71699-3: ranking ensemble-docking scores is system-specific and can be improved by a dataset-specific machine-learning model.
 
+## Update, 16 October 2026
+
+The learned ranker stays unused. On the unmatched 206-active / 2,978-decoy set, a descriptor model that sees only molecular weight, Crippen logP, and heavy-atom count outranks the five-score model. After the logP window was frozen and the set was cut to 48 actives and 379 decoys, the five-score model beat that descriptor model on top-1% enrichment for 2 of 10 seeds. Tables, scripts, and the decision record are in [`followup_2026-10-16`](followup_2026-10-16/README.md).
+
+The Stage 3 and Stage 4 tables below are the earlier unmatched comparisons. The per-heavy-atom AUROC 0.751 and top-1% enrichment 7.3× are not a docking-feature gain over molecular properties. Where a docking score is required, use the oriented five-conformation mean.
+
 ## Project Overview
 
 Classical high-throughput virtual screening often docks each ligand against a single receptor structure. For GPCR targets, this can be limiting because transmembrane helix rearrangements, especially around TM6 activation-associated motion, change the binding pocket geometry. This project therefore uses an ensemble of inactive and active β2-AR conformations, then combines docking results into a single ranking matrix.
@@ -164,7 +170,7 @@ script `scripts/10_feature_heavy_atom_experiment.py`)
   window).
 - The raw+ha leaderboard
   (`results/feature_experiment_heavy_atom/library_ranking_heavy_atom_model.csv`)
-  is the recommended list for candidate picking.
+  was the Stage-4 shortlist. The 16 October 2026 follow-up does not use it as a purchase list; see `followup_2026-10-16`.
 
 **Top-200 chemical review** (`results/review_top200_ha/`, raw+ha leaderboard)
 

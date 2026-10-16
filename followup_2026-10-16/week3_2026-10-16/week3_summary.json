@@ -1,0 +1,15 @@
+{
+  "CHEMBL434_in_206": true,
+  "CHEMBL776_in_206": false,
+  "full_model_rank_434": 14,
+  "full_model_rank_776": 27659,
+  "heldout_rank_434_min": 19910,
+  "heldout_rank_434_max": 29587,
+  "heldout_rank_776_min": 17493,
+  "heldout_rank_776_max": 29243,
+  "heldout_434_ahead_of_776_every_seed": false,
+  "score_vector_max_abs_diff": 0.546,
+  "training_catechols": 7,
+  "training_resorcinols": 2,
+  "library_catechol_actives_best_learned_rank": 14
+}

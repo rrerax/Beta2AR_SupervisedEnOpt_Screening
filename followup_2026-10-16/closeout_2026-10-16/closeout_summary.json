@@ -1,0 +1,103 @@
+{
+  "spearman_oriented_mean_vs_logp": {
+    "group": "all_3184",
+    "feature": "oriented_mean",
+    "spearman_vs_logp": 0.3653,
+    "n": 3184
+  },
+  "spearman_oriented_mean_within_actives": {
+    "group": "actives_206",
+    "feature": "oriented_mean",
+    "spearman_vs_logp": 0.5354,
+    "n": 206
+  },
+  "spearman_oriented_mean_within_decoys": {
+    "group": "decoys_2978",
+    "feature": "oriented_mean",
+    "spearman_vs_logp": 0.3298,
+    "n": 2978
+  },
+  "split_48": {
+    "auroc_min": 0.7174,
+    "auroc_max": 0.795,
+    "ef1_min": 2.083,
+    "ef1_max": 12.5
+  },
+  "split_158": {
+    "auroc_min": 0.7942,
+    "auroc_max": 0.8346,
+    "ef1_min": 5.696,
+    "ef1_max": 9.494
+  },
+  "top200": [
+    {
+      "list": "labeled_actives_206",
+      "n": 206,
+      "missing_smiles": [],
+      "n_known_actives": 206,
+      "logp_median": 3.0034,
+      "logp_q25": 2.3971,
+      "logp_q75": 3.9485,
+      "mw_median": 401.72,
+      "note": "Crippen logP on the 206 docked actives"
+    },
+    {
+      "list": "labeled_decoys_2978",
+      "n": 2978,
+      "missing_smiles": [],
+      "n_known_actives": 0,
+      "logp_median": 1.9102,
+      "logp_q25": 0.8178,
+      "logp_q75": 2.9703,
+      "mw_median": 384.94,
+      "note": "Crippen logP on the 2978 docked decoys"
+    },
+    {
+      "list": "heavy_atom_model_top200",
+      "n": 200,
+      "missing_smiles": [],
+      "n_known_actives": 3,
+      "logp_median": 3.8115,
+      "logp_q25": 3.136,
+      "logp_q75": 4.4663,
+      "mw_median": 358.1,
+      "note": "existing per-heavy-atom shortlist in work/review_ha/out/top200_chemical_review.csv"
+    },
+    {
+      "list": "learned_full_library_top200",
+      "n": 200,
+      "missing_smiles": [],
+      "n_known_actives": 5,
+      "logp_median": 3.9733,
+      "logp_q25": 2.94,
+      "logp_q75": 4.6579,
+      "mw_median": 392.51,
+      "note": "library_ranking_with_decoy_model_v2.csv ranks 1-200"
+    },
+    {
+      "list": "descriptor_oof_top200_seed42_within_3184",
+      "n": 200,
+      "missing_smiles": [],
+      "n_known_actives": 53,
+      "logp_median": 3.1834,
+      "logp_q25": 2.6815,
+      "logp_q75": 4.1029,
+      "mw_median": 382.05,
+      "note": "OOF probabilities from MW, logP, and heavy-atom count; labeled 3184 only"
+    }
+  ],
+  "descriptor_top200_logp_median_across_seeds": {
+    "min": 3.1301,
+    "max": 3.3795,
+    "n_actives_min": 48,
+    "n_actives_max": 60
+  },
+  "chembl13": {
+    "in_sample_learned_rank": 23,
+    "oriented_mean_rank": 27799,
+    "heldout_rank_min": 27045,
+    "heldout_rank_max": 29695,
+    "heldout_probability_min": 0.0054,
+    "heldout_probability_max": 0.0147
+  }
+}

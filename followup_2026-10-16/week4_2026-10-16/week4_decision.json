@@ -1,0 +1,46 @@
+{
+  "use_learned_ranker": false,
+  "global_score": "molecular weight, logP, and heavy-atom count",
+  "docking_score_if_required": "oriented five-conformation average",
+  "learned_ef1_range": [
+    2.427,
+    5.34
+  ],
+  "oriented_mean_ef1": 1.942,
+  "descriptor_ef1_range": [
+    5.34,
+    9.709
+  ],
+  "learned_auroc_range": [
+    0.6762,
+    0.7147
+  ],
+  "descriptor_auroc_range": [
+    0.773,
+    0.8194
+  ],
+  "best_single_conformation": "single_active_bi167107_4LDE",
+  "best_single_auroc": 0.7252,
+  "best_single_ef1": 2.427,
+  "keep_4_hydroxy_over_5_hydroxy": false,
+  "properties_identical": true,
+  "full_model_ranks": {
+    "CHEMBL434": 14,
+    "CHEMBL776": 27659
+  },
+  "oriented_mean_ranks": {
+    "CHEMBL434": 26697,
+    "CHEMBL776": 25527
+  },
+  "heldout_434_ahead_count": 2,
+  "heldout_seeds": 10,
+  "heldout_rank_434": [
+    19910,
+    29587
+  ],
+  "heldout_rank_776": [
+    17493,
+    29243
+  ],
+  "side_chain_relaxation": "not indicated"
+}

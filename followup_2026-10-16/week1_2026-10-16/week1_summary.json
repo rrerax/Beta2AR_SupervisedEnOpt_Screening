@@ -1,0 +1,38 @@
+{
+  "n_molecules": 3184,
+  "n_actives": 206,
+  "n_decoys": 2978,
+  "missing_smiles": [],
+  "hyperparameters": {
+    "n_estimators": 15,
+    "learning_rate": 0.3,
+    "max_depth": 6
+  },
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51
+  ],
+  "oriented_mean_ef1": 1.942,
+  "learned_auroc_min": 0.6762,
+  "learned_auroc_max": 0.7147,
+  "learned_ef1_min": 2.427,
+  "learned_ef1_max": 5.34,
+  "learned_ef1_above_mean_every_seed": true,
+  "descriptor_auroc_min": 0.773,
+  "descriptor_auroc_max": 0.8194,
+  "descriptor_ef1_min": 5.34,
+  "descriptor_ef1_max": 9.709,
+  "descriptor_ef1_below_learned_every_seed": false,
+  "active_scaffold_count": 140,
+  "active_scaffold_singleton_count": 117,
+  "largest_active_scaffold": 12,
+  "scaffold_split_decision": "\u53ef\u4ee5\u505a"
+}

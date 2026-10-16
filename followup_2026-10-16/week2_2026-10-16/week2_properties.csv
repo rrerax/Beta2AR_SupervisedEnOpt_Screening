@@ -1,0 +1,7 @@
+ligand_id,note,smiles,mw,logp,hbd,hba,hac,rank_oriented_mean,rank_learned,ex4_mean
+CHEMBL434,catechol isostere,CC(C)NCC(O)c1ccc(O)c(O)c1,211.26,1.13,4,4,15,26697,14,-7.279
+CHEMBL13,worst oriented-mean active,COCCc1ccc(OCC(O)CNC(C)C)cc1,267.37,1.61,2,4,19,27799,23,-6.974
+CHEMBL29141,low oriented-mean active,CNCC(O)c1ccc(O)c2nc(O)sc12,240.28,0.96,4,6,16,25141,4140,-7.59
+CHEMBL499,low oriented-mean active,CC(C)(C)NC[C@H](O)COc1nsnc1N1CCOCC1,316.43,0.5,2,8,21,26097,4326,-7.41
+CHEMBL24,documented miss,CC(C)NCC(O)COc1ccc(CC(N)=O)cc1,266.34,0.45,3,4,19,24959,17364,-7.624
+CHEMBL776,orciprenaline,CC(C)NCC(O)c1cc(O)cc(O)c1,211.26,1.13,4,4,15,25527,27659,-7.523

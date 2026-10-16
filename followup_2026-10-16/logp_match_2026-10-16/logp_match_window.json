@@ -1,0 +1,21 @@
+{
+  "rule": "intersection of active and decoy Crippen logP interquartile ranges",
+  "quantile": "numpy.quantile linear",
+  "active_q25": 2.3971,
+  "active_q75": 3.9485,
+  "decoy_q25": 0.8178,
+  "decoy_q75": 2.9703,
+  "logp_low_inclusive": 2.3971,
+  "logp_high_inclusive": 2.9703,
+  "n_before": 3184,
+  "n_actives_before": 206,
+  "n_decoys_before": 2978,
+  "active_logp_median_before": 3.0034,
+  "decoy_logp_median_before": 1.9102,
+  "n_after": 427,
+  "n_actives_after": 48,
+  "n_decoys_after": 379,
+  "active_logp_median_after": 2.7511,
+  "decoy_logp_median_after": 2.7064,
+  "top_1pct_k": 4
+}

@@ -1,0 +1,13 @@
+{
+  "parent_smiles": "CC(C)NCC(O)c1ccccc1",
+  "phenolic_oh_count": 2,
+  "mw_center": 211.26,
+  "mw_tolerance": 0.5,
+  "logp_center": 1.13,
+  "logp_tolerance": 0.5,
+  "hbd": 4,
+  "hba": 4,
+  "hac": 15,
+  "max_molecules": 30,
+  "stereoisomers": false
+}
