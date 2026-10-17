@@ -21,8 +21,12 @@ values are 3.00 and 1.91. The oriented mean correlates with logP (Spearman
 The logP window was frozen before refitting as the overlap of the two
 interquartile ranges: Crippen logP 2.3971–2.9703. It leaves 48 actives and
 379 decoys, with medians 2.75 and 2.71. Inside that window the score-only
-top-1% enrichment exceeds the descriptor model on 2 of 10 seeds. The top 1%
-contains 4 molecules, so the enrichment is unstable. `pass_gate` is false.
+top-1% enrichment exceeds the descriptor model on 2 of 10 seeds (47 and 51).
+The top 1% contains 4 molecules, so the enrichment is unstable. `pass_gate`
+is false. That failed exam is the decision. The unmatched AUROC range
+0.676–0.715, and the Stage-4 figures 0.696 and 0.751, are the record from
+before this window. The unmatched set already had 206 actives, so the failed
+gate is not a claim that a larger training set would pass.
 
 Where a docking score is required, use the oriented five-conformation mean.
 On the unmatched set the strongest single structure is 4LDE (AUROC 0.725).
@@ -61,7 +65,23 @@ the window. Two are CHEMBL434 and CHEMBL776. Four are new. They are stored
 as SMILES and properties. Synthesizability was not computed, and these poses
 were not docked.
 
+## 4LDE pose gate
+
+`pose_gate_2026-10-17` applies one rule, written before the angles were
+read, to every saved Vina mode of CHEMBL434 and CHEMBL776 on 4LDE. A contact
+passes when the hydrogen–acceptor distance is at most 2.5 Å and the
+donor–hydrogen–acceptor angle is at least 120°. The amine acceptor is ASP
+A1113. The phenol acceptors are SER A1203, SER A1204, and SER A1207. Heavy
+atoms stay at the docked coordinates. The docked amine is neutral; the
+second ammonium hydrogen is placed along the lone pair. Each phenolic
+hydrogen is also tested after a 180° flip about the C–O bond.
+
+Model 1 passes the amine contact for both ligands and fails both phenolic
+contacts. Across 20 modes per ligand, none pass. No free-energy sampling
+was started from these poses.
+
 ## What this follow-up does not contain
 
-No free-energy result, membrane system, protonation file, or activity assay
-was produced here. Feature importances are not a result.
+No free-energy number, membrane system, protonation coordinate file, or
+activity assay was produced here. Feature importances are not a result.
+The six regioisomers were not docked and are not a purchase list.

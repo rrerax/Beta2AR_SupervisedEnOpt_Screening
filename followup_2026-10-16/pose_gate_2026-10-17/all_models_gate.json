@@ -1,0 +1,1055 @@
+{
+  "receptor": "4LDE",
+  "rule": "H...acceptor <= 2.5 A and donor-H-acceptor >= 120 deg; amine and both phenols",
+  "n_models": {
+    "CHEMBL434": 20,
+    "CHEMBL776": 20
+  },
+  "passing_models": {
+    "CHEMBL434": [],
+    "CHEMBL776": []
+  },
+  "both_ligands_have_a_passing_pose": false,
+  "rows": [
+    {
+      "ligand": "CHEMBL434",
+      "model": 1,
+      "vina_score": -7.645,
+      "pass": false,
+      "amine_contact": {
+        "h_acceptor": 2.245,
+        "angle": 133.84,
+        "acceptor": "ASP1113 OD2",
+        "pass": true
+      },
+      "phenol_contacts": [
+        {
+          "h_acceptor": 2.506,
+          "angle": 91.03,
+          "acceptor": "SER1204 OG",
+          "pass": false
+        },
+        {
+          "h_acceptor": 2.53,
+          "angle": 108.74,
+          "acceptor": "SER1207 OG",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "ligand": "CHEMBL434",
+      "model": 2,
+      "vina_score": -7.63,
+      "pass": false,
+      "amine_contact": {
+        "h_acceptor": 2.035,
+        "angle": 169.05,
+        "acceptor": "ASP1113 OD2",
+        "pass": true
+      },
+      "phenol_contacts": [
+        {
+          "h_acceptor": 2.45,
+          "angle": 108.64,
+          "acceptor": "SER1203 OG",
+          "pass": false
+        },
+        {
+          "h_acceptor": 4.089,
+          "angle": 130.53,
+          "acceptor": "SER1203 OG",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "ligand": "CHEMBL434",
+      "model": 3,
+      "vina_score": -6.878,
+      "pass": false,
+      "amine_contact": {
+        "h_acceptor": 5.199,
+        "angle": 102.38,
+        "acceptor": "ASP1113 OD1",
+        "pass": false
+      },
+      "phenol_contacts": [
+        {
+          "h_acceptor": 11.544,
+          "angle": 91.21,
+          "acceptor": "SER1203 OG",
+          "pass": false
+        },
+        {
+          "h_acceptor": 11.8,
+          "angle": 80.29,
+          "acceptor": "SER1203 OG",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "ligand": "CHEMBL434",
+      "model": 4,
+      "vina_score": -6.747,
+      "pass": false,
+      "amine_contact": {
+        "h_acceptor": 2.904,
+        "angle": 136.84,
+        "acceptor": "ASP1113 OD1",
+        "pass": false
+      },
+      "phenol_contacts": [
+        {
+          "h_acceptor": 12.66,
+          "angle": 82.3,
+          "acceptor": "SER1203 OG",
+          "pass": false
+        },
+        {
+          "h_acceptor": 11.002,
+          "angle": 102.93,
+          "acceptor": "SER1203 OG",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "ligand": "CHEMBL434",
+      "model": 5,
+      "vina_score": -6.744,
+      "pass": false,
+      "amine_contact": {
+        "h_acceptor": 2.056,
+        "angle": 155.76,
+        "acceptor": "ASP1113 OD2",
+        "pass": true
+      },
+      "phenol_contacts": [
+        {
+          "h_acceptor": 3.149,
+          "angle": 117.31,
+          "acceptor": "SER1207 OG",
+          "pass": false
+        },
+        {
+          "h_acceptor": 2.696,
+          "angle": 99.45,
+          "acceptor": "SER1203 OG",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "ligand": "CHEMBL434",
+      "model": 6,
+      "vina_score": -6.702,
+      "pass": false,
+      "amine_contact": {
+        "h_acceptor": 2.416,
+        "angle": 127.15,
+        "acceptor": "ASP1113 OD2",
+        "pass": true
+      },
+      "phenol_contacts": [
+        {
+          "h_acceptor": 5.613,
+          "angle": 120.12,
+          "acceptor": "SER1203 OG",
+          "pass": false
+        },
+        {
+          "h_acceptor": 7.571,
+          "angle": 144.99,
+          "acceptor": "SER1203 OG",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "ligand": "CHEMBL434",
+      "model": 7,
+      "vina_score": -6.619,
+      "pass": false,
+      "amine_contact": {
+        "h_acceptor": 4.136,
+        "angle": 104.11,
+        "acceptor": "ASP1113 OD2",
+        "pass": false
+      },
+      "phenol_contacts": [
+        {
+          "h_acceptor": 16.706,
+          "angle": 100.33,
+          "acceptor": "SER1203 OG",
+          "pass": false
+        },
+        {
+          "h_acceptor": 14.889,
+          "angle": 147.0,
+          "acceptor": "SER1207 OG",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "ligand": "CHEMBL434",
+      "model": 8,
+      "vina_score": -6.55,
+      "pass": false,
+      "amine_contact": {
+        "h_acceptor": 7.689,
+        "angle": 91.8,
+        "acceptor": "ASP1113 OD1",
+        "pass": false
+      },
+      "phenol_contacts": [
+        {
+          "h_acceptor": 9.182,
+          "angle": 72.63,
+          "acceptor": "SER1207 OG",
+          "pass": false
+        },
+        {
+          "h_acceptor": 7.923,
+          "angle": 81.86,
+          "acceptor": "SER1203 OG",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "ligand": "CHEMBL434",
+      "model": 9,
+      "vina_score": -6.464,
+      "pass": false,
+      "amine_contact": {
+        "h_acceptor": 1.895,
+        "angle": 176.04,
+        "acceptor": "ASP1113 OD2",
+        "pass": true
+      },
+      "phenol_contacts": [
+        {
+          "h_acceptor": 15.853,
+          "angle": 110.38,
+          "acceptor": "SER1203 OG",
+          "pass": false
+        },
+        {
+          "h_acceptor": 13.058,
+          "angle": 131.89,
+          "acceptor": "SER1203 OG",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "ligand": "CHEMBL434",
+      "model": 10,
+      "vina_score": -6.464,
+      "pass": false,
+      "amine_contact": {
+        "h_acceptor": 5.923,
+        "angle": 127.04,
+        "acceptor": "ASP1113 OD2",
+        "pass": false
+      },
+      "phenol_contacts": [
+        {
+          "h_acceptor": 10.003,
+          "angle": 101.08,
+          "acceptor": "SER1203 OG",
+          "pass": false
+        },
+        {
+          "h_acceptor": 8.619,
+          "angle": 159.62,
+          "acceptor": "SER1203 OG",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "ligand": "CHEMBL434",
+      "model": 11,
+      "vina_score": -6.409,
+      "pass": false,
+      "amine_contact": {
+        "h_acceptor": 6.657,
+        "angle": 57.9,
+        "acceptor": "ASP1113 OD2",
+        "pass": false
+      },
+      "phenol_contacts": [
+        {
+          "h_acceptor": 7.852,
+          "angle": 177.57,
+          "acceptor": "SER1203 OG",
+          "pass": false
+        },
+        {
+          "h_acceptor": 11.261,
+          "angle": 98.68,
+          "acceptor": "SER1203 OG",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "ligand": "CHEMBL434",
+      "model": 12,
+      "vina_score": -6.355,
+      "pass": false,
+      "amine_contact": {
+        "h_acceptor": 2.469,
+        "angle": 133.3,
+        "acceptor": "ASP1113 OD2",
+        "pass": true
+      },
+      "phenol_contacts": [
+        {
+          "h_acceptor": 13.457,
+          "angle": 135.56,
+          "acceptor": "SER1203 OG",
+          "pass": false
+        },
+        {
+          "h_acceptor": 15.938,
+          "angle": 77.55,
+          "acceptor": "SER1203 OG",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "ligand": "CHEMBL434",
+      "model": 13,
+      "vina_score": -6.304,
+      "pass": false,
+      "amine_contact": {
+        "h_acceptor": 3.27,
+        "angle": 109.61,
+        "acceptor": "ASP1113 OD2",
+        "pass": false
+      },
+      "phenol_contacts": [
+        {
+          "h_acceptor": 17.092,
+          "angle": 77.69,
+          "acceptor": "SER1203 OG",
+          "pass": false
+        },
+        {
+          "h_acceptor": 15.559,
+          "angle": 82.23,
+          "acceptor": "SER1207 OG",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "ligand": "CHEMBL434",
+      "model": 14,
+      "vina_score": -6.255,
+      "pass": false,
+      "amine_contact": {
+        "h_acceptor": 9.078,
+        "angle": 55.37,
+        "acceptor": "ASP1113 OD2",
+        "pass": false
+      },
+      "phenol_contacts": [
+        {
+          "h_acceptor": 14.576,
+          "angle": 93.41,
+          "acceptor": "SER1207 OG",
+          "pass": false
+        },
+        {
+          "h_acceptor": 12.017,
+          "angle": 118.93,
+          "acceptor": "SER1203 OG",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "ligand": "CHEMBL434",
+      "model": 15,
+      "vina_score": -6.171,
+      "pass": false,
+      "amine_contact": {
+        "h_acceptor": 2.589,
+        "angle": 124.2,
+        "acceptor": "ASP1113 OD2",
+        "pass": false
+      },
+      "phenol_contacts": [
+        {
+          "h_acceptor": 16.795,
+          "angle": 87.61,
+          "acceptor": "SER1207 OG",
+          "pass": false
+        },
+        {
+          "h_acceptor": 16.195,
+          "angle": 95.69,
+          "acceptor": "SER1203 OG",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "ligand": "CHEMBL434",
+      "model": 16,
+      "vina_score": -6.122,
+      "pass": false,
+      "amine_contact": {
+        "h_acceptor": 7.945,
+        "angle": 112.35,
+        "acceptor": "ASP1113 OD2",
+        "pass": false
+      },
+      "phenol_contacts": [
+        {
+          "h_acceptor": 14.231,
+          "angle": 126.44,
+          "acceptor": "SER1204 OG",
+          "pass": false
+        },
+        {
+          "h_acceptor": 11.925,
+          "angle": 155.16,
+          "acceptor": "SER1204 OG",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "ligand": "CHEMBL434",
+      "model": 17,
+      "vina_score": -6.085,
+      "pass": false,
+      "amine_contact": {
+        "h_acceptor": 7.249,
+        "angle": 89.33,
+        "acceptor": "ASP1113 OD2",
+        "pass": false
+      },
+      "phenol_contacts": [
+        {
+          "h_acceptor": 7.398,
+          "angle": 149.19,
+          "acceptor": "SER1203 OG",
+          "pass": false
+        },
+        {
+          "h_acceptor": 8.22,
+          "angle": 112.92,
+          "acceptor": "SER1203 OG",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "ligand": "CHEMBL434",
+      "model": 18,
+      "vina_score": -6.009,
+      "pass": false,
+      "amine_contact": {
+        "h_acceptor": 2.487,
+        "angle": 141.97,
+        "acceptor": "ASP1113 OD2",
+        "pass": true
+      },
+      "phenol_contacts": [
+        {
+          "h_acceptor": 14.383,
+          "angle": 96.54,
+          "acceptor": "SER1203 OG",
+          "pass": false
+        },
+        {
+          "h_acceptor": 13.87,
+          "angle": 75.33,
+          "acceptor": "SER1203 OG",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "ligand": "CHEMBL434",
+      "model": 19,
+      "vina_score": -5.953,
+      "pass": false,
+      "amine_contact": {
+        "h_acceptor": 6.901,
+        "angle": 83.82,
+        "acceptor": "ASP1113 OD2",
+        "pass": false
+      },
+      "phenol_contacts": [
+        {
+          "h_acceptor": 14.723,
+          "angle": 130.21,
+          "acceptor": "SER1207 OG",
+          "pass": false
+        },
+        {
+          "h_acceptor": 12.956,
+          "angle": 139.99,
+          "acceptor": "SER1207 OG",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "ligand": "CHEMBL434",
+      "model": 20,
+      "vina_score": -5.814,
+      "pass": false,
+      "amine_contact": {
+        "h_acceptor": 16.833,
+        "angle": 129.35,
+        "acceptor": "ASP1113 OD2",
+        "pass": false
+      },
+      "phenol_contacts": [
+        {
+          "h_acceptor": 8.98,
+          "angle": 107.2,
+          "acceptor": "SER1204 OG",
+          "pass": false
+        },
+        {
+          "h_acceptor": 6.467,
+          "angle": 122.29,
+          "acceptor": "SER1204 OG",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "ligand": "CHEMBL776",
+      "model": 1,
+      "vina_score": -7.329,
+      "pass": false,
+      "amine_contact": {
+        "h_acceptor": 2.019,
+        "angle": 172.55,
+        "acceptor": "ASP1113 OD2",
+        "pass": true
+      },
+      "phenol_contacts": [
+        {
+          "h_acceptor": 4.15,
+          "angle": 155.12,
+          "acceptor": "SER1204 OG",
+          "pass": false
+        },
+        {
+          "h_acceptor": 2.878,
+          "angle": 157.81,
+          "acceptor": "SER1203 OG",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "ligand": "CHEMBL776",
+      "model": 2,
+      "vina_score": -7.265,
+      "pass": false,
+      "amine_contact": {
+        "h_acceptor": 1.828,
+        "angle": 167.64,
+        "acceptor": "ASP1113 OD2",
+        "pass": true
+      },
+      "phenol_contacts": [
+        {
+          "h_acceptor": 3.143,
+          "angle": 91.77,
+          "acceptor": "SER1207 OG",
+          "pass": false
+        },
+        {
+          "h_acceptor": 4.065,
+          "angle": 135.64,
+          "acceptor": "SER1203 OG",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "ligand": "CHEMBL776",
+      "model": 3,
+      "vina_score": -7.025,
+      "pass": false,
+      "amine_contact": {
+        "h_acceptor": 2.091,
+        "angle": 159.78,
+        "acceptor": "ASP1113 OD1",
+        "pass": true
+      },
+      "phenol_contacts": [
+        {
+          "h_acceptor": 11.433,
+          "angle": 107.95,
+          "acceptor": "SER1203 OG",
+          "pass": false
+        },
+        {
+          "h_acceptor": 10.868,
+          "angle": 118.51,
+          "acceptor": "SER1203 OG",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "ligand": "CHEMBL776",
+      "model": 4,
+      "vina_score": -6.859,
+      "pass": false,
+      "amine_contact": {
+        "h_acceptor": 1.959,
+        "angle": 154.79,
+        "acceptor": "ASP1113 OD2",
+        "pass": true
+      },
+      "phenol_contacts": [
+        {
+          "h_acceptor": 16.673,
+          "angle": 87.49,
+          "acceptor": "SER1203 OG",
+          "pass": false
+        },
+        {
+          "h_acceptor": 14.428,
+          "angle": 148.0,
+          "acceptor": "SER1207 OG",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "ligand": "CHEMBL776",
+      "model": 5,
+      "vina_score": -6.83,
+      "pass": false,
+      "amine_contact": {
+        "h_acceptor": 1.955,
+        "angle": 162.68,
+        "acceptor": "ASP1113 OD2",
+        "pass": true
+      },
+      "phenol_contacts": [
+        {
+          "h_acceptor": 14.392,
+          "angle": 138.98,
+          "acceptor": "SER1207 OG",
+          "pass": false
+        },
+        {
+          "h_acceptor": 17.078,
+          "angle": 71.75,
+          "acceptor": "SER1203 OG",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "ligand": "CHEMBL776",
+      "model": 6,
+      "vina_score": -6.615,
+      "pass": false,
+      "amine_contact": {
+        "h_acceptor": 8.024,
+        "angle": 126.17,
+        "acceptor": "ASP1113 OD2",
+        "pass": false
+      },
+      "phenol_contacts": [
+        {
+          "h_acceptor": 11.119,
+          "angle": 115.68,
+          "acceptor": "SER1203 OG",
+          "pass": false
+        },
+        {
+          "h_acceptor": 16.316,
+          "angle": 92.06,
+          "acceptor": "SER1207 OG",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "ligand": "CHEMBL776",
+      "model": 7,
+      "vina_score": -6.599,
+      "pass": false,
+      "amine_contact": {
+        "h_acceptor": 6.845,
+        "angle": 63.29,
+        "acceptor": "ASP1113 OD2",
+        "pass": false
+      },
+      "phenol_contacts": [
+        {
+          "h_acceptor": 9.418,
+          "angle": 150.26,
+          "acceptor": "SER1203 OG",
+          "pass": false
+        },
+        {
+          "h_acceptor": 7.975,
+          "angle": 125.69,
+          "acceptor": "SER1203 OG",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "ligand": "CHEMBL776",
+      "model": 8,
+      "vina_score": -6.48,
+      "pass": false,
+      "amine_contact": {
+        "h_acceptor": 2.047,
+        "angle": 159.67,
+        "acceptor": "ASP1113 OD2",
+        "pass": true
+      },
+      "phenol_contacts": [
+        {
+          "h_acceptor": 16.997,
+          "angle": 81.32,
+          "acceptor": "SER1203 OG",
+          "pass": false
+        },
+        {
+          "h_acceptor": 13.336,
+          "angle": 114.27,
+          "acceptor": "SER1203 OG",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "ligand": "CHEMBL776",
+      "model": 9,
+      "vina_score": -6.449,
+      "pass": false,
+      "amine_contact": {
+        "h_acceptor": 2.381,
+        "angle": 139.54,
+        "acceptor": "ASP1113 OD2",
+        "pass": true
+      },
+      "phenol_contacts": [
+        {
+          "h_acceptor": 7.171,
+          "angle": 81.95,
+          "acceptor": "SER1207 OG",
+          "pass": false
+        },
+        {
+          "h_acceptor": 3.345,
+          "angle": 111.12,
+          "acceptor": "SER1203 OG",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "ligand": "CHEMBL776",
+      "model": 10,
+      "vina_score": -6.165,
+      "pass": false,
+      "amine_contact": {
+        "h_acceptor": 2.925,
+        "angle": 101.04,
+        "acceptor": "ASP1113 OD2",
+        "pass": false
+      },
+      "phenol_contacts": [
+        {
+          "h_acceptor": 14.995,
+          "angle": 121.28,
+          "acceptor": "SER1207 OG",
+          "pass": false
+        },
+        {
+          "h_acceptor": 11.304,
+          "angle": 158.67,
+          "acceptor": "SER1204 OG",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "ligand": "CHEMBL776",
+      "model": 11,
+      "vina_score": -5.951,
+      "pass": false,
+      "amine_contact": {
+        "h_acceptor": 3.124,
+        "angle": 141.72,
+        "acceptor": "ASP1113 OD2",
+        "pass": false
+      },
+      "phenol_contacts": [
+        {
+          "h_acceptor": 16.466,
+          "angle": 77.98,
+          "acceptor": "SER1203 OG",
+          "pass": false
+        },
+        {
+          "h_acceptor": 12.702,
+          "angle": 104.43,
+          "acceptor": "SER1203 OG",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "ligand": "CHEMBL776",
+      "model": 12,
+      "vina_score": -5.916,
+      "pass": false,
+      "amine_contact": {
+        "h_acceptor": 9.844,
+        "angle": 81.39,
+        "acceptor": "ASP1113 OD2",
+        "pass": false
+      },
+      "phenol_contacts": [
+        {
+          "h_acceptor": 11.144,
+          "angle": 108.74,
+          "acceptor": "SER1203 OG",
+          "pass": false
+        },
+        {
+          "h_acceptor": 11.797,
+          "angle": 136.31,
+          "acceptor": "SER1203 OG",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "ligand": "CHEMBL776",
+      "model": 13,
+      "vina_score": -5.912,
+      "pass": false,
+      "amine_contact": {
+        "h_acceptor": 12.474,
+        "angle": 102.94,
+        "acceptor": "ASP1113 OD2",
+        "pass": false
+      },
+      "phenol_contacts": [
+        {
+          "h_acceptor": 12.253,
+          "angle": 88.72,
+          "acceptor": "SER1204 OG",
+          "pass": false
+        },
+        {
+          "h_acceptor": 15.17,
+          "angle": 82.77,
+          "acceptor": "SER1203 OG",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "ligand": "CHEMBL776",
+      "model": 14,
+      "vina_score": -5.9,
+      "pass": false,
+      "amine_contact": {
+        "h_acceptor": 9.944,
+        "angle": 74.76,
+        "acceptor": "ASP1113 OD2",
+        "pass": false
+      },
+      "phenol_contacts": [
+        {
+          "h_acceptor": 10.298,
+          "angle": 143.51,
+          "acceptor": "SER1203 OG",
+          "pass": false
+        },
+        {
+          "h_acceptor": 15.769,
+          "angle": 83.58,
+          "acceptor": "SER1203 OG",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "ligand": "CHEMBL776",
+      "model": 15,
+      "vina_score": -5.839,
+      "pass": false,
+      "amine_contact": {
+        "h_acceptor": 5.891,
+        "angle": 100.37,
+        "acceptor": "ASP1113 OD2",
+        "pass": false
+      },
+      "phenol_contacts": [
+        {
+          "h_acceptor": 9.431,
+          "angle": 100.67,
+          "acceptor": "SER1203 OG",
+          "pass": false
+        },
+        {
+          "h_acceptor": 5.782,
+          "angle": 138.73,
+          "acceptor": "SER1203 OG",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "ligand": "CHEMBL776",
+      "model": 16,
+      "vina_score": -5.815,
+      "pass": false,
+      "amine_contact": {
+        "h_acceptor": 3.367,
+        "angle": 114.85,
+        "acceptor": "ASP1113 OD2",
+        "pass": false
+      },
+      "phenol_contacts": [
+        {
+          "h_acceptor": 13.725,
+          "angle": 107.71,
+          "acceptor": "SER1207 OG",
+          "pass": false
+        },
+        {
+          "h_acceptor": 16.972,
+          "angle": 76.04,
+          "acceptor": "SER1203 OG",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "ligand": "CHEMBL776",
+      "model": 17,
+      "vina_score": -5.692,
+      "pass": false,
+      "amine_contact": {
+        "h_acceptor": 15.959,
+        "angle": 129.24,
+        "acceptor": "ASP1113 OD2",
+        "pass": false
+      },
+      "phenol_contacts": [
+        {
+          "h_acceptor": 6.083,
+          "angle": 108.86,
+          "acceptor": "SER1204 OG",
+          "pass": false
+        },
+        {
+          "h_acceptor": 10.1,
+          "angle": 91.69,
+          "acceptor": "SER1203 OG",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "ligand": "CHEMBL776",
+      "model": 18,
+      "vina_score": -5.684,
+      "pass": false,
+      "amine_contact": {
+        "h_acceptor": 18.092,
+        "angle": 86.53,
+        "acceptor": "ASP1113 OD2",
+        "pass": false
+      },
+      "phenol_contacts": [
+        {
+          "h_acceptor": 11.186,
+          "angle": 98.38,
+          "acceptor": "SER1203 OG",
+          "pass": false
+        },
+        {
+          "h_acceptor": 6.142,
+          "angle": 144.59,
+          "acceptor": "SER1204 OG",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "ligand": "CHEMBL776",
+      "model": 19,
+      "vina_score": -5.618,
+      "pass": false,
+      "amine_contact": {
+        "h_acceptor": 17.312,
+        "angle": 84.47,
+        "acceptor": "ASP1113 OD2",
+        "pass": false
+      },
+      "phenol_contacts": [
+        {
+          "h_acceptor": 9.933,
+          "angle": 103.56,
+          "acceptor": "SER1203 OG",
+          "pass": false
+        },
+        {
+          "h_acceptor": 6.133,
+          "angle": 105.02,
+          "acceptor": "SER1204 OG",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "ligand": "CHEMBL776",
+      "model": 20,
+      "vina_score": -5.565,
+      "pass": false,
+      "amine_contact": {
+        "h_acceptor": 16.826,
+        "angle": 133.41,
+        "acceptor": "ASP1113 OD2",
+        "pass": false
+      },
+      "phenol_contacts": [
+        {
+          "h_acceptor": 6.475,
+          "angle": 103.88,
+          "acceptor": "SER1204 OG",
+          "pass": false
+        },
+        {
+          "h_acceptor": 11.119,
+          "angle": 88.9,
+          "acceptor": "SER1203 OG",
+          "pass": false
+        }
+      ]
+    }
+  ]
+}

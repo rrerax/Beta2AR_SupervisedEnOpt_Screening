@@ -1,0 +1,65 @@
+{
+  "receptor": "4LDE docking receptor",
+  "model": 1,
+  "h_acceptor_max_angstrom": 2.5,
+  "donor_h_acceptor_min_degree": 120.0,
+  "protonation_for_sampling": "both ligands protonated secondary amine, neutral phenols, net charge +1",
+  "pka_computed": false,
+  "ligands": [
+    {
+      "ligand": "CHEMBL434",
+      "docked_amine": "neutral secondary amine, one hydrogen in the Vina file",
+      "angle_amine": "second hydrogen placed on the lone pair; heavy atoms fixed",
+      "n_phenolic_oh": 2,
+      "amine_contact": {
+        "h_acceptor": 2.245,
+        "angle": 133.84,
+        "acceptor": "ASP1113 OD2",
+        "pass": true
+      },
+      "phenol_contacts": [
+        {
+          "h_acceptor": 2.506,
+          "angle": 91.03,
+          "acceptor": "SER1204 OG",
+          "pass": false
+        },
+        {
+          "h_acceptor": 2.53,
+          "angle": 108.74,
+          "acceptor": "SER1207 OG",
+          "pass": false
+        }
+      ],
+      "pass": false
+    },
+    {
+      "ligand": "CHEMBL776",
+      "docked_amine": "neutral secondary amine, one hydrogen in the Vina file",
+      "angle_amine": "second hydrogen placed on the lone pair; heavy atoms fixed",
+      "n_phenolic_oh": 2,
+      "amine_contact": {
+        "h_acceptor": 2.019,
+        "angle": 172.55,
+        "acceptor": "ASP1113 OD2",
+        "pass": true
+      },
+      "phenol_contacts": [
+        {
+          "h_acceptor": 4.15,
+          "angle": 155.12,
+          "acceptor": "SER1204 OG",
+          "pass": false
+        },
+        {
+          "h_acceptor": 2.878,
+          "angle": 157.81,
+          "acceptor": "SER1203 OG",
+          "pass": false
+        }
+      ],
+      "pass": false
+    }
+  ],
+  "pass_gate": false
+}
