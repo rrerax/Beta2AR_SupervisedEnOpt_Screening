@@ -80,6 +80,36 @@ Model 1 passes the amine contact for both ligands and fails both phenolic
 contacts. Across 20 modes per ligand, none pass. No free-energy sampling
 was started from these poses.
 
+## Orthosteric serine check, 19 October 2026
+
+`orthosteric_2026-10-19` asks whether protonated orciprenaline can meet the
+three orthosteric contacts on the 4LDE docking receptor, and whether serine
+side-chain rotamers can bring one phenolic oxygen pair to 4.7–4.9 Å.
+File numbers are the crystal numbers plus 1000: ASP A1113 is Asp113, and
+SER A1203, A1204, and A1207 are Ser203, Ser204, and Ser207.
+
+With the crystal side chains fixed, conformer phenolic O–O distances are
+4.72–4.87 Å. Crystal OG–OG distances are 4.121 Å (1203–1204), 5.513 Å
+(1203–1207), and 6.937 Å (1204–1207). Rigid placement onto the amine site
+and a serine pair either misses the three-point target (RMSD 1.89 Å) or
+penetrates TYR A1316 (closest heavy-atom contact 1.0 Å). No pose was written.
+
+Cβ–Cβ distances are 5.415 Å, 5.471 Å, and 6.063 Å. The Ser204–Ser207 pair
+was kept because 6.063 Å is not far above 6 Å. Only χ1 of these three
+serines was changed, to 63°, 178°, and −65°. Backbone atoms and Cβ were not
+moved. Crystal χ1 values are −66.6°, 56.0°, and 71.9°.
+
+One rotamer pair falls in 4.7–4.9 Å: Ser203 gauche− with Ser207 trans,
+OG–OG 4.735 Å. That Ser207 oxygen is 2.08 Å from the Ser203 backbone
+carbonyl, so the pair is not clear of the pocket. No other rotamer pair
+falls in the window. A free χ1 scan puts the Ser204–Ser207 minimum at
+4.69 Å. Orciprenaline was not placed on a rotated receptor. The other four
+crystals were not measured, because one rotamer distance does fall inside
+4.7–4.9 Å.
+
+The hydrogen-bond rule is unchanged: hydrogen–acceptor distance at most
+2.5 Å and donor–hydrogen–acceptor angle at least 120°.
+
 ## What this follow-up does not contain
 
 No free-energy number, membrane system, protonation coordinate file, or

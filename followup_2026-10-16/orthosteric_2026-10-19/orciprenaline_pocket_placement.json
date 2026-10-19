@@ -1,0 +1,256 @@
+{
+  "ligand": "CHEMBL776 orciprenaline",
+  "smiles": "CC(C)[NH2+]CC(O)c1cc(O)cc(O)c1",
+  "receptor": "4LDE, side chains fixed, crystal ligand excluded",
+  "phenolic_O_O_range": [
+    4.72,
+    4.873
+  ],
+  "ser_OG_distances": {
+    "1203-1204": 4.121,
+    "1203-1207": 5.513,
+    "1204-1207": 6.937
+  },
+  "amine_site_to_OD": [
+    3.1,
+    3.099
+  ],
+  "trials_within_triangle": 6480,
+  "trials_with_rmsd_at_most_0.5": 15,
+  "least_clashes": {
+    "clashes_under_2.2A": 0,
+    "closest_receptor_contact": 2.245,
+    "three_point_rmsd": 1.891,
+    "amine_N_to_nearest_OD": 3.059,
+    "phenol_O_to_assigned_OG": [
+      2.871,
+      3.35
+    ],
+    "serines": [
+      "1203",
+      "1207"
+    ],
+    "target_radius": 2.7,
+    "phenol_donor_angles": [
+      148.4,
+      143.4
+    ],
+    "phenol_H_to_OG": [
+      1.956,
+      2.485
+    ],
+    "amine_best_angle": 129.2,
+    "amine_H_to_OD": 2.904,
+    "amine_C_N_OD_angles": [
+      66.4,
+      178.0
+    ],
+    "amine_H_to_OD_if_pointed": 2.049,
+    "conformer": 10,
+    "clash_examples": []
+  },
+  "closest_triangle": {
+    "clashes_under_2.2A": 9,
+    "closest_receptor_contact": 0.999,
+    "three_point_rmsd": 0.401,
+    "amine_N_to_nearest_OD": 2.898,
+    "phenol_O_to_assigned_OG": [
+      3.4,
+      3.351
+    ],
+    "serines": [
+      "1203",
+      "1207"
+    ],
+    "target_radius": 3.1,
+    "phenol_donor_angles": [
+      135.0,
+      80.6
+    ],
+    "phenol_H_to_OG": [
+      2.622,
+      3.363
+    ],
+    "amine_best_angle": 140.7,
+    "amine_H_to_OD": 2.262,
+    "amine_C_N_OD_angles": [
+      104.3,
+      54.6
+    ],
+    "amine_H_to_OD_if_pointed": 1.888,
+    "conformer": 24,
+    "clash_examples": [
+      [
+        "TYR",
+        "1316",
+        "CZ",
+        1.0
+      ],
+      [
+        "TYR",
+        "1316",
+        "OH",
+        1.51
+      ],
+      [
+        "TYR",
+        "1316",
+        "CE1",
+        1.05
+      ],
+      [
+        "TYR",
+        "1316",
+        "CZ",
+        1.75
+      ],
+      [
+        "ASN",
+        "1312",
+        "ND2",
+        2.18
+      ],
+      [
+        "TYR",
+        "1316",
+        "OH",
+        2.1
+      ]
+    ]
+  },
+  "best_by_serine_pair": {
+    "1203-1204": {
+      "clashes_under_2.2A": 0,
+      "closest_receptor_contact": 2.254,
+      "three_point_rmsd": 2.105,
+      "amine_N_to_nearest_OD": 2.527,
+      "phenol_O_to_assigned_OG": [
+        3.576,
+        3.963
+      ],
+      "serines": [
+        "1203",
+        "1204"
+      ],
+      "target_radius": 3.1,
+      "phenol_donor_angles": [
+        91.8,
+        124.4
+      ],
+      "phenol_H_to_OG": [
+        3.391,
+        3.303
+      ],
+      "amine_best_angle": 147.8,
+      "amine_H_to_OD": 1.58,
+      "amine_C_N_OD_angles": [
+        87.0,
+        123.9
+      ],
+      "amine_H_to_OD_if_pointed": 1.517,
+      "conformer": 17,
+      "clash_examples": []
+    },
+    "1203-1207": {
+      "clashes_under_2.2A": 6,
+      "closest_receptor_contact": 1.109,
+      "three_point_rmsd": 0.49,
+      "amine_N_to_nearest_OD": 2.9,
+      "phenol_O_to_assigned_OG": [
+        3.473,
+        3.386
+      ],
+      "serines": [
+        "1203",
+        "1207"
+      ],
+      "target_radius": 3.1,
+      "phenol_donor_angles": [
+        142.1,
+        112.4
+      ],
+      "phenol_H_to_OG": [
+        2.618,
+        2.869
+      ],
+      "amine_best_angle": 88.3,
+      "amine_H_to_OD": 2.74,
+      "amine_C_N_OD_angles": [
+        92.9,
+        52.5
+      ],
+      "amine_H_to_OD_if_pointed": 1.89,
+      "conformer": 8,
+      "clash_examples": [
+        [
+          "TYR",
+          "1316",
+          "OH",
+          2.13
+        ],
+        [
+          "ASP",
+          "1113",
+          "CG",
+          2.09
+        ],
+        [
+          "ASP",
+          "1113",
+          "OD2",
+          1.18
+        ],
+        [
+          "TYR",
+          "1316",
+          "OH",
+          1.8
+        ],
+        [
+          "TYR",
+          "1316",
+          "CZ",
+          1.73
+        ],
+        [
+          "TYR",
+          "1316",
+          "OH",
+          1.11
+        ]
+      ]
+    },
+    "1204-1207": {
+      "clashes_under_2.2A": 0,
+      "closest_receptor_contact": 2.245,
+      "three_point_rmsd": 2.259,
+      "amine_N_to_nearest_OD": 3.772,
+      "phenol_O_to_assigned_OG": [
+        3.319,
+        3.002
+      ],
+      "serines": [
+        "1204",
+        "1207"
+      ],
+      "target_radius": 2.7,
+      "phenol_donor_angles": [
+        151.0,
+        113.8
+      ],
+      "phenol_H_to_OG": [
+        2.392,
+        2.457
+      ],
+      "amine_best_angle": 104.4,
+      "amine_H_to_OD": 3.372,
+      "amine_C_N_OD_angles": [
+        56.2,
+        114.1
+      ],
+      "amine_H_to_OD_if_pointed": 2.762,
+      "conformer": 5,
+      "clash_examples": []
+    }
+  }
+}
