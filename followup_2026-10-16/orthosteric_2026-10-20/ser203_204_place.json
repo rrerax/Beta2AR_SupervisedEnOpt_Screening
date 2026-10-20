@@ -1,0 +1,273 @@
+{
+  "criteria": {
+    "window": [
+      4.7,
+      4.9
+    ],
+    "backbone_cutoff": 2.6,
+    "hbond": "H...acceptor <= 2.5 A and angle >= 120 deg",
+    "motif": "AIASSIVSF"
+  },
+  "4LDE": {
+    "sequence_match": {
+      "203": {
+        "chain": "A",
+        "file_resi": "1203",
+        "resn": "SER"
+      },
+      "204": {
+        "chain": "A",
+        "file_resi": "1204",
+        "resn": "SER"
+      },
+      "207": {
+        "chain": "A",
+        "file_resi": "1207",
+        "resn": "SER"
+      }
+    },
+    "chi1_crystal": {
+      "203": -66.6,
+      "204": 56.0
+    },
+    "OG_OG_range": [
+      3.954,
+      8.149
+    ],
+    "window_angles": 4158,
+    "clear_angles": 1178,
+    "n_stretches": 2,
+    "largest_stretch": {
+      "angles": 1166,
+      "chi1_203": [
+        -78,
+        15
+      ],
+      "chi1_204": [
+        -2,
+        48
+      ],
+      "OG_OG": [
+        4.7,
+        4.9
+      ],
+      "clearance": [
+        2.601,
+        3.203
+      ]
+    },
+    "ser203_fixed_at_m65": {
+      "window_angles": 22,
+      "clear_angles": 12
+    },
+    "chosen_for_ligand": {
+      "chi1": {
+        "203": -6,
+        "204": 19
+      },
+      "OG_OG": 4.8,
+      "clearance": 3.132,
+      "closest": {
+        "203": [
+          "SER",
+          "1204",
+          "N",
+          3.132
+        ],
+        "204": [
+          "ALA",
+          "1200",
+          "O",
+          3.253
+        ]
+      }
+    },
+    "ligand": {
+      "trials_under_0.5A_rmsd": 0,
+      "best": null
+    }
+  },
+  "4LDL": {
+    "sequence_match": {
+      "203": {
+        "chain": "A",
+        "file_resi": "1203",
+        "resn": "SER"
+      },
+      "204": {
+        "chain": "A",
+        "file_resi": "1204",
+        "resn": "SER"
+      },
+      "207": {
+        "chain": "A",
+        "file_resi": "1207",
+        "resn": "SER"
+      }
+    },
+    "chain": "A",
+    "pairs": {
+      "203-204": {
+        "OG_OG_min": 3.999,
+        "window_angles": 4102,
+        "clear_angles": 1131,
+        "best_clearance": 3.194,
+        "usable": true
+      },
+      "203-207": {
+        "OG_OG_min": 3.297,
+        "window_angles": 5538,
+        "clear_angles": 3187,
+        "best_clearance": 3.441,
+        "usable": true
+      },
+      "204-207": {
+        "OG_OG_min": 5.216,
+        "window_angles": 0,
+        "clear_angles": 0,
+        "best_clearance": null,
+        "usable": false
+      }
+    },
+    "any_usable_pair": true
+  },
+  "3SN6": {
+    "sequence_match": {
+      "203": {
+        "chain": "R",
+        "file_resi": "203",
+        "resn": "SER"
+      },
+      "204": {
+        "chain": "R",
+        "file_resi": "204",
+        "resn": "SER"
+      },
+      "207": {
+        "chain": "R",
+        "file_resi": "207",
+        "resn": "SER"
+      }
+    },
+    "chain": "R",
+    "pairs": {
+      "203-204": {
+        "OG_OG_min": 3.455,
+        "window_angles": 4778,
+        "clear_angles": 1559,
+        "best_clearance": 3.303,
+        "usable": true
+      },
+      "203-207": {
+        "OG_OG_min": 3.826,
+        "window_angles": 4686,
+        "clear_angles": 2275,
+        "best_clearance": 3.523,
+        "usable": true
+      },
+      "204-207": {
+        "OG_OG_min": 4.749,
+        "window_angles": 3158,
+        "clear_angles": 1405,
+        "best_clearance": 3.084,
+        "usable": true
+      }
+    },
+    "any_usable_pair": true
+  },
+  "5D5A": {
+    "sequence_match": {
+      "203": {
+        "chain": "A",
+        "file_resi": "203",
+        "resn": "SER"
+      },
+      "204": {
+        "chain": "A",
+        "file_resi": "204",
+        "resn": "SER"
+      },
+      "207": {
+        "chain": "A",
+        "file_resi": "207",
+        "resn": "SER"
+      }
+    },
+    "chain": "A",
+    "pairs": {
+      "203-204": {
+        "OG_OG_min": 3.556,
+        "window_angles": 4640,
+        "clear_angles": 1381,
+        "best_clearance": 3.324,
+        "usable": true
+      },
+      "203-207": {
+        "OG_OG_min": 3.643,
+        "window_angles": 4789,
+        "clear_angles": 2552,
+        "best_clearance": 3.882,
+        "usable": true
+      },
+      "204-207": {
+        "OG_OG_min": 5.155,
+        "window_angles": 0,
+        "clear_angles": 0,
+        "best_clearance": null,
+        "usable": false
+      }
+    },
+    "any_usable_pair": true
+  },
+  "2RH1": {
+    "sequence_match": {
+      "203": {
+        "chain": "A",
+        "file_resi": "203",
+        "resn": "SER"
+      },
+      "204": {
+        "chain": "A",
+        "file_resi": "204",
+        "resn": "SER"
+      },
+      "207": {
+        "chain": "A",
+        "file_resi": "207",
+        "resn": "SER"
+      }
+    },
+    "chain": "A",
+    "pairs": {
+      "203-204": {
+        "OG_OG_min": 3.588,
+        "window_angles": 4600,
+        "clear_angles": 1401,
+        "best_clearance": 3.333,
+        "usable": true
+      },
+      "203-207": {
+        "OG_OG_min": 3.232,
+        "window_angles": 5922,
+        "clear_angles": 3467,
+        "best_clearance": 4.02,
+        "usable": true
+      },
+      "204-207": {
+        "OG_OG_min": 4.929,
+        "window_angles": 0,
+        "clear_angles": 0,
+        "best_clearance": null,
+        "usable": false
+      }
+    },
+    "any_usable_pair": true
+  },
+  "structures_with_a_clear_pair": [
+    "4LDE",
+    "4LDL",
+    "3SN6",
+    "5D5A",
+    "2RH1"
+  ]
+}

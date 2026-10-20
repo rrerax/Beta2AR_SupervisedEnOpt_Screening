@@ -1,0 +1,484 @@
+{
+  "criteria_written_before_scan": {
+    "accept_OG_OG": [
+      4.7,
+      4.9
+    ],
+    "reject_if_OG_to_nonself_backbone_heavy_atom_below": 2.6,
+    "backbone_atoms": [
+      "C",
+      "CA",
+      "N",
+      "O",
+      "OXT"
+    ],
+    "backbone_and_CB": "fixed",
+    "chi1_step_degrees": 1
+  },
+  "receptors": {
+    "4LDE": {
+      "file": "active_bi167107_4LDE.pdb",
+      "chain": "A",
+      "file_residue_numbers": {
+        "203": "1203",
+        "204": "1204",
+        "207": "1207"
+      },
+      "chi1_crystal": {
+        "203": -66.6,
+        "204": 56.0,
+        "207": 71.9
+      },
+      "pairs": {
+        "203-204": {
+          "OG_OG_min": 3.954,
+          "OG_OG_max": 8.149,
+          "window_angles": 4158,
+          "window_angles_clear_of_backbone": 1178,
+          "best_in_window": {
+            "chi1": {
+              "203": 1,
+              "204": 20
+            },
+            "OG_OG": 4.899,
+            "backbone_clearance": 3.203,
+            "closest_backbone": {
+              "203": [
+                "SER",
+                "1204",
+                "N",
+                3.203
+              ],
+              "204": [
+                "ALA",
+                "1200",
+                "O",
+                3.232
+              ]
+            }
+          },
+          "usable": true
+        },
+        "203-207": {
+          "OG_OG_min": 3.132,
+          "OG_OG_max": 7.884,
+          "window_angles": 5878,
+          "window_angles_clear_of_backbone": 3629,
+          "best_in_window": {
+            "chi1": {
+              "203": 97,
+              "207": 54
+            },
+            "OG_OG": 4.709,
+            "backbone_clearance": 3.565,
+            "closest_backbone": {
+              "203": [
+                "TYR",
+                "1199",
+                "O",
+                4.306
+              ],
+              "207": [
+                "SER",
+                "1203",
+                "O",
+                3.565
+              ]
+            }
+          },
+          "usable": true
+        },
+        "204-207": {
+          "OG_OG_min": 4.691,
+          "OG_OG_max": 8.436,
+          "window_angles": 4282,
+          "window_angles_clear_of_backbone": 1838,
+          "best_in_window": {
+            "chi1": {
+              "204": -47,
+              "207": -138
+            },
+            "OG_OG": 4.898,
+            "backbone_clearance": 2.972,
+            "closest_backbone": {
+              "204": [
+                "ILE",
+                "1205",
+                "N",
+                4.026
+              ],
+              "207": [
+                "PHE",
+                "1208",
+                "N",
+                2.972
+              ]
+            }
+          },
+          "usable": true
+        }
+      },
+      "any_usable_pair": true
+    },
+    "4LDL": {
+      "file": "active_hbi_4LDL.pdb",
+      "chain": "A",
+      "file_residue_numbers": {
+        "203": "1203",
+        "204": "1204",
+        "207": "1207"
+      },
+      "chi1_crystal": {
+        "203": -57.8,
+        "204": 66.8,
+        "207": 58.6
+      },
+      "pairs": {
+        "203-204": {
+          "OG_OG_min": 3.999,
+          "OG_OG_max": 8.178,
+          "window_angles": 4102,
+          "window_angles_clear_of_backbone": 1131,
+          "best_in_window": {
+            "chi1": {
+              "203": 22,
+              "204": 50
+            },
+            "OG_OG": 4.897,
+            "backbone_clearance": 3.194,
+            "closest_backbone": {
+              "203": [
+                "SER",
+                "1204",
+                "N",
+                3.194
+              ],
+              "204": [
+                "ALA",
+                "1200",
+                "O",
+                3.194
+              ]
+            }
+          },
+          "usable": true
+        },
+        "203-207": {
+          "OG_OG_min": 3.297,
+          "OG_OG_max": 7.986,
+          "window_angles": 5538,
+          "window_angles_clear_of_backbone": 3187,
+          "best_in_window": {
+            "chi1": {
+              "203": 131,
+              "207": 38
+            },
+            "OG_OG": 4.884,
+            "backbone_clearance": 3.441,
+            "closest_backbone": {
+              "203": [
+                "TYR",
+                "1199",
+                "O",
+                3.968
+              ],
+              "207": [
+                "SER",
+                "1203",
+                "O",
+                3.441
+              ]
+            }
+          },
+          "usable": true
+        },
+        "204-207": {
+          "OG_OG_min": 5.216,
+          "OG_OG_max": 8.786,
+          "window_angles": 0,
+          "window_angles_clear_of_backbone": 0,
+          "best_in_window": null,
+          "usable": false
+        }
+      },
+      "any_usable_pair": true
+    },
+    "3SN6": {
+      "file": "active_gs_complex_3SN6.pdb",
+      "chain": "R",
+      "file_residue_numbers": {
+        "203": "203",
+        "204": "204",
+        "207": "207"
+      },
+      "chi1_crystal": {
+        "203": -178.7,
+        "204": 64.1,
+        "207": 65.9
+      },
+      "pairs": {
+        "203-204": {
+          "OG_OG_min": 3.455,
+          "OG_OG_max": 7.962,
+          "window_angles": 4778,
+          "window_angles_clear_of_backbone": 1559,
+          "best_in_window": {
+            "chi1": {
+              "203": 164,
+              "204": 48
+            },
+            "OG_OG": 4.89,
+            "backbone_clearance": 3.303,
+            "closest_backbone": {
+              "203": [
+                "SER",
+                "204",
+                "N",
+                3.303
+              ],
+              "204": [
+                "ALA",
+                "200",
+                "O",
+                3.317
+              ]
+            }
+          },
+          "usable": true
+        },
+        "203-207": {
+          "OG_OG_min": 3.826,
+          "OG_OG_max": 8.318,
+          "window_angles": 4686,
+          "window_angles_clear_of_backbone": 2275,
+          "best_in_window": {
+            "chi1": {
+              "203": 179,
+              "207": 42
+            },
+            "OG_OG": 4.899,
+            "backbone_clearance": 3.523,
+            "closest_backbone": {
+              "203": [
+                "SER",
+                "204",
+                "N",
+                3.536
+              ],
+              "207": [
+                "SER",
+                "203",
+                "O",
+                3.523
+              ]
+            }
+          },
+          "usable": true
+        },
+        "204-207": {
+          "OG_OG_min": 4.749,
+          "OG_OG_max": 8.476,
+          "window_angles": 3158,
+          "window_angles_clear_of_backbone": 1405,
+          "best_in_window": {
+            "chi1": {
+              "204": -15,
+              "207": -146
+            },
+            "OG_OG": 4.897,
+            "backbone_clearance": 3.084,
+            "closest_backbone": {
+              "204": [
+                "PHE",
+                "290",
+                "O",
+                3.309
+              ],
+              "207": [
+                "SER",
+                "203",
+                "O",
+                3.084
+              ]
+            }
+          },
+          "usable": true
+        }
+      },
+      "any_usable_pair": true
+    },
+    "5D5A": {
+      "file": "inactive_carazolol_5D5A.pdb",
+      "chain": "A",
+      "file_residue_numbers": {
+        "203": "203",
+        "204": "204",
+        "207": "207"
+      },
+      "chi1_crystal": {
+        "203": -172.6,
+        "204": -75.8,
+        "207": 50.9
+      },
+      "pairs": {
+        "203-204": {
+          "OG_OG_min": 3.556,
+          "OG_OG_max": 8.002,
+          "window_angles": 4640,
+          "window_angles_clear_of_backbone": 1381,
+          "best_in_window": {
+            "chi1": {
+              "203": 176,
+              "204": 131
+            },
+            "OG_OG": 4.894,
+            "backbone_clearance": 3.324,
+            "closest_backbone": {
+              "203": [
+                "SER",
+                "204",
+                "N",
+                3.329
+              ],
+              "204": [
+                "ALA",
+                "200",
+                "O",
+                3.324
+              ]
+            }
+          },
+          "usable": true
+        },
+        "203-207": {
+          "OG_OG_min": 3.643,
+          "OG_OG_max": 8.268,
+          "window_angles": 4789,
+          "window_angles_clear_of_backbone": 2552,
+          "best_in_window": {
+            "chi1": {
+              "203": -147,
+              "207": 9
+            },
+            "OG_OG": 4.895,
+            "backbone_clearance": 3.882,
+            "closest_backbone": {
+              "203": [
+                "SER",
+                "204",
+                "N",
+                3.882
+              ],
+              "207": [
+                "SER",
+                "203",
+                "O",
+                3.892
+              ]
+            }
+          },
+          "usable": true
+        },
+        "204-207": {
+          "OG_OG_min": 5.155,
+          "OG_OG_max": 8.814,
+          "window_angles": 0,
+          "window_angles_clear_of_backbone": 0,
+          "best_in_window": null,
+          "usable": false
+        }
+      },
+      "any_usable_pair": true
+    },
+    "2RH1": {
+      "file": "inactive_carazolol_2RH1.pdb",
+      "chain": "A",
+      "file_residue_numbers": {
+        "203": "203",
+        "204": "204",
+        "207": "207"
+      },
+      "chi1_crystal": {
+        "203": 176.3,
+        "204": -52.9,
+        "207": 57.2
+      },
+      "pairs": {
+        "203-204": {
+          "OG_OG_min": 3.588,
+          "OG_OG_max": 8.021,
+          "window_angles": 4600,
+          "window_angles_clear_of_backbone": 1401,
+          "best_in_window": {
+            "chi1": {
+              "203": 152,
+              "204": 175
+            },
+            "OG_OG": 4.896,
+            "backbone_clearance": 3.333,
+            "closest_backbone": {
+              "203": [
+                "SER",
+                "204",
+                "N",
+                3.333
+              ],
+              "204": [
+                "ALA",
+                "200",
+                "O",
+                3.341
+              ]
+            }
+          },
+          "usable": true
+        },
+        "203-207": {
+          "OG_OG_min": 3.232,
+          "OG_OG_max": 7.88,
+          "window_angles": 5922,
+          "window_angles_clear_of_backbone": 3467,
+          "best_in_window": {
+            "chi1": {
+              "203": -161,
+              "207": -5
+            },
+            "OG_OG": 4.899,
+            "backbone_clearance": 4.02,
+            "closest_backbone": {
+              "203": [
+                "SER",
+                "204",
+                "N",
+                4.022
+              ],
+              "207": [
+                "SER",
+                "203",
+                "O",
+                4.02
+              ]
+            }
+          },
+          "usable": true
+        },
+        "204-207": {
+          "OG_OG_min": 4.929,
+          "OG_OG_max": 8.635,
+          "window_angles": 0,
+          "window_angles_clear_of_backbone": 0,
+          "best_in_window": null,
+          "usable": false
+        }
+      },
+      "any_usable_pair": true
+    }
+  },
+  "structures_with_a_usable_pair": [
+    "4LDE",
+    "4LDL",
+    "3SN6",
+    "5D5A",
+    "2RH1"
+  ]
+}

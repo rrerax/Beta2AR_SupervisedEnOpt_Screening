@@ -1,0 +1,141 @@
+{
+  "serine_angles_tested": 21,
+  "poses_passing_all_three_hbonds": 20,
+  "passing": [
+    {
+      "chi1": {
+        "203": -6,
+        "204": 19
+      },
+      "OG_OG": 4.8,
+      "heavy_atom_arrangements": 15069,
+      "best": {
+        "all_three_hbonds": true,
+        "passed_contacts": 3,
+        "clashes_under_2.2A": 1,
+        "closest_heavy_contact": 2.162,
+        "amine_H_to_OD": 1.924,
+        "amine_angle": 131.6,
+        "phenol_H_to_OG": [
+          2.141,
+          2.192
+        ],
+        "phenol_angles": [
+          124.3,
+          120.3
+        ],
+        "clash_examples": [
+          [
+            "ASP",
+            "1113",
+            "OD2",
+            2.16
+          ]
+        ],
+        "N_to_OD": 2.726,
+        "O_to_OG": [
+          2.85,
+          2.85
+        ],
+        "chi1": {
+          "203": -6,
+          "204": 19
+        }
+      }
+    },
+    {
+      "chi1": {
+        "203": -65,
+        "204": 6
+      },
+      "OG_OG": 4.894,
+      "heavy_atom_arrangements": 10082,
+      "best": {
+        "all_three_hbonds": true,
+        "passed_contacts": 3,
+        "clashes_under_2.2A": 0,
+        "closest_heavy_contact": 2.237,
+        "amine_H_to_OD": 1.887,
+        "amine_angle": 172.9,
+        "phenol_H_to_OG": [
+          1.963,
+          2.1
+        ],
+        "phenol_angles": [
+          144.5,
+          124.5
+        ],
+        "clash_examples": [],
+        "N_to_OD": 2.93,
+        "O_to_OG": [
+          2.85,
+          2.85
+        ],
+        "chi1": {
+          "203": -65,
+          "204": 6
+        }
+      }
+    },
+    {
+      "chi1": {
+        "203": -65,
+        "204": 7
+      },
+      "OG_OG": 4.875,
+      "heavy_atom_arrangements": 10047,
+      "best": {
+        "all_three_hbonds": true,
+        "passed_contacts": 3,
+        "clashes_under_2.2A": 0,
+        "closest_heavy_contact": 2.259,
+        "amine_H_to_OD": 1.881,
+        "amine_angle": 173.2,
+        "phenol_H_to_OG": [
+          1.965,
+          2.104
+        ],
+        "phenol_angles": [
+          144.2,
+          124.5
+        ],
+        "clash_examples": [],
+        "N_to_OD": 2.925,
+        "O_to_OG": [
+          2.85,
+          2.85
+        ],
+        "chi1": {
+          "203": -65,
+          "204": 7
+        }
+      }
+    }
+  ],
+  "best_attempt": {
+    "all_three_hbonds": true,
+    "passed_contacts": 3,
+    "clashes_under_2.2A": 0,
+    "closest_heavy_contact": 2.237,
+    "amine_H_to_OD": 1.887,
+    "amine_angle": 172.9,
+    "phenol_H_to_OG": [
+      1.963,
+      2.1
+    ],
+    "phenol_angles": [
+      144.5,
+      124.5
+    ],
+    "clash_examples": [],
+    "N_to_OD": 2.93,
+    "O_to_OG": [
+      2.85,
+      2.85
+    ],
+    "chi1": {
+      "203": -65,
+      "204": 6
+    }
+  }
+}

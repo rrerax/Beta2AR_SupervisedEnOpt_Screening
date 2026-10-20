@@ -1,0 +1,90 @@
+{
+  "fixed_chi1": {
+    "203": -167,
+    "207": 49
+  },
+  "serine_OG_OG": 4.8,
+  "isomers": [
+    {
+      "isomer_id": "ISO01",
+      "positions": "2,3",
+      "known_id": "",
+      "phenolic_O_O": [
+        2.632,
+        2.719
+      ],
+      "inside_4.7_4.9": false,
+      "placement": null
+    },
+    {
+      "isomer_id": "ISO02",
+      "positions": "2,4",
+      "known_id": "",
+      "phenolic_O_O": [
+        4.73,
+        4.8
+      ],
+      "inside_4.7_4.9": true,
+      "placement": {
+        "passes": false,
+        "other_heavy_min": 1.639,
+        "closest_other": [
+          "ASN",
+          "312",
+          "ND2",
+          1.639
+        ],
+        "amine_H_to_OD": 2.105,
+        "amine_angle": 167.3,
+        "phenol_H_to_OG": [
+          2.236,
+          2.127
+        ],
+        "phenol_angles": [
+          130.2,
+          144.9
+        ],
+        "target_radius": 3.0,
+        "arrangements_tested": 7267
+      }
+    },
+    {
+      "isomer_id": "ISO03",
+      "positions": "2,5",
+      "known_id": "",
+      "phenolic_O_O": [
+        5.485,
+        5.505
+      ],
+      "inside_4.7_4.9": false,
+      "placement": null
+    },
+    {
+      "isomer_id": "ISO04",
+      "positions": "2,6",
+      "known_id": "",
+      "phenolic_O_O": [
+        4.764,
+        4.793
+      ],
+      "inside_4.7_4.9": true,
+      "placement": null
+    },
+    {
+      "isomer_id": "ISO05",
+      "positions": "3,4",
+      "known_id": "CHEMBL434",
+      "phenolic_O_O": [
+        2.707,
+        2.792
+      ],
+      "inside_4.7_4.9": false,
+      "placement": null
+    }
+  ],
+  "placed": [
+    "ISO02",
+    "ISO04"
+  ],
+  "passed_same_standard": []
+}

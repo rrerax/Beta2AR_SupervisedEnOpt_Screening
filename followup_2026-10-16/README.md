@@ -108,10 +108,47 @@ crystals were not measured, because one rotamer distance does fall inside
 4.7–4.9 Å.
 
 The hydrogen-bond rule is unchanged: hydrogen–acceptor distance at most
-2.5 Å and donor–hydrogen–acceptor angle at least 120°.
+2.5 Å and donor–hydrogen–acceptor angle at least 120°. The 20 October
+section continues this scan.
+
+## 3SN6 serine pair, 20 October 2026
+
+`orthosteric_2026-10-20` keeps the backbone and Cβ fixed. A serine pair is
+accepted when the hydroxyl-oxygen distance is 4.7–4.9 Å and each oxygen is
+at least 2.6 Å from backbone heavy atoms of every other residue. A ligand
+pose passes only when the amine and both phenolic hydrogens meet the
+2.5 Å / 120° rule and every other ligand–receptor heavy-atom contact is at
+least 2.6 Å. Serines are taken from the sequence AIASSIVSF, and Asp113 from
+EFWTSIDVLCVTA.
+
+On 4LDE the continuous χ1 scan does enter 4.7–4.9 Å. The 4.69 Å value in
+the 19 October note is the Ser204–Ser207 minimum, and the distance also
+runs above it. The χ1 7°–16° arrangement meets the three hydrogen bonds,
+but another heavy atom approaches to 2.24 Å, so that pose fails the 2.6 Å
+rule.
+
+On 3SN6 the representative angle was fixed before the ligand was moved:
+the clear angle closest to 4.80 Å. Chain R uses residue numbers 113, 203,
+204, and 207. Ser203–Ser204 at χ1 93° and 2° fails because Phe290 CE2 is
+2.273 Å away. Ser203–Ser207 at χ1 −167° and 49° passes. The amine hydrogen
+is 2.298 Å from Asp113 at 156.6°. The phenolic hydrogens are 2.437 Å at
+131.6° and 2.482 Å at 127.8°. The nearest other heavy atom is Val114 CG2
+at 2.734 Å. This side chain was built by the rule. It is not a crystal
+structure of orciprenaline. 2RH1, 4LDL, and 5D5A were not used after this
+pass.
+
+The other five regioisomers were measured as protonated conformers.
+Phenolic O–O distances are 2.632–2.719 Å (2,3), 4.730–4.800 Å (2,4),
+5.485–5.505 Å (2,5), 4.764–4.793 Å (2,6), and 2.707–2.792 Å (3,4,
+CHEMBL434). Only 2,4 and 2,6 fall in 4.7–4.9 Å, so only those two were
+placed on the same 3SN6 χ1 pair. The 2,4 isomer meets the hydrogen bonds
+and comes within 1.639 Å of Asn312 ND2. The 2,6 isomer does not meet all
+three hydrogen bonds at once: with both phenols passing, the amine
+hydrogen is 3.099 Å from Asp113 at 76.8°. No second isomer passes, and no
+relative free-energy calculation was started.
 
 ## What this follow-up does not contain
 
 No free-energy number, membrane system, protonation coordinate file, or
 activity assay was produced here. Feature importances are not a result.
-The six regioisomers were not docked and are not a purchase list.
+The six regioisomers are not a purchase list.

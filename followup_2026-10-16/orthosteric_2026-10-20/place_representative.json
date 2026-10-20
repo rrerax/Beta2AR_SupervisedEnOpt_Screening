@@ -1,0 +1,184 @@
+{
+  "winner": {
+    "structure": "3SN6",
+    "pair": [
+      "203",
+      "207"
+    ],
+    "sequence": {
+      "serines": {
+        "203": {
+          "chain": "R",
+          "file_resi": "203",
+          "resn": "SER"
+        },
+        "204": {
+          "chain": "R",
+          "file_resi": "204",
+          "resn": "SER"
+        },
+        "207": {
+          "chain": "R",
+          "file_resi": "207",
+          "resn": "SER"
+        }
+      },
+      "asp": {
+        "chain": "R",
+        "file_resi": "113",
+        "resn": "ASP"
+      }
+    },
+    "clear_angles": 2275,
+    "representative_chi1": {
+      "203": -167,
+      "207": 49
+    },
+    "OG_OG": 4.8,
+    "backbone_clearance": 3.378,
+    "ligand": {
+      "passes": true,
+      "other_heavy_min": 2.734,
+      "closest_other": [
+        "VAL",
+        "114",
+        "CG2",
+        2.734
+      ],
+      "amine_H_to_OD": 2.298,
+      "amine_angle": 156.6,
+      "phenol_H_to_OG": [
+        2.437,
+        2.482
+      ],
+      "phenol_angles": [
+        131.6,
+        127.8
+      ],
+      "target_radius": 3.2,
+      "arrangements_tested": 20522
+    }
+  },
+  "attempts": [
+    {
+      "structure": "3SN6",
+      "pair": [
+        "203",
+        "204"
+      ],
+      "sequence": {
+        "serines": {
+          "203": {
+            "chain": "R",
+            "file_resi": "203",
+            "resn": "SER"
+          },
+          "204": {
+            "chain": "R",
+            "file_resi": "204",
+            "resn": "SER"
+          },
+          "207": {
+            "chain": "R",
+            "file_resi": "207",
+            "resn": "SER"
+          }
+        },
+        "asp": {
+          "chain": "R",
+          "file_resi": "113",
+          "resn": "ASP"
+        }
+      },
+      "clear_angles": 1559,
+      "representative_chi1": {
+        "203": 93,
+        "204": 2
+      },
+      "OG_OG": 4.8,
+      "backbone_clearance": 2.649,
+      "ligand": {
+        "passes": false,
+        "other_heavy_min": 2.273,
+        "closest_other": [
+          "PHE",
+          "290",
+          "CE2",
+          2.273
+        ],
+        "amine_H_to_OD": 2.199,
+        "amine_angle": 124.6,
+        "phenol_H_to_OG": [
+          2.23,
+          2.336
+        ],
+        "phenol_angles": [
+          131.8,
+          122.2
+        ],
+        "target_radius": 3.0,
+        "arrangements_tested": 3332
+      }
+    },
+    {
+      "structure": "3SN6",
+      "pair": [
+        "203",
+        "207"
+      ],
+      "sequence": {
+        "serines": {
+          "203": {
+            "chain": "R",
+            "file_resi": "203",
+            "resn": "SER"
+          },
+          "204": {
+            "chain": "R",
+            "file_resi": "204",
+            "resn": "SER"
+          },
+          "207": {
+            "chain": "R",
+            "file_resi": "207",
+            "resn": "SER"
+          }
+        },
+        "asp": {
+          "chain": "R",
+          "file_resi": "113",
+          "resn": "ASP"
+        }
+      },
+      "clear_angles": 2275,
+      "representative_chi1": {
+        "203": -167,
+        "207": 49
+      },
+      "OG_OG": 4.8,
+      "backbone_clearance": 3.378,
+      "ligand": {
+        "passes": true,
+        "other_heavy_min": 2.734,
+        "closest_other": [
+          "VAL",
+          "114",
+          "CG2",
+          2.734
+        ],
+        "amine_H_to_OD": 2.298,
+        "amine_angle": 156.6,
+        "phenol_H_to_OG": [
+          2.437,
+          2.482
+        ],
+        "phenol_angles": [
+          131.6,
+          127.8
+        ],
+        "target_radius": 3.2,
+        "arrangements_tested": 20522
+      }
+    }
+  ]
+}
