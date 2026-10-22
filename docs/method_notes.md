@@ -22,15 +22,25 @@ The screen starts from a 30,000-compound ChEMBL37 ligand table. Structures that 
 
 ## Docking and Ranking
 
-Each prepared ligand was docked against each receptor conformation. Docking scores were merged into a single ligand-by-conformation matrix. A stage-1 EnOpt-style weighted consensus score provides a baseline ranking. The final ranking comes from a supervised EnOpt model (XGBoost) trained on the receptor's own experimental data: 48 known β2-AR actives from ChEMBL as positives and the remaining library molecules as assumed negatives. The model learns how to combine the per-conformation scores for β2-AR specifically; out-of-fold predictions reach an AUROC of 0.66, and known actives' median rank improves from the top 39% to the top 22.6% of the library.
+Each prepared ligand was docked against each receptor conformation. Docking scores were merged into a single ligand-by-conformation matrix.
 
-The final ranking table reports:
+Conclusion: after logP is controlled, the five-score model does not stably beat molecular weight, logP, and heavy-atom count. If a docking score must be given, use the oriented five-conformation mean. That mean follows logP and misses the classic phenylethanolamines.
+
+Three things stay stopped. The five-score ranker is not trained again. Equilibration and free energy are not started from the current Ser203–Ser207 pose or from `popc_3sn6_deposit_min.pdb`. The heavy-atom model's top 200 is not a purchase list.
+
+The ranking table still reports:
 
 - `enopt_style_weighted_score_kcal_mol`: ensemble weighted docking score used for ranking.
 - `ensemble_best_score_kcal_mol`: best single-conformation docking score.
 - `ensemble_mean_score_kcal_mol`: average docking score across conformations.
 - `ensemble_score_std_kcal_mol`: score variability across conformations.
 
-## Interpretation
+## If calculation continues
 
-Both the stage-1 and supervised results should be interpreted as a computational shortlist. The supervised EnOpt model improves ranking over the stage-1 baselines (OOF AUROC 0.66; actives median rank 39% → 22.6%), and a 3,000-compound DUD-E decoy screen (`configs/decoy_screen.yml`) is prepared as an external negative control. Strong docking scores can suggest promising candidates, but they do not prove binding or biological activity. Follow-up work could include binding-site visual inspection, decoy benchmarking, molecular dynamics, MM/GBSA rescoring, or experimental validation.
+Change the exam first, then the representation. This exam has not been run. If it does not pass, stop.
+
+Rebuild the negatives from the same chemotypes as the 206 actives. Match logP, molecular weight, hydrogen-bond donor and acceptor counts, and charge. Validate by Bemis–Murcko scaffold groups. Report both baselines in the same exam: molecular weight, logP, and heavy-atom count alone, and 4LDE alone.
+
+Prepare each ligand as the protonated amine. Before docking, require the Asp113 salt bridge and the Ser203/Ser207 hydrogen bonds. Relax only a serine side chain that blocks a contact. The success line is fixed: CHEMBL776 and CHEMBL434 each keep all three hydrogen bonds at once, every other heavy-atom contact is at least 2.6 Å, and the score beats the logP baseline on that matched, scaffold-grouped exam. Raising Vina exhaustiveness does not change the present conclusion.
+
+Filter the screening library for properties, PAINS, and purchasability before docking. Otherwise the ranking still rewards high logP. Without that filter and a small prospective assay of the molecules that pass the rule, tested together with property-matched negatives, this repository supports a method boundary, not an activity list.

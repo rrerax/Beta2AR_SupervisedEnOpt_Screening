@@ -2,6 +2,12 @@
 
 This index lists the files needed to review or rerun the β2-AR supervised EnOpt screening project.
 
+Conclusion: after logP is controlled, the five-score model does not stably beat molecular weight, logP, and heavy-atom count. If a docking score must be given, use the oriented five-conformation mean. That mean follows logP and misses the classic phenylethanolamines.
+
+The five-score ranker is not trained again. Equilibration and free energy are not started from the current Ser203–Ser207 pose or from `popc_3sn6_deposit_min.pdb`. The heavy-atom top 200 listed below is an archived table, not a purchase list. Numbers such as AUROC 0.696 and 0.751 are the record from before the logP window. They are not this conclusion.
+
+Any later calculation changes the exam first, then the representation. Negatives would be rebuilt from the same chemotypes as the 206 actives and matched on logP, molecular weight, hydrogen-bond donors and acceptors, and charge, with Bemis–Murcko scaffold groups. Both baselines, descriptors only and 4LDE only, have to be reported. Ligands would be prepared as the protonated amine, and a pose would have to show the Asp113 salt bridge and the Ser203/Ser207 hydrogen bonds before docking continues. That exam has not been run. Without a property, PAINS, and purchasability filter before docking, plus a small prospective assay of rule-passing molecules together with property-matched negatives, this repository supports a method boundary, not an activity list.
+
 ## Start Here
 
 - `README.md` — project overview, methods, results, and reproduction commands.
@@ -14,7 +20,7 @@ This index lists the files needed to review or rerun the β2-AR supervised EnOpt
 
 - `results/tables/docking_scores.csv` — all completed docking scores (149,325 rows).
 - `results/tables/enopt_style_score_matrix.csv` — ligand-level ensemble matrix (29,865 rows).
-- `results/tables/enopt_style_top_hits.csv` — top 200 ranked compounds.
+- `results/tables/enopt_style_top_hits.csv` — archived top 200 table, not a purchase list.
 - `results/tables/conformation_weights.csv` — receptor conformation weights used in ranking.
 - `results/figures/enopt_weighted_top_hits.png` — top-hit weighted score figure.
 - `results/figures/score_distributions.png` — docking score distributions across receptor conformations.
@@ -27,7 +33,7 @@ This index lists the files needed to review or rerun the β2-AR supervised EnOpt
 - `results/tables/docking_scores_decoy_set.csv` — DUD-E decoy + expanded-active docking scores (15,790 rows).
 - `results/retrospective_top200/` — Stage-4a ChEMBL retrospective: whole-library documented-active flags, top-200 lookup, reports.
 - `results/review_top200/` — Stage-4a top-200 chemical review (clusters, scaffolds, novelty, PAINS flags).
-- `results/feature_experiment_heavy_atom/` — Stage-4c per-heavy-atom feature experiment (AUROC 0.696 -> 0.751) and heavy-atom re-ranked leaderboard.
+- `results/feature_experiment_heavy_atom/` — Stage-4c per-heavy-atom archive. The 0.696 and 0.751 figures predate the logP window and are not the conclusion.
 - `results/ex8_validation/` — Stage-5 exhaustiveness-8 re-dock of the DUD-E validation set (15,920 rows) + clean-label OOF eval report.
 - `results/ex8_rerank/` — Stage-5 ex4-vs-ex8 ranking-robustness analysis of the raw+ha top-200 shortlist (+ CHEMBL776).
 - `results/review_top200_ha/` — chemical review of the raw+ha leaderboard top-200 (clusters, scaffolds, novelty, PAINS flags).
