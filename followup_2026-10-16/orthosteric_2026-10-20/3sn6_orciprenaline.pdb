@@ -1,0 +1,35 @@
+HEADER    PROTONATED ORCIPRENALINE ON THE PASSING 3SN6 POSE
+HETATM    1    C LIG L   1      22.877   6.447 -12.391  1.00  0.00           C
+HETATM    2    C LIG L   1      21.801   5.976 -11.403  1.00  0.00           C
+HETATM    3    C LIG L   1      21.276   7.197 -10.732  1.00  0.00           C
+HETATM    4    N LIG L   1      22.467   5.035 -10.552  1.00  0.00           N
+HETATM    5    C LIG L   1      21.675   4.418  -9.542  1.00  0.00           C
+HETATM    6    C LIG L   1      20.236   4.283  -9.959  1.00  0.00           C
+HETATM    7    O LIG L   1      20.189   3.499 -11.111  1.00  0.00           O
+HETATM    8    C LIG L   1      19.407   3.618  -8.959  1.00  0.00           C
+HETATM    9    C LIG L   1      18.160   3.133  -9.346  1.00  0.00           C
+HETATM   10    C LIG L   1      17.318   2.497  -8.477  1.00  0.00           C
+HETATM   11    O LIG L   1      16.072   2.032  -8.939  1.00  0.00           O
+HETATM   12    C LIG L   1      17.664   2.299  -7.148  1.00  0.00           C
+HETATM   13    C LIG L   1      18.911   2.782  -6.751  1.00  0.00           C
+HETATM   14    O LIG L   1      19.237   2.573  -5.414  1.00  0.00           O
+HETATM   15    C LIG L   1      19.751   3.422  -7.639  1.00  0.00           C
+HETATM   16    H LIG L   1      23.468   5.563 -12.679  1.00  0.00           H
+HETATM   17    H LIG L   1      22.336   6.872 -13.251  1.00  0.00           H
+HETATM   18    H LIG L   1      23.514   7.224 -11.891  1.00  0.00           H
+HETATM   19    H LIG L   1      21.042   5.461 -12.058  1.00  0.00           H
+HETATM   20    H LIG L   1      20.263   7.393 -11.188  1.00  0.00           H
+HETATM   21    H LIG L   1      21.849   8.130 -10.987  1.00  0.00           H
+HETATM   22    H LIG L   1      21.180   7.150  -9.647  1.00  0.00           H
+HETATM   23    H LIG L   1      22.863   4.300 -11.188  1.00  0.00           H
+HETATM   24    H LIG L   1      23.292   5.521 -10.122  1.00  0.00           H
+HETATM   25    H LIG L   1      21.754   4.958  -8.571  1.00  0.00           H
+HETATM   26    H LIG L   1      22.080   3.399  -9.372  1.00  0.00           H
+HETATM   27    H LIG L   1      19.805   5.260 -10.187  1.00  0.00           H
+HETATM   28    H LIG L   1      20.704   2.651 -11.021  1.00  0.00           H
+HETATM   29    H LIG L   1      17.827   3.254 -10.371  1.00  0.00           H
+HETATM   30    H LIG L   1      15.359   2.720  -9.152  1.00  0.00           H
+HETATM   31    H LIG L   1      16.995   1.800  -6.477  1.00  0.00           H
+HETATM   32    H LIG L   1      19.478   1.631  -5.120  1.00  0.00           H
+HETATM   33    H LIG L   1      20.689   3.774  -7.298  1.00  0.00           H
+END

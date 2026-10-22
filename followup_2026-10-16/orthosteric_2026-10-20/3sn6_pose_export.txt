@@ -1,0 +1,10 @@
+chi1_203 -167
+chi1_207 49
+arrangements_tested 20231
+amine_A 2.432
+amine_deg 149.4
+phenol_A 2.441 2.479
+phenol_deg 131.9 127.9
+other_heavy_min 2.739
+closest_other VAL 114 CG2 2.739
+radius 3.2

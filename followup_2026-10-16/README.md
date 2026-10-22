@@ -147,8 +147,34 @@ three hydrogen bonds at once: with both phenols passing, the amine
 hydrogen is 3.099 Å from Asp113 at 76.8°. No second isomer passes, and no
 relative free-energy calculation was started.
 
+## Written hydrogens, 22 October 2026
+
+The 20 October paragraph records the search. The saved file
+`3sn6_orciprenaline.pdb` contains one hydrogen on each oxygen. The Ser203
+figure in that paragraph, and the 2.441 Å / 131.9° line in
+`3sn6_pose_export.txt`, count a 180° phenolic flip that was not written
+into the file. The hydrogen that is in the file, H15 on the oxygen aimed
+at Ser203, is 4.161 Å from Ser203 OG at 17.2°. The amine hydrogen aimed at
+the nearer Asp113 oxygen is 2.432 Å at 149.4°. The other phenolic hydrogen
+is 2.479 Å from Ser207 OG at 128.0°. The three contacts are not present
+together. No side chain was moved after this measurement, and no failed
+isomer was given another serine pair.
+
+The same hydrogens were copied into a POPC membrane. Minimization used
+only heavy atoms present in deposited 3SN6. Phe193 stops at CB. The two
+chain breaks stay open, with C–N distances 10.776 Å and 8.564 Å. After
+minimization the three hydrogen distances and angles are 2.838 Å at 76.0°,
+5.036 Å at 18.4°, and 1.861 Å at 152.2°. Only the Ser207 hydrogen remains
+inside the rule. No other ligand–receptor heavy contact is shorter than
+2.6 Å. No phospholipid atom lies within 4 Å of the ligand. The nearest
+phospholipid heavy atom is 10.613 Å from a ligand heavy atom.
+
+Equilibration was not started: the three hydrogens are not all inside the
+rule after minimization. Relative free energy was not started: one ligand
+was placed, and the three contacts do not remain together.
+
 ## What this follow-up does not contain
 
-No free-energy number, membrane system, protonation coordinate file, or
-activity assay was produced here. Feature importances are not a result.
+No free-energy number or activity assay was produced here. The membrane
+file is a minimized geometry check. Feature importances are not a result.
 The six regioisomers are not a purchase list.
