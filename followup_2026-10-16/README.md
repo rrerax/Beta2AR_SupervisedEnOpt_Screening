@@ -2,7 +2,9 @@
 
 These folders record checks run after the Stage 3 and Stage 4 numbers in the
 main README. No new docking of the 30,000-compound library was done. The
-learned ranker stays unused.
+learned ranker stays unused. Docking stops at the oriented five-conformation
+ranking below. No further calculation starts from the Ser203–Ser207 pair or
+from `popc_3sn6_deposit_min.pdb`.
 
 The scripts keep the absolute paths of the machine on which they were run.
 The CSV and JSON files in each folder are the archived outputs.
@@ -50,6 +52,24 @@ and 25,527. The learned rank of 14 for CHEMBL434 is training-set membership.
 Held out, that rank is 19,910–29,587, and it leads CHEMBL776 on 2 of 10 seeds.
 CHEMBL13 repeats the pattern: in-library rank 23, held-out ranks
 27,045–29,695.
+
+That ranking is the docking result. CHEMBL776 is 25,527 and CHEMBL434 is
+26,697 in the 29,865-ligand library, both toward the back. The oriented mean
+follows Crippen logP (Spearman 0.37 on the 3,184 labeled molecules). Both
+ligands have Crippen logP 1.13.
+
+The geometry and membrane numbers are appended after this rank. They do not
+move it. On the fixed Ser203–Ser207 side chains, the hydrogens written for
+protonated orciprenaline are not all inside the rule at once. Before
+minimization, H15 is 4.161 Å from Ser203 OG at 17.2°. After minimization
+only the Ser207 hydrogen remains inside the rule. The other five
+regioisomers do not pass the same rule. No phospholipid atom lies within
+4 Å of the ligand. This low-ranked ligand is not sent to equilibration or
+to a relative free energy.
+
+The conclusion that stays: the ranking follows logP, and these two known
+ligands rank toward the back. The contacts placed afterward are not the
+hydrogens left in the coordinate file.
 
 `week3_2026-10-16/week3_summary.json` fields `training_catechols` (7) and
 `training_resorcinols` (2) come from an ether-matching SMARTS and are not
@@ -149,7 +169,8 @@ relative free-energy calculation was started.
 
 ## Written hydrogens, 22 October 2026
 
-The 20 October paragraph records the search. The saved file
+These measurements are the numbers appended after the ranking. The 20 October
+paragraph records the search. The saved file
 `3sn6_orciprenaline.pdb` contains one hydrogen on each oxygen. The Ser203
 figure in that paragraph, and the 2.441 Å / 131.9° line in
 `3sn6_pose_export.txt`, count a 180° phenolic flip that was not written
