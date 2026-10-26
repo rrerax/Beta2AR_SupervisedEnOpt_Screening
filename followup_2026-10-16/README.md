@@ -271,13 +271,13 @@ flag and 2,847 carry a Brenk flag. No model was trained. The docking list
 is those 14,586 rows, with CHEMBL434 and CHEMBL776 first, in
 `prepared\gpr53_amine_ligands.csv`. The learned ranker stays unused.
 
-The five receptor PDBQT files and AutoDock Vina 1.2.5 were added on the
-same day. The original box centers and sizes were unchanged. A two-ligand
-smoke test wrote ten ready scores in
-`Enamine_GPCR_Library_plated\docking\smoke_scores.csv`. The full amine
-screen writes its manifest, ligand files, and scores under that docking
-folder, not into the original ChEMBL tables. Vendor files stay out of this
-Git repository.
+The five receptor PDB and PDBQT files are in `data/raw/receptors` and
+`data/processed/receptors`. AutoDock Vina 1.2.5 is the official Windows
+executable and is not stored in this repository. The original box centers
+and sizes were unchanged. A two-ligand smoke test wrote ten ready scores
+in the local docking folder. The full amine screen writes its manifest,
+ligand files, and poses under that folder, not into the original ChEMBL
+tables. Supplier structures stay out of this Git repository.
 
 ## Protonated amine screen, 26 October 2026
 
@@ -288,9 +288,12 @@ that input. This screen holds the receptor set, the original box centers
 and sizes, and exhaustiveness 4 fixed. The pH 7.4 protonation rule was
 fixed before the Enamine file was read. 14,586 molecules with a basic
 aliphatic amine were docked, with protonated CHEMBL434 and CHEMBL776
-appended. No model was trained. All 72,930 scores are ready. The score
-table stays in the local docking folder. The read is
-`gpr53_2026-10-26/amine_screen_read.json`.
+appended. No model was trained. All 72,930 scores are ready. The public
+table is `gpr53_2026-10-26/amine_five_scores.csv`: catalog ids, the five
+Vina scores, the mean, the rank, and descriptors. It has no supplier
+SMILES and no local pose paths. The read is
+`gpr53_2026-10-26/amine_screen_read.json`. The protonation script is
+`gpr53_2026-10-26/prepare_gpr53.py`.
 
 On the oriented five-conformation mean, CHEMBL776 is 14,360 and CHEMBL434
 is 14,362 of 14,586. Both means are −7.28 kcal/mol, and the absolute gap

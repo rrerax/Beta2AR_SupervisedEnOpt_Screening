@@ -8,7 +8,7 @@ The five-score ranker is not trained again. Equilibration and free energy are no
 
 The matched exam was run on 22 October 2026 and did not pass. Same-scaffold library negatives cover 40 actives and 138 negatives, and the property-matched DUD-E pool covers 141 actives and 561 decoys. Both top 1% counts are below the pre-registered minimum of 10, so representation docking was not started. The record is `followup_2026-10-16/exam_2026-10-22`. Without a property, PAINS, and purchasability filter before docking, plus a small prospective assay of rule-passing molecules together with property-matched negatives, this repository supports a method boundary, not an activity list.
 
-On 26 October 2026 the same Vina protocol was repeated with basic aliphatic amines protonated at pH 7.4. CHEMBL776 ranks 14,360 and CHEMBL434 ranks 14,362 of 14,586. The oriented five-conformation mean still follows Crippen logP (Spearman 0.445). The neutral-amine input does not account for that back rank. No model was trained. The read is `followup_2026-10-16/gpr53_2026-10-26/amine_screen_read.json`.
+On 26 October 2026 the same Vina protocol was repeated with basic aliphatic amines protonated at pH 7.4. CHEMBL776 ranks 14,360 and CHEMBL434 ranks 14,362 of 14,586. The oriented five-conformation mean still follows Crippen logP (Spearman 0.445). The neutral-amine input does not account for that back rank. No model was trained. The public score table is `followup_2026-10-16/gpr53_2026-10-26/amine_five_scores.csv`, and the read is `followup_2026-10-16/gpr53_2026-10-26/amine_screen_read.json`. Supplier structures stay outside this repository. The five receptor files are `data/raw/receptors` and `data/processed/receptors`.
 
 ## Start Here
 
