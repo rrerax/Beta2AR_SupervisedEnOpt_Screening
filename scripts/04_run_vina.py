@@ -9,7 +9,7 @@ from pathlib import Path
 
 import pandas as pd
 
-from common import PROJECT_ROOT, ensure_dir, load_config, project_path
+from common import ensure_dir, load_config, path_for_table, project_path
 
 
 SCORE_PATTERN = re.compile(r"^\s*1\s+(-?\d+(?:\.\d+)?)\s+")
@@ -92,6 +92,8 @@ def main() -> None:
     parser.add_argument("--score-file", default="results/tables/docking_scores.csv")
     parser.add_argument("--work-dir", default="work/docking")
     parser.add_argument("--log-dir", default="logs/vina")
+    parser.add_argument("--ligand-manifest", default="results/tables/ligand_manifest.csv")
+    parser.add_argument("--receptor-manifest", default="results/tables/receptor_manifest.csv")
     args = parser.parse_args()
 
     config = load_config(args.config)
@@ -102,8 +104,8 @@ def main() -> None:
     cpu_per_job = int(docking_cfg.get("cpu_per_job", 1))
     seed = int(docking_cfg.get("seed", 20260728))
 
-    receptor_manifest = pd.read_csv(project_path("results/tables/receptor_manifest.csv"))
-    ligand_manifest = pd.read_csv(project_path("results/tables/ligand_manifest.csv"))
+    receptor_manifest = pd.read_csv(project_path(args.receptor_manifest))
+    ligand_manifest = pd.read_csv(project_path(args.ligand_manifest))
     receptor_manifest = receptor_manifest[receptor_manifest["status"] == "ready"].copy()
     ligand_manifest = ligand_manifest[ligand_manifest["status"] == "ready"].copy()
     if args.limit_ligands:
@@ -184,8 +186,8 @@ def main() -> None:
                         "pdb_id": result["pdb_id"],
                         "state_label": result["state_label"],
                         "best_score_kcal_mol": result["best_score_kcal_mol"],
-                        "out_path": str(Path(str(result["out_path"])).relative_to(PROJECT_ROOT)),
-                        "log_path": str(Path(str(result["log_path"])).relative_to(PROJECT_ROOT)),
+                        "out_path": path_for_table(result["out_path"]),
+                        "log_path": path_for_table(result["log_path"]),
                         "status": result["status"],
                     }
                 )

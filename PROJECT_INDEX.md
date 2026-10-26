@@ -6,7 +6,9 @@ Conclusion: after logP is controlled, the five-score model does not stably beat 
 
 The five-score ranker is not trained again. Equilibration and free energy are not started from the current Ser203–Ser207 pose or from `popc_3sn6_deposit_min.pdb`. The heavy-atom top 200 listed below is an archived table, not a purchase list. Numbers such as AUROC 0.696 and 0.751 are the record from before the logP window. They are not this conclusion.
 
-Any later calculation changes the exam first, then the representation. Negatives would be rebuilt from the same chemotypes as the 206 actives and matched on logP, molecular weight, hydrogen-bond donors and acceptors, and charge, with Bemis–Murcko scaffold groups. Both baselines, descriptors only and 4LDE only, have to be reported. Ligands would be prepared as the protonated amine, and a pose would have to show the Asp113 salt bridge and the Ser203/Ser207 hydrogen bonds before docking continues. That exam has not been run. Without a property, PAINS, and purchasability filter before docking, plus a small prospective assay of rule-passing molecules together with property-matched negatives, this repository supports a method boundary, not an activity list.
+The matched exam was run on 22 October 2026 and did not pass. Same-scaffold library negatives cover 40 actives and 138 negatives, and the property-matched DUD-E pool covers 141 actives and 561 decoys. Both top 1% counts are below the pre-registered minimum of 10, so representation docking was not started. The record is `followup_2026-10-16/exam_2026-10-22`. Without a property, PAINS, and purchasability filter before docking, plus a small prospective assay of rule-passing molecules together with property-matched negatives, this repository supports a method boundary, not an activity list.
+
+On 26 October 2026 the same Vina protocol was repeated with basic aliphatic amines protonated at pH 7.4. CHEMBL776 ranks 14,360 and CHEMBL434 ranks 14,362 of 14,586. The oriented five-conformation mean still follows Crippen logP (Spearman 0.445). The neutral-amine input does not account for that back rank. No model was trained. The read is `followup_2026-10-16/gpr53_2026-10-26/amine_screen_read.json`.
 
 ## Start Here
 
@@ -73,3 +75,4 @@ Any later calculation changes the exam first, then the representation. Negatives
 - `scripts/11_ex4_ex8_rerank.py` — Stage-5 ex4-vs-ex8 ranking-robustness analysis (raw+ha top-200 shortlist).
 - `scripts/run_smoke_test.sh` — quick validation run.
 - `scripts/run_pipeline.sh` — full pipeline entry point.
+- `followup_2026-10-16/exam_2026-10-22/exam_matched.py` — 22 October matched, scaffold-held-out exam. The decision is `exam_decision.json` in that folder. The gate did not pass, and the script does not save a model.

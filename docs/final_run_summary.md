@@ -1,5 +1,7 @@
 # Final Run Summary
 
+This file records the early screen. It is not the current conclusion. The 22 October 2026 matched exam did not pass, the learned ranker stays unused, and the top 200 below is an archived table. See `followup_2026-10-16/README.md`.
+
 ## Run Scope
 
 - Target: β2-adrenergic receptor (β2-AR / ADRB2)

@@ -1,0 +1,274 @@
+{
+  "gate_constants_fixed_before_metrics": true,
+  "auroc_below_top1_minimum_is_not_the_gate": true,
+  "question": "On property-matched, same-Bemis-Murcko-scaffold library molecules, does the five-score model beat molecular weight, Crippen logP, and heavy-atom count, and beat 4LDE alone, under scaffold holdout?",
+  "calipers": {
+    "logp": 0.5,
+    "mw": 50.0,
+    "hbd": 1.0,
+    "hba": 1.0,
+    "charge": 0.0
+  },
+  "negatives_per_active_cap": 5,
+  "minimums": {
+    "covered_actives": 30,
+    "negatives": 100,
+    "active_scaffolds": 10,
+    "top1_count": 10
+  },
+  "model": {
+    "n_estimators": 15,
+    "learning_rate": 0.3,
+    "max_depth": 6,
+    "n_splits": 5,
+    "seed": 42,
+    "saved": false
+  },
+  "n_active_ids_in_tables": 206,
+  "n_actives_with_descriptors_and_scores": 206,
+  "n_dude_decoys_complete": 2978,
+  "n_library_non_actives_complete": 29815,
+  "n_missing_descriptors": 0,
+  "same_chemotype": {
+    "pool": "same_chemotype_library",
+    "n_pairs": 138,
+    "n_covered_actives": 40,
+    "n_negatives": 138,
+    "n_molecules": 178,
+    "n_active_scaffolds": 22,
+    "top1_count": 1,
+    "evaluable": false,
+    "pass_pool": false,
+    "reason": "top1_percent_below_10_molecules",
+    "metrics_used_for_gate": false,
+    "metrics": [
+      {
+        "method": "five_score_oof",
+        "n_molecules": 178,
+        "n_pos": 40,
+        "n_neg": 138,
+        "top1_count": 1,
+        "auroc": 0.487681,
+        "auroc_se": 0.05173,
+        "auroc_ci95_lo": 0.38629,
+        "auroc_ci95_hi": 0.589072,
+        "ef_1pct": 0.0,
+        "ef_5pct": 0.5
+      },
+      {
+        "method": "descriptor_oof",
+        "n_molecules": 178,
+        "n_pos": 40,
+        "n_neg": 138,
+        "top1_count": 1,
+        "auroc": 0.500362,
+        "auroc_se": 0.05199,
+        "auroc_ci95_lo": 0.398461,
+        "auroc_ci95_hi": 0.602264,
+        "ef_1pct": 0.0,
+        "ef_5pct": 0.5
+      },
+      {
+        "method": "oriented_4lde",
+        "n_molecules": 178,
+        "n_pos": 40,
+        "n_neg": 138,
+        "top1_count": 1,
+        "auroc": 0.470833,
+        "auroc_se": 0.05132,
+        "auroc_ci95_lo": 0.370246,
+        "auroc_ci95_hi": 0.57142,
+        "ef_1pct": 0.0,
+        "ef_5pct": 1.0
+      },
+      {
+        "method": "oriented_five_mean",
+        "n_molecules": 178,
+        "n_pos": 40,
+        "n_neg": 138,
+        "top1_count": 1,
+        "auroc": 0.504348,
+        "auroc_se": 0.052064,
+        "auroc_ci95_lo": 0.402303,
+        "auroc_ci95_hi": 0.606393,
+        "ef_1pct": 0.0,
+        "ef_5pct": 0.5
+      }
+    ],
+    "numerical_comparison_passes": false,
+    "spearman_oriented_mean_logp": 0.387534
+  },
+  "dude_property_matched": {
+    "pool": "dude_property_matched",
+    "n_pairs": 561,
+    "n_covered_actives": 141,
+    "n_negatives": 561,
+    "n_molecules": 702,
+    "n_active_scaffolds": 106,
+    "top1_count": 7,
+    "evaluable": false,
+    "pass_pool": false,
+    "reason": "top1_percent_below_10_molecules",
+    "metrics_used_for_gate": false,
+    "metrics": [
+      {
+        "method": "five_score_oof",
+        "n_molecules": 702,
+        "n_pos": 141,
+        "n_neg": 561,
+        "top1_count": 7,
+        "auroc": 0.54919,
+        "auroc_se": 0.02758,
+        "auroc_ci95_lo": 0.495134,
+        "auroc_ci95_hi": 0.603247,
+        "ef_1pct": 1.41844,
+        "ef_5pct": 0.992908
+      },
+      {
+        "method": "descriptor_oof",
+        "n_molecules": 702,
+        "n_pos": 141,
+        "n_neg": 561,
+        "top1_count": 7,
+        "auroc": 0.568444,
+        "auroc_se": 0.02763,
+        "auroc_ci95_lo": 0.514289,
+        "auroc_ci95_hi": 0.622599,
+        "ef_1pct": 4.255319,
+        "ef_5pct": 2.695035
+      },
+      {
+        "method": "oriented_4lde",
+        "n_molecules": 702,
+        "n_pos": 141,
+        "n_neg": 561,
+        "top1_count": 7,
+        "auroc": 0.627748,
+        "auroc_se": 0.027444,
+        "auroc_ci95_lo": 0.573958,
+        "auroc_ci95_hi": 0.681538,
+        "ef_1pct": 1.41844,
+        "ef_5pct": 2.12766
+      },
+      {
+        "method": "oriented_five_mean",
+        "n_molecules": 702,
+        "n_pos": 141,
+        "n_neg": 561,
+        "top1_count": 7,
+        "auroc": 0.614575,
+        "auroc_se": 0.027531,
+        "auroc_ci95_lo": 0.560615,
+        "auroc_ci95_hi": 0.668535,
+        "ef_1pct": 1.41844,
+        "ef_5pct": 2.269504
+      }
+    ],
+    "numerical_comparison_passes": false,
+    "spearman_oriented_mean_logp": 0.431859
+  },
+  "exam_pass_gate": false,
+  "use_learned_ranker": false,
+  "start_representation_docking": false,
+  "reason": "top1_percent_below_10_molecules",
+  "formal_charge_counts": {
+    "actives": {
+      "-1": 1,
+      "0": 204,
+      "1": 1
+    },
+    "dude_decoys": {
+      "-1": 51,
+      "0": 1048,
+      "1": 1848,
+      "2": 27,
+      "3": 4
+    },
+    "same_chemotype_negatives": {
+      "0": 138
+    },
+    "dude_matched_decoys": {
+      "0": 561
+    }
+  },
+  "chembl434": {
+    "ligand_id": "CHEMBL434",
+    "in_206_actives": true,
+    "logp": 1.1292,
+    "mw": 211.261,
+    "formal_charge": 0,
+    "scaffold": "c1ccccc1",
+    "covered_by_same_chemotype_match": true,
+    "covered_by_dude_match": true,
+    "library_oriented_mean_rank": 26698,
+    "library_size": 29865
+  },
+  "chembl776": {
+    "ligand_id": "CHEMBL776",
+    "in_206_actives": false,
+    "library_oriented_mean_rank": 25529,
+    "library_size": 29865
+  },
+  "property_medians": [
+    {
+      "set": "actives_206_complete",
+      "n": 206,
+      "median_logp": 3.0034,
+      "median_mw": 401.7205,
+      "median_hac": 28.0,
+      "median_hbd": 4.0,
+      "median_hba": 5.0,
+      "median_charge": 0.0
+    },
+    {
+      "set": "dude_decoys_complete",
+      "n": 2978,
+      "median_logp": 1.9118,
+      "median_mw": 384.943,
+      "median_hac": 27.0,
+      "median_hbd": 3.0,
+      "median_hba": 4.0,
+      "median_charge": 1.0
+    },
+    {
+      "set": "same_chemotype_covered_actives",
+      "n": 40,
+      "median_logp": 2.5002,
+      "median_mw": 318.395,
+      "median_hac": 23.0,
+      "median_hbd": 3.0,
+      "median_hba": 4.0,
+      "median_charge": 0.0
+    },
+    {
+      "set": "same_chemotype_negatives",
+      "n": 138,
+      "median_logp": 2.4625,
+      "median_mw": 307.412,
+      "median_hac": 21.5,
+      "median_hbd": 3.0,
+      "median_hba": 4.0,
+      "median_charge": 0.0
+    },
+    {
+      "set": "dude_matched_actives",
+      "n": 141,
+      "median_logp": 3.0734,
+      "median_mw": 426.554,
+      "median_hac": 30.0,
+      "median_hbd": 4.0,
+      "median_hba": 5.0,
+      "median_charge": 0.0
+    },
+    {
+      "set": "dude_matched_decoys",
+      "n": 561,
+      "median_logp": 3.1567,
+      "median_mw": 446.459,
+      "median_hac": 31.0,
+      "median_hbd": 3.0,
+      "median_hba": 5.0,
+      "median_charge": 0.0
+    }
+  ]
+}

@@ -77,12 +77,17 @@ def prepare_one(task: dict[str, object]) -> dict[str, str]:
     force = bool(task["force"])
     timeout_seconds = int(task["timeout_seconds"])
     shard = shard_name(index, shard_size)
-    sdf_path = PROJECT_ROOT / "data" / "processed" / "ligands" / "sdf" / shard / f"{ligand_id}.sdf"
-    pdbqt_path = PROJECT_ROOT / "data" / "processed" / "ligands" / "pdbqt" / shard / f"{ligand_id}.pdbqt"
-    log_path = PROJECT_ROOT / "logs" / "ligands" / shard / f"{ligand_id}.log"
+    processed_root = Path(str(task["processed_root"]))
+    log_root = Path(str(task["log_root"]))
+    sdf_path = processed_root / "sdf" / shard / f"{ligand_id}.sdf"
+    pdbqt_path = processed_root / "pdbqt" / shard / f"{ligand_id}.pdbqt"
+    log_path = log_root / shard / f"{ligand_id}.log"
 
-    previous_handler = signal.signal(signal.SIGALRM, _timeout_handler)
-    signal.alarm(timeout_seconds)
+    use_alarm = hasattr(signal, "SIGALRM")
+    previous_handler = None
+    if use_alarm:
+        previous_handler = signal.signal(signal.SIGALRM, _timeout_handler)
+        signal.alarm(timeout_seconds)
     try:
         if pdbqt_path.exists() and pdbqt_path.stat().st_size > 0 and not force:
             status = "ready"
@@ -92,14 +97,15 @@ def prepare_one(task: dict[str, object]) -> dict[str, str]:
     except LigandPreparationTimeout:
         status = "prep_timeout"
     finally:
-        signal.alarm(0)
-        signal.signal(signal.SIGALRM, previous_handler)
+        if use_alarm:
+            signal.alarm(0)
+            signal.signal(signal.SIGALRM, previous_handler)
 
     return {
         "ligand_id": ligand_id,
         "smiles": smiles,
-        "sdf_path": str(sdf_path.relative_to(PROJECT_ROOT)) if sdf_path.exists() else "",
-        "ligand_pdbqt": str(pdbqt_path.relative_to(PROJECT_ROOT)) if pdbqt_path.exists() else "",
+        "sdf_path": str(sdf_path) if sdf_path.exists() else "",
+        "ligand_pdbqt": str(pdbqt_path) if pdbqt_path.exists() else "",
         "status": status,
     }
 
@@ -111,6 +117,9 @@ def main() -> None:
     parser.add_argument("--parallel-jobs", type=int, default=None)
     parser.add_argument("--per-ligand-timeout", type=int, default=120)
     parser.add_argument("--force", action="store_true")
+    parser.add_argument("--manifest", default="results/tables/ligand_manifest.csv")
+    parser.add_argument("--processed-root", default="data/processed/ligands")
+    parser.add_argument("--log-root", default="logs/ligands")
     args = parser.parse_args()
 
     config = load_config(args.config)
@@ -124,10 +133,12 @@ def main() -> None:
     smiles_column = config["ligands"].get("smiles_column", "smiles")
     parallel_jobs = args.parallel_jobs or min(int(config["docking"].get("parallel_jobs", 32)), 128)
 
-    ensure_dir("data/processed/ligands/sdf")
-    ensure_dir("data/processed/ligands/pdbqt")
-    ensure_dir("logs/ligands")
-    manifest_path = project_path("results/tables/ligand_manifest.csv")
+    processed_root = project_path(args.processed_root)
+    log_root = project_path(args.log_root)
+    ensure_dir(processed_root / "sdf")
+    ensure_dir(processed_root / "pdbqt")
+    ensure_dir(log_root)
+    manifest_path = project_path(args.manifest)
     manifest_path.parent.mkdir(parents=True, exist_ok=True)
     fieldnames = ["ligand_id", "smiles", "sdf_path", "ligand_pdbqt", "status"]
 
@@ -140,6 +151,8 @@ def main() -> None:
             "seed": seed,
             "force": args.force,
             "timeout_seconds": args.per_ligand_timeout,
+            "processed_root": str(processed_root),
+            "log_root": str(log_root),
         }
         for index, row in ligands.iterrows()
     ]

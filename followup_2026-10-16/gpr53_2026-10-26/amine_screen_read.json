@@ -1,0 +1,60 @@
+{
+  "ligands": 14586,
+  "scores": 72930,
+  "model_trained": false,
+  "score": "oriented five-conformation mean; more negative raw mean ranks first",
+  "spearman_oriented_mean_vs_crippen_logp": 0.445,
+  "spearman_oriented_4lde_vs_crippen_logp": 0.412,
+  "library_logp_median": 2.664,
+  "top_1pct_n": 146,
+  "top_1pct_logp_median": 3.812,
+  "controls": [
+    {
+      "ligand_id": "CHEMBL434",
+      "rank": 14362,
+      "library_size": 14586,
+      "five_mean": -7.28,
+      "crippen_logp": 1.129,
+      "mw": 211.261,
+      "hbd": 4,
+      "hba": 4,
+      "hac": 15,
+      "formal_charge_pH74": 1,
+      "pains": "catechol_A(92)",
+      "brenk": "catechol",
+      "inactive_mean": -6.959,
+      "active_mean": -7.494,
+      "scores": {
+        "inactive_carazolol_2RH1": -6.975,
+        "inactive_carazolol_5D5A": -6.943,
+        "active_gs_complex_3SN6": -6.943,
+        "active_bi167107_4LDE": -7.678,
+        "active_hbi_4LDL": -7.862
+      }
+    },
+    {
+      "ligand_id": "CHEMBL776",
+      "rank": 14360,
+      "library_size": 14586,
+      "five_mean": -7.283,
+      "crippen_logp": 1.129,
+      "mw": 211.261,
+      "hbd": 4,
+      "hba": 4,
+      "hac": 15,
+      "formal_charge_pH74": 1,
+      "pains": "",
+      "brenk": "",
+      "inactive_mean": -7.09,
+      "active_mean": -7.413,
+      "scores": {
+        "inactive_carazolol_2RH1": -7.131,
+        "inactive_carazolol_5D5A": -7.048,
+        "active_gs_complex_3SN6": -6.824,
+        "active_bi167107_4LDE": -7.367,
+        "active_hbi_4LDL": -8.047
+      }
+    }
+  ],
+  "control_five_mean_abs_gap": 0.003
+}

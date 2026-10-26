@@ -13,6 +13,14 @@ The learned ranker stays unused. On the unmatched 206-active / 2,978-decoy set, 
 
 The Stage 3 and Stage 4 tables below are the earlier unmatched comparisons. The per-heavy-atom AUROC 0.751 and top-1% enrichment 7.3× are not a docking-feature gain over molecular properties. Where a docking score is required, use the oriented five-conformation mean.
 
+## Update, 22 October 2026
+
+The matched, scaffold-held-out exam did not pass. Inside the frozen property calipers, the same-chemotype pool is 40 actives and 138 library negatives, and the DUD-E rematch is 141 actives and 561 decoys. The top 1% contains one and seven molecules. The pre-registered minimum is ten. Stored AUROC values were not allowed to change that result, and on both pools the five-score model remains behind the descriptor baseline and behind 4LDE. The learned ranker stays unused. Representation docking was not started. Tables and the decision record are in [`followup_2026-10-16/exam_2026-10-22`](followup_2026-10-16/exam_2026-10-22/exam_decision.json).
+
+## Update, 26 October 2026
+
+The ChEMBL ranks 25,527 and 26,697 used neutral amines, so they did not separate logP collinearity from that input. GPR-53 keeps the same five receptors, original boxes, and exhaustiveness 4, protonates basic aliphatic amines at pH 7.4, and docks 14,586 such molecules. CHEMBL776 ranks 14,360 and CHEMBL434 ranks 14,362 of 14,586 on the oriented five-conformation mean. Both means are −7.28 kcal/mol. The mean still follows Crippen logP (Spearman 0.445). Correcting the neutral-amine input does not move these two phenylethanolamines forward. No model was trained. The record is [`followup_2026-10-16`](followup_2026-10-16/README.md).
+
 ## Project Overview
 
 Classical high-throughput virtual screening often docks each ligand against a single receptor structure. For GPCR targets, this can be limiting because transmembrane helix rearrangements, especially around TM6 activation-associated motion, change the binding pocket geometry. This project therefore uses an ensemble of inactive and active β2-AR conformations, then combines docking results into a single ranking matrix.

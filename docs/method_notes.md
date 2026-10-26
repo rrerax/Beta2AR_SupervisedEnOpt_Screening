@@ -35,12 +35,12 @@ The ranking table still reports:
 - `ensemble_mean_score_kcal_mol`: average docking score across conformations.
 - `ensemble_score_std_kcal_mol`: score variability across conformations.
 
-## If calculation continues
+## Matched exam, 22 October 2026
 
-Change the exam first, then the representation. This exam has not been run. If it does not pass, stop.
+The exam in `followup_2026-10-16/exam_2026-10-22` did not pass. Same-scaffold library negatives inside the frozen property calipers cover 40 actives and 138 negatives, so the top 1% is one molecule. Property-matched DUD-E decoys cover 141 actives and 561 decoys, so the top 1% is seven molecules. The pre-registered minimum is ten. The five-score ranker stays unused, and representation docking was not started.
 
-Rebuild the negatives from the same chemotypes as the 206 actives. Match logP, molecular weight, hydrogen-bond donor and acceptor counts, and charge. Validate by Bemis–Murcko scaffold groups. Report both baselines in the same exam: molecular weight, logP, and heavy-atom count alone, and 4LDE alone.
+The stored AUROC values are not that gate. On both pools the five-score model is behind molecular weight, Crippen logP, and heavy-atom count, and behind 4LDE. The write-up is in `followup_2026-10-16/README.md`.
 
-Prepare each ligand as the protonated amine. Before docking, require the Asp113 salt bridge and the Ser203/Ser207 hydrogen bonds. Relax only a serine side chain that blocks a contact. The success line is fixed: CHEMBL776 and CHEMBL434 each keep all three hydrogen bonds at once, every other heavy-atom contact is at least 2.6 Å, and the score beats the logP baseline on that matched, scaffold-grouped exam. Raising Vina exhaustiveness does not change the present conclusion.
+## Protonated amine screen, 26 October 2026
 
-Filter the screening library for properties, PAINS, and purchasability before docking. Otherwise the ranking still rewards high logP. Without that filter and a small prospective assay of the molecules that pass the rule, tested together with property-matched negatives, this repository supports a method boundary, not an activity list.
+The earlier ChEMBL ranks used neutral amines. GPR-53 keeps the five receptors, the original boxes, and exhaustiveness 4, and docks 14,586 basic aliphatic amines after the pH 7.4 rule. CHEMBL776 is 14,360 and CHEMBL434 is 14,362 of 14,586 on the oriented five-conformation mean. Both means are −7.28 kcal/mol. Spearman with Crippen logP is 0.445. Protonation does not move the two phenylethanolamines forward, and the score still follows logP. No model was trained.

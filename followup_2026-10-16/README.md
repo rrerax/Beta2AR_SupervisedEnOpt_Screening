@@ -4,10 +4,12 @@ These folders record checks run after the Stage 3 and Stage 4 numbers in the
 main README. No new docking of the 30,000-compound library was done. The
 learned ranker stays unused. Docking stops at the oriented five-conformation
 ranking below. No further calculation starts from the Ser203–Ser207 pair or
-from `popc_3sn6_deposit_min.pdb`.
+from `popc_3sn6_deposit_min.pdb`. The 22 October matched exam did not pass.
+Its record is at the end of this file.
 
-The scripts keep the absolute paths of the machine on which they were run.
-The CSV and JSON files in each folder are the archived outputs.
+The week-folder scripts keep the absolute paths of the machine on which they
+were run. `exam_2026-10-22/exam_matched.py` uses paths relative to this
+repository. The CSV and JSON files in each folder are the archived outputs.
 
 ## Decision
 
@@ -199,3 +201,104 @@ was placed, and the three contacts do not remain together.
 No free-energy number or activity assay was produced here. The membrane
 file is a minimized geometry check. Feature importances are not a result.
 The six regioisomers are not a purchase list.
+
+## Matched exam, 22 October 2026
+
+`exam_2026-10-22/exam_matched.py` reads this repository through relative
+paths. The calipers and the pass rule were fixed before the metrics. No
+model file was saved, and no docking was started.
+
+The calipers are absolute: Crippen logP 0.5, molecular weight 50 Da,
+hydrogen-bond donors 1, hydrogen-bond acceptors 1, and equal formal charge
+in the input SMILES. Each active could take at most five negatives. The
+gate pool is docked library molecules that share a Bemis–Murcko scaffold
+with one of the 206 actives, lie inside those calipers, and are not
+themselves in the 206. The split is five-fold scaffold holdout, seed 42.
+The model is the earlier XGBoost setting: 15 trees, learning rate 0.3,
+depth 6. A pool passes only when it has at least 30 covered actives, 100
+negatives, 10 active scaffolds, and 10 molecules in the top 1%, the
+five-score out-of-fold AUROC exceeds each baseline by more than its own
+AUROC standard error, and its top-1% enrichment is higher. The baselines
+are molecular weight, Crippen logP, and heavy-atom count, and the oriented
+4LDE score. The DUD-E rematch is archived beside the gate and cannot pass
+it.
+
+The same-chemotype pool has 40 actives, 138 negatives, 22 scaffolds, and
+178 molecules. Its top 1% is one molecule. The DUD-E rematch has 141
+actives, 561 decoys, 106 scaffolds, and 702 molecules. Its top 1% is seven
+molecules. `exam_pass_gate` is false. The reason is
+`top1_percent_below_10_molecules`. The learned ranker stays unused.
+Representation docking was not started.
+
+AUROC was stored after that size failure. It is not the gate. On the
+same-chemotype pool the five-score AUROC is 0.488 (0.386–0.589), the
+descriptor model is 0.500 (0.398–0.602), 4LDE is 0.471 (0.370–0.571), and
+the oriented five-conformation mean is 0.504 (0.402–0.606). On the DUD-E
+rematch the five-score AUROC is 0.549 (0.495–0.603), the descriptor model
+is 0.568 (0.514–0.623), 4LDE is 0.628 (0.574–0.682), and the five-conformation
+mean is 0.615 (0.561–0.669). `numerical_comparison_passes` is false in both
+pools. The oriented mean still follows Crippen logP: Spearman 0.388 on the
+same-chemotype pool and 0.432 on the DUD-E rematch.
+
+The unmatched decoy table remains shifted. The 206 actives have median
+Crippen logP 3.00; the 2,978 decoys have median 1.91. Formal charge in the
+stored SMILES is 0 for 204 of the 206 actives. Among the decoys, 1,848 are
+written as +1 and 1,048 as 0. The charge caliper kept the 561 neutral
+matched decoys. Their medians are Crippen logP 3.16 and molecular weight
+446, against 3.07 and 427 for the 141 covered actives. The same-chemotype
+medians are 2.50 against 2.46, and 318 against 307.
+
+CHEMBL434 is inside the 206, with Crippen logP 1.13 and scaffold
+`c1ccccc1`. Both matches cover it. This recount places its oriented-mean
+rank at 26,698 of 29,865. CHEMBL776 is not inside the 206. This recount
+places it at 25,529. Both stay toward the back of the library.
+
+## GPR-53 preparation, 22 October 2026
+
+The plated Enamine GPCR library is outside this repository, at
+`D:\repositories\Enamine_GPCR_Library_plated`. `prepare_gpr53.py` read the
+4 October 2026 CSV of 53,440 catalog IDs. The pH 7.4 rule was fixed before
+that file was parsed: aliphatic amines, amidines, and guanidines are
+protonated; carboxylic and sulfonic acids are deprotonated; anilines,
+amides, sulfonamides, pyridines, imidazoles, and phenols stay neutral.
+PAINS and Brenk are columns. They do not delete rows.
+
+The prepared table has 53,442 rows. CHEMBL434 and CHEMBL776 were not in
+the catalog and were appended. CHEMBL434 is `CC(C)[NH2+]CC(O)c1ccc(O)c(O)c1`
+and keeps the catechol flags. CHEMBL776 is `CC(C)[NH2+]CC(O)c1cc(O)cc(O)c1`.
+14,586 rows have at least one basic aliphatic amine. 541 rows carry a PAINS
+flag and 2,847 carry a Brenk flag. No model was trained. The docking list
+is those 14,586 rows, with CHEMBL434 and CHEMBL776 first, in
+`prepared\gpr53_amine_ligands.csv`. The learned ranker stays unused.
+
+The five receptor PDBQT files and AutoDock Vina 1.2.5 were added on the
+same day. The original box centers and sizes were unchanged. A two-ligand
+smoke test wrote ten ready scores in
+`Enamine_GPCR_Library_plated\docking\smoke_scores.csv`. The full amine
+screen writes its manifest, ligand files, and scores under that docking
+folder, not into the original ChEMBL tables. Vendor files stay out of this
+Git repository.
+
+## Protonated amine screen, 26 October 2026
+
+The ChEMBL-library ranks CHEMBL776 25,527 and CHEMBL434 26,697 of 29,865
+were computed with neutral amines. The β2 orthosteric site recognizes a
+protonated amine, so those ranks did not separate logP collinearity from
+that input. This screen holds the receptor set, the original box centers
+and sizes, and exhaustiveness 4 fixed. The pH 7.4 protonation rule was
+fixed before the Enamine file was read. 14,586 molecules with a basic
+aliphatic amine were docked, with protonated CHEMBL434 and CHEMBL776
+appended. No model was trained. All 72,930 scores are ready. The score
+table stays in the local docking folder. The read is
+`gpr53_2026-10-26/amine_screen_read.json`.
+
+On the oriented five-conformation mean, CHEMBL776 is 14,360 and CHEMBL434
+is 14,362 of 14,586. Both means are −7.28 kcal/mol, and the absolute gap
+is 0.003 kcal/mol. Both Crippen logP values, taken on the neutral parent,
+are 1.129. The oriented mean still follows logP: Spearman 0.445 on these
+14,586 molecules. The library median logP is 2.664. The top 1% is 146
+molecules and has median logP 3.812. Oriented 4LDE versus logP is Spearman
+0.412. Protonating the amine does not move the two phenylethanolamines
+forward, and the score still follows logP. The neutral-amine input does
+not account for the back rank. The learned ranker stays unused. This table
+is not an activity list.

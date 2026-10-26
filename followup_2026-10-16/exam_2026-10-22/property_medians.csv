@@ -1,0 +1,7 @@
+set,n,median_logp,median_mw,median_hac,median_hbd,median_hba,median_charge
+actives_206_complete,206,3.0034,401.7205,28.0,4.0,5.0,0.0
+dude_decoys_complete,2978,1.9118,384.943,27.0,3.0,4.0,1.0
+same_chemotype_covered_actives,40,2.5002,318.395,23.0,3.0,4.0,0.0
+same_chemotype_negatives,138,2.4625,307.412,21.5,3.0,4.0,0.0
+dude_matched_actives,141,3.0734,426.554,30.0,4.0,5.0,0.0
+dude_matched_decoys,561,3.1567,446.459,31.0,3.0,5.0,0.0
