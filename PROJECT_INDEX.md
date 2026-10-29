@@ -16,7 +16,7 @@ Scoring the manual three-contact orciprenaline pose, without a new search, gives
 
 ## Start Here
 
-- `README.md` — project overview, methods, results, and reproduction commands.
+- `README.md` — current conclusion, decision record, earlier unmatched archive, and reproduction commands.
 - `notebooks/beta2ar_ensemble_screening_analysis.ipynb` — analysis notebook for the completed screen.
 - `docs/final_run_summary.md` — concise final run summary and result counts.
 - `docs/method_notes.md` — method rationale and interpretation notes.

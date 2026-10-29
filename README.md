@@ -1,296 +1,106 @@
-# β2-AR Supervised EnOpt Virtual Screening
+# β2-AR ensemble docking screen
 
-This repository contains a reproducible computational screening workflow for the β2-adrenergic receptor (β2-AR, ADRB2). The workflow has two stages:
+Reproducible AutoDock Vina screen of the β2-adrenergic receptor across five crystal conformations, with a pre-specified test of whether a learned combination of those five scores beats a simple average once molecular properties are controlled.
 
-1. **Ensemble docking** — each compound is docked against five active and inactive β2-AR conformations, producing a per-conformation docking-score spectrum.
-2. **Supervised EnOpt** — an XGBoost model is trained on the docking scores of known β2-AR actives to learn how to combine the score spectrum into a single ranking that prioritizes true binders.
+**Current conclusion.** After Crippen logP is controlled, the five-score XGBoost ranker does not stably beat a descriptor model that sees only molecular weight, logP, and heavy-atom count. Reported docking scores use the oriented five-conformation mean (more negative Vina score ranks first). That mean is a reporting choice: ranking each conformation alone shows that one structure (4LDE) already matches or beats the mean on the unmatched labeled set. This repository is a computational priority ranking and a method boundary. It is not an activity list and not a purchase list.
 
-The approach follows the EnOpt (Ensemble Optimizer) concept of Bhatt, Wang & Durrant, *Sci Rep* 14:20722 (2024), doi:10.1038/s41598-024-71699-3: ranking ensemble-docking scores is system-specific and can be improved by a dataset-specific machine-learning model.
+Full dated checks live under [`followup_2026-10-16`](followup_2026-10-16/README.md). File map: [`PROJECT_INDEX.md`](PROJECT_INDEX.md).
 
-## Update, 16 October 2026
+## What was docked
 
-The learned ranker stays unused. On the unmatched 206-active / 2,978-decoy set, a descriptor model that sees only molecular weight, Crippen logP, and heavy-atom count outranks the five-score model. After the logP window was frozen and the set was cut to 48 actives and 379 decoys, the five-score model beat that descriptor model on top-1% enrichment for 2 of 10 seeds. Tables, scripts, and the decision record are in [`followup_2026-10-16`](followup_2026-10-16/README.md).
+| Item | Count |
+|---|---:|
+| Input ChEMBL ligands | 30,000 |
+| Prepared ligands | 29,865 |
+| Receptor conformations | 5 |
+| Completed docking rows | 149,325 |
 
-The Stage 3 and Stage 4 tables below are the earlier unmatched comparisons. The per-heavy-atom AUROC 0.751 and top-1% enrichment 7.3× are not a docking-feature gain over molecular properties. Where a docking score is required, use the oriented five-conformation mean.
+Receptors (inactive and active):
 
-## Update, 22 October 2026
+| conformation_id | PDB |
+|---|---|
+| `inactive_carazolol_2RH1` | 2RH1 |
+| `inactive_carazolol_5D5A` | 5D5A |
+| `active_gs_complex_3SN6` | 3SN6 |
+| `active_bi167107_4LDE` | 4LDE |
+| `active_hbi_4LDL` | 4LDL |
 
-The matched, scaffold-held-out exam did not pass. Inside the frozen property calipers, the same-chemotype pool is 40 actives and 138 library negatives, and the DUD-E rematch is 141 actives and 561 decoys. The top 1% contains one and seven molecules. The pre-registered minimum is ten. Stored AUROC values were not allowed to change that result, and on both pools the five-score model remains behind the descriptor baseline and behind 4LDE. The learned ranker stays unused. Representation docking was not started. Tables and the decision record are in [`followup_2026-10-16/exam_2026-10-22`](followup_2026-10-16/exam_2026-10-22/exam_decision.json).
+Engine: AutoDock Vina 1.2, exhaustiveness 4 for the main library. Labels for the hard test: 206 literature actives and 2,978 DUD-E decoys. Score matrix: [`results/tables/docking_scores.csv`](results/tables/docking_scores.csv).
 
-## Update, 26 October 2026
+The workflow follows the EnOpt idea of Bhatt, Wang & Durrant (*Sci Rep* 14:20722, 2024): how to combine a ligand’s per-conformation scores is system-specific. This repository tests that claim on β2-AR and records where it fails the pre-specified gate.
 
-The ChEMBL ranks 25,527 and 26,697 used neutral amines, so they did not separate logP collinearity from that input. GPR-53 keeps the same five receptors, original boxes, and exhaustiveness 4, protonates basic aliphatic amines at pH 7.4, and docks 14,586 such molecules. CHEMBL776 ranks 14,360 and CHEMBL434 ranks 14,362 of 14,586 on the oriented five-conformation mean. Both means are −7.28 kcal/mol. The mean still follows Crippen logP (Spearman 0.445). Correcting the neutral-amine input does not move these two phenylethanolamines forward. No model was trained. The record is [`followup_2026-10-16`](followup_2026-10-16/README.md).
+## Decision record
 
-## Update, 29 October 2026
+Hyperparameters and the pass rule were fixed before the logP-controlled fit: XGBoost with 15 trees, learning rate 0.3, max depth 6; ten seeds (42–51); three-fold stratified out-of-fold prediction. The descriptor control used only molecular weight, Crippen logP, and heavy-atom count.
 
-Each of the five conformations was ranked alone on the same 206 actives and 2,978 decoys, and again inside the frozen logP window (48 actives, 379 decoys). No model was fit. On the larger set, 4LDE alone reaches AUROC 0.725 and top-1% enrichment 2.43×, against 0.719 and 1.94× for the oriented five-conformation mean. Inside the logP window the top 1% is four molecules; 3SN6 and 4LDL each meet or beat that mean, whose own top-1% enrichment is 0. The five-conformation mean remains the reported score. It is not evidence that every conformation is required. The table is [`followup_2026-10-16/conformation_2026-10-29`](followup_2026-10-16/conformation_2026-10-29/conformation_contribution.csv).
+1. **Unmatched set (206 actives / 2,978 decoys).** Score-only AUROC 0.676–0.715 and top-1% enrichment 2.4–5.3× across seeds. Oriented five-conformation mean: AUROC 0.719, top-1% enrichment 1.9×. Descriptor-only model: AUROC 0.773–0.819, top-1% enrichment 5.3–9.7×. Active and decoy median logP are 3.00 and 1.91; the oriented mean correlates with logP (Spearman 0.37).
 
-## Project Overview
+2. **Frozen logP window.** Intersection of the two Crippen logP IQRs (2.40–2.97) leaves 48 actives and 379 decoys. Inside that window the score-only top-1% enrichment beats the descriptor model on 2 of 10 seeds. The top 1% has four molecules. The gate does not pass. The learned ranker stays unused.
 
-Classical high-throughput virtual screening often docks each ligand against a single receptor structure. For GPCR targets, this can be limiting because transmembrane helix rearrangements, especially around TM6 activation-associated motion, change the binding pocket geometry. This project therefore uses an ensemble of inactive and active β2-AR conformations, then combines docking results into a single ranking matrix.
+3. **Matched exam (22 October 2026).** Same-scaffold library negatives: 40 actives / 138 negatives (top 1% = 1 molecule). Property-matched DUD-E rematch: 141 / 561 (top 1% = 7). Pre-registered minimum is 10 molecules in the top 1%. Representation docking was not started. Record: [`exam_2026-10-22`](followup_2026-10-16/exam_2026-10-22/exam_decision.json).
 
-Raw score-averaging appears worse than random for this screen (AUROC 0.41–0.47) only when the score sign is ignored — docking scores are *more negative = better*. Once baselines are oriented correctly, plain 5-pocket averaging reaches AUROC 0.719 on the unmatched 206-active / 2,978-decoy set. On that set, 4LDE alone is at least as high on both AUROC and top-1% enrichment. The learned ranker stays unused. The Stage 3 and Stage 4 tables below are the earlier unmatched comparisons.
+4. **One conformation at a time (29 October 2026).** No model was fit. On 206 / 2,978, 4LDE alone reaches AUROC 0.725 and top-1% enrichment 2.43×, against 0.719 and 1.94× for the oriented mean. Inside the logP window, 3SN6 and 4LDL each meet or beat the mean. Table: [`conformation_2026-10-29`](followup_2026-10-16/conformation_2026-10-29/conformation_contribution.csv).
 
-## Stage 1: Ensemble Docking
+5. **Protonated amines (pH 7.4).** Same five receptors and boxes; 14,586 basic aliphatic amines. CHEMBL776 ranks 14,360 and CHEMBL434 ranks 14,362. Unrounded means −7.2834 and −7.2802 kcal/mol (both −7.28 to two decimals). Spearman with logP is 0.445. Protonation does not move these two phenylethanolamines forward. Table: [`gpr53_2026-10-26/amine_five_scores.csv`](followup_2026-10-16/gpr53_2026-10-26/amine_five_scores.csv). On the earlier neutral-amine ChEMBL library the oriented-mean ranks were 25,527 and 26,697 of 29,865.
 
-### Dataset Summary
+6. **Flexible Ser203 / Ser207 on 3SN6.** Nine Vina modes; energy is not the pass rule. Neither CHEMBL434 nor CHEMBL776 places both phenolic hydrogens on the two serines in one pose. Record: [`flex_ser203_207_2026-10-26`](followup_2026-10-16/flex_ser203_207_2026-10-26/flex_decision.json).
 
-- Ligand source: ChEMBL37 subset generated for β2-AR screening
-- Input ligand records: 30,000
-- Prepared ligand structures: 29,865
-- Receptor conformations: 5
-- Completed docking score rows: 149,325
+7. **Manual pose and crystal geometry.** The accepted three-contact orciprenaline pose scores −4.376 kcal/mol by Vina `score_only` on the screen receptor. Best-energy flex modes of the same two drugs score −6.702 and −7.109. Deposited 2Y03 isoprenaline has the three hydrogen bonds and misses the frozen 2.6 Å heavy-contact line by 0.032 Å at the benzylic oxygen. Record: [`verify_2026-10-26`](followup_2026-10-16/verify_2026-10-26/).
 
-Ligand preparation status:
+8. **2Y03 membrane MD.** Three 50 ns replicates from deposited isoprenaline (turkey β1-AR). A rule written before production called a contact persistent at occupancy ≥ 0.20 in at least two replicates. The amine–aspartate hydrogen bond and both phenolic hydrogen bonds meet that rule (one phenolic contact is essentially absent in the third replicate). Bridging waters do not. This is not an affinity and does not compare CHEMBL776 with CHEMBL434. Trajectories stay outside git. Record: [`y03_md_2026-10-26`](followup_2026-10-16/y03_md_2026-10-26/).
 
-- `ready`: 29,865
-- `pdbqt_failed`: 109
-- `embed_failed`: 20
-- `prep_timeout`: 6
+## Earlier unmatched record (Stage 3–5)
 
-### Receptor Ensemble
+These numbers are the archive from before the logP window. They are not the decision above.
 
-The receptor set includes inactive and active-state β2-AR structures so that the screen is not tied to a single rigid receptor geometry.
+| Comparison (206 actives / 2,978 decoys, OOF) | AUROC | Top-1% EF |
+|---|---:|---:|
+| Five-score model (raw) | 0.696 | 3.88× |
+| Oriented five-conformation mean | 0.719 | 1.94× |
+| Raw + per-heavy-atom features | 0.751 | 7.28× |
 
-| conformation_id         |   weight |
-|:------------------------|---------:|
-| active_bi167107_4LDE    |   0.198  |
-| active_gs_complex_3SN6  |   0.1943 |
-| active_hbi_4LDL         |   0.2018 |
-| inactive_carazolol_2RH1 |   0.2031 |
-| inactive_carazolol_5D5A |   0.2028 |
+On that unmatched set the five-score model and the oriented mean have overlapping AUROC confidence intervals. Top-1% enrichment looked higher for the model before property control. Appending per-heavy-atom scores moves the unmatched AUROC to 0.751; that move is not treated as a docking-feature gain over molecular weight, logP, and heavy-atom count. Re-docking the validation set at exhaustiveness 8 leaves those unmatched intervals overlapping. Details: `docs/decoy_validation_notes.md`, `docs/stage4_retrospective_and_heavy_atom_notes.md`, `docs/ex8_revalidation_note.md`.
 
-### Stage-1 Methods
-
-1. **Ligand library construction**: A 30,000-compound ChEMBL37 ligand table was prepared with compound identifiers and SMILES strings.
-2. **Protein structure preparation**: Five β2-AR crystal structures were selected to represent active and inactive conformational states.
-3. **Ligand preparation**: Ligands were desalted, embedded into 3D conformers, minimized, and converted into docking-ready PDBQT files.
-4. **Batch docking**: AutoDock Vina was used to dock each prepared ligand against each receptor conformation.
-5. **Score matrix construction**: Docking scores were reshaped into a ligand-by-conformation matrix.
-6. **Stage-1 baseline ranking**: Conformation weights estimated from the score ensemble were used to calculate weighted consensus scores (baseline only; superseded by the supervised model).
-
-### Key Results (Stage 1)
-
-Top-ranked compounds from the stage-1 ensemble weighted score:
-
-|   rank | ligand_id     |   weighted_score |   best_score |   mean_score |   score_sd |   n_conf |
-|-------:|:--------------|-----------------:|-------------:|-------------:|-----------:|---------:|
-|      1 | CHEMBL3311247 |          -13.164 |       -14.48 |      -13.146 |      1.249 |        5 |
-|      2 | CHEMBL16965   |          -12.896 |       -13.35 |      -12.888 |      0.553 |        5 |
-|      3 | CHEMBL36113   |          -12.787 |       -13.71 |      -12.772 |      1.06  |        5 |
-|      4 | CHEMBL4436402 |          -12.754 |       -13.65 |      -12.738 |      1.065 |        5 |
-|      5 | CHEMBL33607   |          -12.721 |       -13.48 |      -12.706 |      1.007 |        5 |
-|      6 | CHEMBL12018   |          -12.641 |       -13.91 |      -12.628 |      1.023 |        5 |
-|      7 | CHEMBL12143   |          -12.63  |       -13.25 |      -12.62  |      0.687 |        5 |
-|      8 | CHEMBL26449   |          -12.616 |       -13.43 |      -12.604 |      0.951 |        5 |
-|      9 | CHEMBL11778   |          -12.571 |       -13.33 |      -12.558 |      1.055 |        5 |
-|     10 | CHEMBL21788   |          -12.564 |       -13.67 |      -12.55  |      1.013 |        5 |
-
-## Stage 2: Supervised EnOpt
-
-The EnOpt paper (Bhatt et al., 2024) shows that mapping each compound's docking-score spectrum to a single value is system-specific and best learned from data. The β2-AR-specific model was trained as follows:
-
-- **Positives**: 48 known β2-AR actives from ChEMBL (Ki/IC50/EC50 ≤ 1 µM, confidence score ≥ 8)
-- **Negatives (default assumption)**: the remaining 29,817 library molecules
-- **Features**: the five per-conformation docking scores
-- **Model**: XGBoost, 3-fold stratified cross-validation, out-of-fold predictions (no molecule is scored by a model trained on it)
-- **External negative control (prepared)**: 3,000 DUD-E decoys, docking workflow in `configs/decoy_screen.yml`
-
-### Results
-
-| method                    | OOF AUROC | EF 1% | EF 5% |
-|:--------------------------|----------:|------:|------:|
-| EnOpt (supervised OOF)    | **0.6647** | 4.17  | 2.50  |
-| ensemble mean (baseline)  | 0.4133    | 0.00  | 0.00  |
-| ensemble best (baseline)  | 0.4667    | 0.00  | 0.00  |
-
-*Baseline rows use raw scores without sign correction. Correctly oriented baselines are compared in [Stage 3](#stage-3-dud-e-decoy-validation).*
-
-- Known actives' median rank improved from the top 39% to the top 22.6% of the library.
-- Learned conformation importances: `active_bi167107_4LDE` 0.26, `active_gs_complex_3SN6` 0.21, `inactive_carazolol_2RH1` 0.20, `active_hbi_4LDL` 0.18, `inactive_carazolol_5D5A` 0.16.
-- Deliverables: `results/supervised_enopt/` — trained model, model card, metrics, re-ranked leaderboard, and a visual report card.
-
-## Stage 3: DUD-E Decoy Validation
-
-The Stage-2 numbers were produced with two known weaknesses: negatives were
-"assumed-inactive" library molecules (no experimental basis), and only 48
-positives were available. Stage 3 fixes both.
-
-**What was done**
-
-- Docked **2,978 unique DUD-E decoys** (property-matched non-binders generated
-  from the β2-AR actives) against the same five conformations
-  (15,000 docking runs; `results/tables/docking_scores_decoy_set.csv`).
-- Added **158 newly docked ChEMBL literature actives** (pChEMBL ≥ 6, MW kept
-  inside the decoy window so the decoys stay a fair, hard negative set),
-  expanding positives from 48 to **206** (`data/training/beta2ar_actives_expand_docked.csv`).
-- Retrained and re-validated with 3-fold out-of-fold cross-validation
-  (`scripts/07_train_validated_enopt.py`).
-
-**Clean-label hard test — 206 actives vs 2,978 matched decoys (OOF)**
-
-| method                    | AUROC | 95% CI       | EF 1% | EF 5% |
-|:--------------------------|------:|:-------------|------:|------:|
-| EnOpt (supervised OOF)    | 0.696 | 0.655–0.737  | 3.88  | 2.72  |
-| ensemble mean (oriented)  | 0.719 | 0.679–0.760  | 1.94  | 3.30  |
-| ensemble best (oriented)  | 0.707 | 0.666–0.748  | 0.97  | 3.01  |
-
-**Screening-like accounting — library + decoys + new actives (OOF)**
-
-| method                    | AUROC | 95% CI       | EF 1% | EF 5% |
-|:--------------------------|------:|:-------------|------:|:------|
-| EnOpt (supervised OOF)    | 0.718 | 0.678–0.758  | 4.37  | 2.72  |
-| ensemble mean (oriented)  | 0.671 | 0.631–0.712  | 0.97  | 2.33  |
-| ensemble best (oriented)  | 0.636 | 0.595–0.677  | 0.49  | 0.97  |
-
-**Honest reading**
-
-- With 206 positives the AUROC estimate is tight (95% CI ± ~0.02): the
-  five-pocket docking scores carry real, reproducible signal against
-  property-matched decoys (AUROC ≈ 0.70, clearly above random).
-- The earlier 0.61 (48 positives) was a small-sample artefact; the earlier
-  0.6647 was partly inflated by easy, non-matched negatives (large library
-  molecules) and by an unoriented baseline comparison.
-- On the matched-decoy hard test, the trained model is **statistically tied
-  with a correctly oriented simple 5-pocket average** (CIs overlap). Its
-  demonstrable value is **top-of-list enrichment** (top-1% EF 3.9 vs 1.9)
-  and the **full-library accounting**, where EnOpt clearly beats averaging
-  (0.718 vs 0.671).
-- Deliverables: `results/supervised_enopt_decoy/` — model, model card,
-  metrics, decoy-validated re-ranked leaderboard, and comparison figure.
-  Full write-up: `docs/decoy_validation_notes.md`.
-
-## Stage 4: Per-Heavy-Atom Features and Top-200 Review
-
-Stage-3 follow-ups addressed two weaknesses: a molecular-size artefact in the
-leaderboard, and the absence of a real-world check on the top-200.
-
-**Per-heavy-atom feature experiment**
-(`results/feature_experiment_heavy_atom/`,
-script `scripts/10_feature_heavy_atom_experiment.py`)
-
-| feature set (clean-label hard test) | AUROC | 95% CI       | EF 1% | EF 5% |
-|:------------------------------------|------:|:-------------|------:|------:|
-| raw only (5)                        | 0.696 | 0.655-0.737  | 3.88  | 2.72  |
-| **raw + per-heavy-atom (10)**       | **0.751** | **0.712-0.791** | **7.28** | **4.76** |
-| ensemble mean, raw (reference)      | 0.719 | 0.679-0.760  | 1.94  | 3.30  |
-
-- On the earlier unmatched comparison, appending size-normalized
-  (per-heavy-atom) scores to the five raw scores moves AUROC from 0.696 to
-  0.751 and top-1% enrichment from 3.88× to 7.28×. The 16 October 2026
-  update does not treat that move as a docking-feature gain over molecular
-  properties. The top-200 median molecular weight in that table drops from
-  393 to 358.
-- The raw+ha leaderboard
-  (`results/feature_experiment_heavy_atom/library_ranking_heavy_atom_model.csv`)
-  was the Stage-4 shortlist. The 16 October 2026 follow-up does not use it as a purchase list; see `followup_2026-10-16`.
-
-**Top-200 chemical review** (`results/review_top200_ha/`, raw+ha leaderboard)
-
-- Only 50 of the 29,865 library molecules have ChEMBL-documented beta-2
-  activity (48 are the training actives), so a ChEMBL hit-rate test has no
-  statistical power here. The top-200 is instead reviewed chemically: 170
-  unique Bemis-Murcko scaffolds / 167 Butina clusters, 192/200 novel vs the
-  training actives (max-Tanimoto < 0.4), 75 PAINS/Brenk-flagged (hand-review,
-  not auto-discard).
-- Documented failure case: CHEMBL776 (orciprenaline, classic agonist, Kd ~ 500
-  nM) ranks 27,659/29,865; small flexible phenylethanolamines score with high
-  variance across conformations. Full details:
-  `docs/stage4_retrospective_and_heavy_atom_notes.md`.
-
-## Stage 5: Exhaustiveness-8 Re-Docking Validation
-
-Tests whether the ex4 results were limited by docking sampling quality: the
-Stage-3 validation set (206 actives + 2,978 DUD-E decoys x 5 pockets = 15,920
-docks) and the 201-ligand shortlist (raw+ha top-200 + CHEMBL776) were re-docked
-at exhaustiveness 8 (AutoDock Vina 1.2.5, num_modes 20, seed-fixed).
-
-**Validation-set discrimination (3-fold OOF XGBoost)**
-
-| feature set       | ex4 (reference)  | ex8                | interpretation |
-|:------------------|-----------------:|-------------------:|:---------------|
-| raw (5)           | 0.696 (0.655-0.737) | 0.654 (0.612-0.695) | CIs overlap -> no change |
-| raw + per-ha (10) | 0.751 (0.712-0.791) | 0.733 (0.692-0.772) | CIs overlap -> no change |
-
-- Higher sampling quality neither rescued nor degraded discrimination: the ex4
-  conclusions are not an exhaustiveness artefact, and more sampling is not the
-  path to higher AUROC.
-
-**Leaderboard robustness (ex4 vs ex8, 201 ligands)**
-
-- Spearman r = 0.87-0.91 across best / best-per-ha / mean rankings; 89/100 of
-  the ex4 top-100 remain in the ex8 top-100 (best-score ranking); median score
-  shift 0.00 kcal/mol, 3/201 ligands move > 1 kcal/mol.
-- CHEMBL776 remains rank 201/201 at ex8: a systematic rigid-receptor
-  under-scoring problem, motivating interaction-fingerprint and
-  flexible-sidechain features rather than more sampling.
-- Deliverables: `results/ex8_validation/`, `results/ex8_rerank/`; full
-  write-up: `docs/ex8_revalidation_note.md`; rerun runners in
-  `revalidation_ex8/`.
-## Repository Structure
+## Repository layout
 
 ```text
-configs/                    Workflow configuration (screen + decoy screen)
-data/training/              Known actives and DUD-E decoys for training/validation
-scripts/                    Preparation, docking, analysis, and training scripts
-notebooks/                  Analysis notebook for result review
-docs/                       Method notes and final run summary
-results/tables/             Docking scores, score matrix, weights, and top hits
-results/supervised_enopt/   Stage-2 trained model, metrics, ranking, and report card
-results/supervised_enopt_decoy/  Stage-3 decoy-validated model, metrics, and leaderboard
-results/figures/            Publication-style result figures
-examples/top_hit_poses/     Representative top-hit docking outputs
-results/retrospective_top200/    Stage-4 ChEMBL ground-truth cross-check
-results/review_top200/           Stage-4 chemical review (Stage-3 top-200)
-results/feature_experiment_heavy_atom/  Stage-4 raw+per-ha model + leaderboard
-results/review_top200_ha/        Stage-4 chemical review (raw+ha top-200)
-results/ex8_validation/          Stage-5 ex8 re-docking scores + eval report
-results/ex8_rerank/              Stage-5 ex4-vs-ex8 leaderboard robustness
-revalidation_ex8/                Stage-5 ex8 re-docking rerun scripts
+configs/                 Screen and decoy docking parameters
+data/training/           Actives, expanded actives, DUD-E decoys
+scripts/                 Preparation, docking, training, Stage 4–5 analyses
+results/tables/          Docking scores and ensemble matrices
+results/supervised_enopt*/  Archived Stage-2/3 models and leaderboards
+results/feature_experiment_heavy_atom/  Archived Stage-4 raw+ha table
+followup_2026-10-16/     Pre-specified checks after Stage 3–4 (decision record)
+docs/                    Method notes and Stage write-ups
 ```
 
-## Reproducing the Workflow
-
-Create the environment and run a smoke test:
+## Reproduce
 
 ```bash
 bash scripts/00_setup_env.sh
 bash scripts/run_smoke_test.sh
-```
-
-Run the full workflow:
-
-```bash
 bash scripts/run_pipeline.sh
 ```
 
-Train the supervised EnOpt model (after docking):
-
-```bash
-python scripts/06_train_supervised_enopt.py
-```
-
-Run the DUD-E-decoy-validated model (Stage 3, after docking):
+Archived Stage-3/4/5 scripts (they do not change the October decision):
 
 ```bash
 python scripts/07_train_validated_enopt.py
-```
-
-Rerun the Stage-4/5 analyses (after docking):
-
-```bash
 python scripts/10_feature_heavy_atom_experiment.py
 python scripts/11_ex4_ex8_rerank.py
 ```
 
-The full run is CPU-intensive because it performs docking across 30,000 ligands and five receptor conformations. The supplied results were generated with parallel CPU docking.
+Per-conformation ranking on the stored matrix (no training):
 
-## Notes and Limitations
+```bash
+python followup_2026-10-16/conformation_2026-10-29/conformation_contribution.py
+```
 
-- Docking scores are computational prioritization signals, not experimental binding affinities.
-- The Stage-2 (06) model labelled uncharacterized library molecules as negatives by assumption. Stage 3 replaced the negative set with 2,978 real DUD-E decoys and expanded positives to 206 (see `docs/decoy_validation_notes.md`).
-- A reported rank is a computational priority. It is not a purchase list and not confirmed biological activity.
-- On the unmatched 206/2,978 set the five-score model reaches AUROC 0.676–0.715. After the logP window was frozen (48 actives, 379 decoys) it beat the descriptor model on top-1% enrichment for 2 of 10 seeds. The learned ranker stays unused. Where a docking score is reported, use the oriented five-conformation mean.
-- The per-heavy-atom AUROC 0.751 and top-1% enrichment 7.3× are the earlier unmatched record. They are not a docking-feature gain over molecular weight, Crippen logP, and heavy-atom count. The raw-plus-heavy-atom table is not a candidate list and not a purchase list.
-- Re-docking at exhaustiveness 8 (Stage 5) leaves these conclusions unchanged (CIs overlap): the remaining bottleneck is receptor/pose modelling (rigid receptor, no interaction fingerprints), not docking sampling quality.
-- Additional validation such as redocking controls, molecular dynamics, or experimental assays would be required before biological claims.
+## Limits
+
+- Docking scores are computational priorities, not measured affinities.
+- The learned ranker stays unused. Where a docking score is reported, use the oriented five-conformation mean.
+- The five-conformation mean is not evidence that every conformation is required.
+- Archived top-200 and raw+ha tables are not purchase lists.
+- Supplier catalog structures and MD trajectories are outside this repository.
+- Without a property / PAINS / purchasability filter before docking, and a small prospective assay of rule-passing molecules with property-matched negatives, this repository supports a method boundary, not an activity claim.
