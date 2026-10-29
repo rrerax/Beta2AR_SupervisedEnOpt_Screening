@@ -1,0 +1,11 @@
+{
+  "benchmark_ns_per_day": 69.13116938467728,
+  "benchmark_seconds_for_5000_steps": 24.99596080003539,
+  "production_ns": 50.0,
+  "timestep_ps": 0.004,
+  "seeds": [
+    20261026,
+    20261027,
+    20261028
+  ]
+}
