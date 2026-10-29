@@ -1,0 +1,426 @@
+{
+  "manual_score_only": -4.376,
+  "deposited_og_max_A": 3.532,
+  "gasteiger_coulomb_within_8A": {
+    "vina_receptor_charges": 0,
+    "formula": "332*qi*qj/r for pairs inside 8 A, charges assigned after scoring",
+    "largest_terms": "oxygen-oxygen repulsion, including the phenolic oxygen and serine OG",
+    "manual_three_contact": 28.6,
+    "CHEMBL776_best_energy": -9.4,
+    "CHEMBL434_best_energy": -33.1
+  },
+  "ligands": {
+    "CHEMBL434": {
+      "best_energy_model": 1,
+      "search_affinity": -7.054,
+      "score_only": -7.109,
+      "reaches_deposited_og_in_any_mode": true,
+      "closest_pair_by_model": [
+        {
+          "model": 1,
+          "search_affinity": -7.054,
+          "pair": {
+            "sum": 6.096,
+            "ser203": 3.222,
+            "ser207": 2.874,
+            "atom203": "O",
+            "atom207": "O",
+            "h203": {
+              "passes": true,
+              "distance": 2.299,
+              "angle": 158.3
+            },
+            "h207": {
+              "passes": false,
+              "distance": 3.29,
+              "angle": 56.8
+            }
+          },
+          "amine_passes": false
+        },
+        {
+          "model": 2,
+          "search_affinity": -6.99,
+          "pair": {
+            "sum": 5.951,
+            "ser203": 2.942,
+            "ser207": 3.009,
+            "atom203": "O",
+            "atom207": "O",
+            "h203": {
+              "passes": false,
+              "distance": 3.169,
+              "angle": 67.8
+            },
+            "h207": {
+              "passes": false,
+              "distance": 2.44,
+              "angle": 117.0
+            }
+          },
+          "amine_passes": false
+        },
+        {
+          "model": 3,
+          "search_affinity": -6.525,
+          "pair": {
+            "sum": 10.736,
+            "ser203": 4.948,
+            "ser207": 5.787,
+            "atom203": "O",
+            "atom207": "O",
+            "h203": {
+              "passes": false,
+              "distance": 5.305,
+              "angle": 63.5
+            },
+            "h207": {
+              "passes": false,
+              "distance": 5.289,
+              "angle": 116.2
+            }
+          },
+          "amine_passes": false
+        },
+        {
+          "model": 4,
+          "search_affinity": -6.283,
+          "pair": {
+            "sum": 33.966,
+            "ser203": 17.459,
+            "ser207": 16.507,
+            "atom203": "O",
+            "atom207": "O",
+            "h203": {
+              "passes": false,
+              "distance": 17.814,
+              "angle": 67.2
+            },
+            "h207": {
+              "passes": false,
+              "distance": 16.938,
+              "angle": 62.2
+            }
+          },
+          "amine_passes": true
+        },
+        {
+          "model": 5,
+          "search_affinity": -6.176,
+          "pair": {
+            "sum": 32.926,
+            "ser203": 16.384,
+            "ser207": 16.542,
+            "atom203": "O",
+            "atom207": "O",
+            "h203": {
+              "passes": false,
+              "distance": 16.054,
+              "angle": 108.2
+            },
+            "h207": {
+              "passes": false,
+              "distance": 16.947,
+              "angle": 64.1
+            }
+          },
+          "amine_passes": false
+        },
+        {
+          "model": 6,
+          "search_affinity": -5.777,
+          "pair": {
+            "sum": 17.018,
+            "ser203": 8.491,
+            "ser207": 8.527,
+            "atom203": "O",
+            "atom207": "O",
+            "h203": {
+              "passes": false,
+              "distance": 9.032,
+              "angle": 53.6
+            },
+            "h207": {
+              "passes": false,
+              "distance": 8.699,
+              "angle": 76.7
+            }
+          },
+          "amine_passes": false
+        },
+        {
+          "model": 7,
+          "search_affinity": -5.758,
+          "pair": {
+            "sum": 32.996,
+            "ser203": 15.302,
+            "ser207": 17.694,
+            "atom203": "O",
+            "atom207": "O",
+            "h203": {
+              "passes": false,
+              "distance": 16.122,
+              "angle": 32.1
+            },
+            "h207": {
+              "passes": false,
+              "distance": 18.187,
+              "angle": 58.2
+            }
+          },
+          "amine_passes": false
+        },
+        {
+          "model": 8,
+          "search_affinity": -5.717,
+          "pair": {
+            "sum": 28.935,
+            "ser203": 13.888,
+            "ser207": 15.047,
+            "atom203": "O",
+            "atom207": "O",
+            "h203": {
+              "passes": false,
+              "distance": 13.236,
+              "angle": 130.2
+            },
+            "h207": {
+              "passes": false,
+              "distance": 14.46,
+              "angle": 125.6
+            }
+          },
+          "amine_passes": false
+        },
+        {
+          "model": 9,
+          "search_affinity": -5.634,
+          "pair": {
+            "sum": 32.348,
+            "ser203": 14.045,
+            "ser207": 18.303,
+            "atom203": "O",
+            "atom207": "O",
+            "h203": {
+              "passes": false,
+              "distance": 14.803,
+              "angle": 37.6
+            },
+            "h207": {
+              "passes": false,
+              "distance": 18.649,
+              "angle": 67.9
+            }
+          },
+          "amine_passes": true
+        }
+      ]
+    },
+    "CHEMBL776": {
+      "best_energy_model": 1,
+      "search_affinity": -6.677,
+      "score_only": -6.702,
+      "reaches_deposited_og_in_any_mode": true,
+      "closest_pair_by_model": [
+        {
+          "model": 1,
+          "search_affinity": -6.677,
+          "pair": {
+            "sum": 5.822,
+            "ser203": 3.069,
+            "ser207": 2.753,
+            "atom203": "O",
+            "atom207": "O",
+            "h203": {
+              "passes": false,
+              "distance": 3.675,
+              "angle": 45.4
+            },
+            "h207": {
+              "passes": false,
+              "distance": 3.179,
+              "angle": 55.8
+            }
+          },
+          "amine_passes": true
+        },
+        {
+          "model": 2,
+          "search_affinity": -6.666,
+          "pair": {
+            "sum": 5.93,
+            "ser203": 3.075,
+            "ser207": 2.855,
+            "atom203": "O",
+            "atom207": "O",
+            "h203": {
+              "passes": false,
+              "distance": 3.246,
+              "angle": 71.3
+            },
+            "h207": {
+              "passes": false,
+              "distance": 3.484,
+              "angle": 43.4
+            }
+          },
+          "amine_passes": true
+        },
+        {
+          "model": 3,
+          "search_affinity": -6.391,
+          "pair": {
+            "sum": 6.127,
+            "ser203": 3.093,
+            "ser207": 3.034,
+            "atom203": "O",
+            "atom207": "O",
+            "h203": {
+              "passes": false,
+              "distance": 3.141,
+              "angle": 78.2
+            },
+            "h207": {
+              "passes": true,
+              "distance": 2.129,
+              "angle": 154.6
+            }
+          },
+          "amine_passes": false
+        },
+        {
+          "model": 4,
+          "search_affinity": -6.139,
+          "pair": {
+            "sum": 17.93,
+            "ser203": 8.805,
+            "ser207": 9.125,
+            "atom203": "O",
+            "atom207": "O",
+            "h203": {
+              "passes": false,
+              "distance": 9.074,
+              "angle": 71.0
+            },
+            "h207": {
+              "passes": false,
+              "distance": 9.043,
+              "angle": 91.7
+            }
+          },
+          "amine_passes": false
+        },
+        {
+          "model": 5,
+          "search_affinity": -6.075,
+          "pair": {
+            "sum": 13.159,
+            "ser203": 5.705,
+            "ser207": 7.454,
+            "atom203": "O",
+            "atom207": "O",
+            "h203": {
+              "passes": false,
+              "distance": 5.999,
+              "angle": 67.9
+            },
+            "h207": {
+              "passes": false,
+              "distance": 7.636,
+              "angle": 75.7
+            }
+          },
+          "amine_passes": false
+        },
+        {
+          "model": 6,
+          "search_affinity": -5.997,
+          "pair": {
+            "sum": 33.559,
+            "ser203": 17.501,
+            "ser207": 16.058,
+            "atom203": "O",
+            "atom207": "O",
+            "h203": {
+              "passes": false,
+              "distance": 17.263,
+              "angle": 102.6
+            },
+            "h207": {
+              "passes": false,
+              "distance": 16.922,
+              "angle": 26.4
+            }
+          },
+          "amine_passes": true
+        },
+        {
+          "model": 7,
+          "search_affinity": -5.771,
+          "pair": {
+            "sum": 33.458,
+            "ser203": 17.39,
+            "ser207": 16.068,
+            "atom203": "O",
+            "atom207": "O",
+            "h203": {
+              "passes": false,
+              "distance": 17.712,
+              "angle": 69.2
+            },
+            "h207": {
+              "passes": false,
+              "distance": 15.888,
+              "angle": 98.9
+            }
+          },
+          "amine_passes": false
+        },
+        {
+          "model": 8,
+          "search_affinity": -5.705,
+          "pair": {
+            "sum": 8.147,
+            "ser203": 3.095,
+            "ser207": 5.053,
+            "atom203": "O",
+            "atom207": "O",
+            "h203": {
+              "passes": false,
+              "distance": 3.811,
+              "angle": 37.3
+            },
+            "h207": {
+              "passes": false,
+              "distance": 4.09,
+              "angle": 169.8
+            }
+          },
+          "amine_passes": true
+        },
+        {
+          "model": 9,
+          "search_affinity": -5.591,
+          "pair": {
+            "sum": 11.549,
+            "ser203": 3.713,
+            "ser207": 7.835,
+            "atom203": "O",
+            "atom207": "O",
+            "h203": {
+              "passes": false,
+              "distance": 3.919,
+              "angle": 70.7
+            },
+            "h207": {
+              "passes": false,
+              "distance": 7.198,
+              "angle": 128.0
+            }
+          },
+          "amine_passes": false
+        }
+      ]
+    }
+  }
+}

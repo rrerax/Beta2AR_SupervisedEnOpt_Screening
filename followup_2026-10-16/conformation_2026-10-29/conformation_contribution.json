@@ -1,0 +1,65 @@
+{
+  "question": "Do all five conformations contribute, or does one alone match the mean?",
+  "rule": "A single conformation matches the mean when its AUROC and its top-1% enrichment are both at least the oriented five-conformation mean. More negative Vina score ranks first. No model was fit.",
+  "pools": [
+    {
+      "pool": "unmatched_206_2978",
+      "mean_auroc": 0.7192,
+      "mean_ef_1pct": 1.942,
+      "best_single_auroc": "single_4LDE",
+      "best_single_auroc_value": 0.7252,
+      "best_single_ef": "single_3SN6",
+      "best_single_ef_value": 2.913,
+      "singles_at_least_the_mean_on_both": [
+        "single_4LDE"
+      ]
+    },
+    {
+      "pool": "logp_window_48_379",
+      "mean_auroc": 0.6205,
+      "mean_ef_1pct": 0.0,
+      "best_single_auroc": "single_3SN6",
+      "best_single_auroc_value": 0.6367,
+      "best_single_ef": "single_3SN6",
+      "best_single_ef_value": 4.167,
+      "singles_at_least_the_mean_on_both": [
+        "single_3SN6",
+        "single_4LDL"
+      ]
+    }
+  ],
+  "learned_ranker_not_refit": [
+    {
+      "pool": "unmatched_206_2978",
+      "method": "learned_ranker_ten_seeds",
+      "source": "followup_2026-10-16/week1_2026-10-16/week1_metrics.csv",
+      "n_pos": null,
+      "n_neg": null,
+      "top1_count": null,
+      "auroc": null,
+      "auroc_min": 0.6762,
+      "auroc_max": 0.7147,
+      "ef_1pct": null,
+      "ef_1pct_min": 2.427,
+      "ef_1pct_max": 5.34,
+      "seeds": 10,
+      "refit": false
+    },
+    {
+      "pool": "logp_window_48_379",
+      "method": "learned_ranker_ten_seeds",
+      "source": "followup_2026-10-16/logp_match_2026-10-16/logp_match_metrics.csv",
+      "n_pos": null,
+      "n_neg": null,
+      "top1_count": 4,
+      "auroc": null,
+      "auroc_min": 0.5411,
+      "auroc_max": 0.6584,
+      "ef_1pct": null,
+      "ef_1pct_min": 0.0,
+      "ef_1pct_max": 4.167,
+      "seeds": 10,
+      "refit": false
+    }
+  ]
+}

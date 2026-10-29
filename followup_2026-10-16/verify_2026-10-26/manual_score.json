@@ -1,0 +1,116 @@
+{
+  "rules": {
+    "search": "none",
+    "score": "vina score_only, screen box, screen receptor with Ser203/Ser207 chi1 set to the accepted rotamer",
+    "hydrogens": "phenolic flip counted by the October 20 search and omitted from the written PDB",
+    "hbond": "H...acceptor <= 2.5 A and donor-H-acceptor >= 120 deg",
+    "clearance": "ligand-receptor heavy atoms >= 2.6 A"
+  },
+  "flip": [
+    {
+      "oxygen_index": 10,
+      "serine": 203,
+      "written": {
+        "passes": false,
+        "distance": 4.161,
+        "angle": 17.2
+      },
+      "flipped": {
+        "passes": true,
+        "distance": 2.441,
+        "angle": 131.9
+      },
+      "used": "flipped"
+    },
+    {
+      "oxygen_index": 13,
+      "serine": 207,
+      "written": {
+        "passes": true,
+        "distance": 2.478,
+        "angle": 128.0
+      },
+      "flipped": {
+        "passes": false,
+        "distance": 3.609,
+        "angle": 58.9
+      },
+      "used": "written"
+    }
+  ],
+  "written_hydrogens": {
+    "amine": {
+      "passes": true,
+      "distance": 2.433,
+      "angle": 149.4
+    },
+    "phenols": [
+      {
+        "serine": 203,
+        "passes": false,
+        "distance": 4.161,
+        "angle": 17.2
+      },
+      {
+        "serine": 207,
+        "passes": true,
+        "distance": 2.478,
+        "angle": 128.0
+      }
+    ],
+    "hydrogen_bonds": 2,
+    "min_heavy_contact": 2.739
+  },
+  "accepted_hydrogens": {
+    "amine": {
+      "passes": true,
+      "distance": 2.433,
+      "angle": 149.4
+    },
+    "phenols": [
+      {
+        "serine": 203,
+        "passes": true,
+        "distance": 2.441,
+        "angle": 131.9
+      },
+      {
+        "serine": 207,
+        "passes": true,
+        "distance": 2.478,
+        "angle": 128.0
+      }
+    ],
+    "hydrogen_bonds": 3,
+    "min_heavy_contact": 2.739
+  },
+  "pdbqt_hydrogens": {
+    "amine": {
+      "passes": true,
+      "distance": 2.433,
+      "angle": 149.4
+    },
+    "phenols": [
+      {
+        "serine": 203,
+        "passes": true,
+        "distance": 2.44,
+        "angle": 131.9
+      },
+      {
+        "serine": 207,
+        "passes": true,
+        "distance": 2.478,
+        "angle": 128.0
+      }
+    ],
+    "hydrogen_bonds": 3,
+    "min_heavy_contact": 2.739,
+    "polar_hydrogens": 5
+  },
+  "vina": {
+    "returncode": 0,
+    "affinity": -4.376,
+    "log": "D:\\repositories\\Beta2AR_SupervisedEnOpt_Screening\\followup_2026-10-16\\verify_2026-10-26\\manual_orciprenaline_3sn6_manual_chi1_score.log"
+  }
+}

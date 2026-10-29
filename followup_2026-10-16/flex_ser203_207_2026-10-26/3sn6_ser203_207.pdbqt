@@ -1,0 +1,30 @@
+BEGIN_RES SER R 203
+REMARK  3 active torsions:
+ROOT
+ATOM      1  CA  SER R 203      15.391  -2.107  -7.441  0.00  0.00    +0.000  C
+ENDROOT
+BRANCH   1   2
+ATOM      2  CB  SER R 203      16.089  -1.503  -8.661  0.00  0.00    +0.000  C
+BRANCH   2   3
+ATOM      3  OG  SER R 203      17.144  -0.640  -8.274  0.00  0.00    +0.000 OA
+BRANCH   3   4
+ATOM      4  H   SER R 203      17.804  -1.142  -7.771  0.00  0.00    +0.000 HD
+ENDBRANCH   3   4
+ENDBRANCH   2   3
+ENDBRANCH   1   2
+END_RES SER R 203
+BEGIN_RES SER R 207
+REMARK  3 active torsions:
+ROOT
+ATOM      1  CA  SER R 207      16.308   0.329  -2.121  0.00  0.00    +0.000  C
+ENDROOT
+BRANCH   1   2
+ATOM      2  CB  SER R 207      17.042   0.895  -3.341  0.00  0.00    +0.000  C
+BRANCH   2   3
+ATOM      3  OG  SER R 207      17.911  -0.070  -3.909  0.00  0.00    +0.000 OA
+BRANCH   3   4
+ATOM      4  H   SER R 207      17.395  -0.838  -4.200  0.00  0.00    +0.000 HD
+ENDBRANCH   3   4
+ENDBRANCH   2   3
+ENDBRANCH   1   2
+END_RES SER R 207

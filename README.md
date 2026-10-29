@@ -21,11 +21,15 @@ The matched, scaffold-held-out exam did not pass. Inside the frozen property cal
 
 The ChEMBL ranks 25,527 and 26,697 used neutral amines, so they did not separate logP collinearity from that input. GPR-53 keeps the same five receptors, original boxes, and exhaustiveness 4, protonates basic aliphatic amines at pH 7.4, and docks 14,586 such molecules. CHEMBL776 ranks 14,360 and CHEMBL434 ranks 14,362 of 14,586 on the oriented five-conformation mean. Both means are −7.28 kcal/mol. The mean still follows Crippen logP (Spearman 0.445). Correcting the neutral-amine input does not move these two phenylethanolamines forward. No model was trained. The record is [`followup_2026-10-16`](followup_2026-10-16/README.md).
 
+## Update, 29 October 2026
+
+Each of the five conformations was ranked alone on the same 206 actives and 2,978 decoys, and again inside the frozen logP window (48 actives, 379 decoys). No model was fit. On the larger set, 4LDE alone reaches AUROC 0.725 and top-1% enrichment 2.43×, against 0.719 and 1.94× for the oriented five-conformation mean. Inside the logP window the top 1% is four molecules; 3SN6 and 4LDL each meet or beat that mean, whose own top-1% enrichment is 0. The five-conformation mean remains the reported score. It is not evidence that every conformation is required. The table is [`followup_2026-10-16/conformation_2026-10-29`](followup_2026-10-16/conformation_2026-10-29/conformation_contribution.csv).
+
 ## Project Overview
 
 Classical high-throughput virtual screening often docks each ligand against a single receptor structure. For GPCR targets, this can be limiting because transmembrane helix rearrangements, especially around TM6 activation-associated motion, change the binding pocket geometry. This project therefore uses an ensemble of inactive and active β2-AR conformations, then combines docking results into a single ranking matrix.
 
-Raw score-averaging appears worse than random for this screen (AUROC 0.41–0.47) only when the score sign is ignored — docking scores are *more negative = better*. Once baselines are oriented correctly, plain 5-pocket averaging reaches AUROC ≈ 0.72 against property-matched DUD-E decoys and ≈ 0.67 on the full library. The supervised EnOpt model adds the most value at the top of the list (≈2× top-1% enrichment vs averaging) and in the full-library accounting; see Stage 3.
+Raw score-averaging appears worse than random for this screen (AUROC 0.41–0.47) only when the score sign is ignored — docking scores are *more negative = better*. Once baselines are oriented correctly, plain 5-pocket averaging reaches AUROC 0.719 on the unmatched 206-active / 2,978-decoy set. On that set, 4LDE alone is at least as high on both AUROC and top-1% enrichment. The learned ranker stays unused. The Stage 3 and Stage 4 tables below are the earlier unmatched comparisons.
 
 ## Stage 1: Ensemble Docking
 
@@ -171,11 +175,12 @@ script `scripts/10_feature_heavy_atom_experiment.py`)
 | **raw + per-heavy-atom (10)**       | **0.751** | **0.712-0.791** | **7.28** | **4.76** |
 | ensemble mean, raw (reference)      | 0.719 | 0.679-0.760  | 1.94  | 3.30  |
 
-- Appending size-normalized (per-heavy-atom) scores to the five raw scores
-  raises the matched-decoy AUROC from 0.696 to 0.751 and more than doubles
-  top-1% enrichment, while removing the "large molecules rank too high"
-  artefact (top-200 median MW drops from 393 to 358, inside the active
-  window).
+- On the earlier unmatched comparison, appending size-normalized
+  (per-heavy-atom) scores to the five raw scores moves AUROC from 0.696 to
+  0.751 and top-1% enrichment from 3.88× to 7.28×. The 16 October 2026
+  update does not treat that move as a docking-feature gain over molecular
+  properties. The top-200 median molecular weight in that table drops from
+  393 to 358.
 - The raw+ha leaderboard
   (`results/feature_experiment_heavy_atom/library_ranking_heavy_atom_model.csv`)
   was the Stage-4 shortlist. The 16 October 2026 follow-up does not use it as a purchase list; see `followup_2026-10-16`.
@@ -284,8 +289,8 @@ The full run is CPU-intensive because it performs docking across 30,000 ligands 
 
 - Docking scores are computational prioritization signals, not experimental binding affinities.
 - The Stage-2 (06) model labelled uncharacterized library molecules as negatives by assumption. Stage 3 replaced the negative set with 2,978 real DUD-E decoys and expanded positives to 206 (see `docs/decoy_validation_notes.md`).
-- The ranking should be interpreted as a shortlist for follow-up analysis, not as confirmed biological activity.
-- On the matched-decoy hard test, supervised EnOpt (AUROC 0.696, CI 0.655–0.737) is statistically tied with a correctly oriented simple average (0.719, CI 0.679–0.760). The model's demonstrable value is top-of-list enrichment, not overall AUROC separation.
-- Adding per-heavy-atom features (Stage 4) raises the matched-decoy AUROC to 0.751 (CI 0.712-0.791) and fixes the large-molecule ranking artefact; the raw+ha leaderboard is the recommended candidate list for follow-up.
+- A reported rank is a computational priority. It is not a purchase list and not confirmed biological activity.
+- On the unmatched 206/2,978 set the five-score model reaches AUROC 0.676–0.715. After the logP window was frozen (48 actives, 379 decoys) it beat the descriptor model on top-1% enrichment for 2 of 10 seeds. The learned ranker stays unused. Where a docking score is reported, use the oriented five-conformation mean.
+- The per-heavy-atom AUROC 0.751 and top-1% enrichment 7.3× are the earlier unmatched record. They are not a docking-feature gain over molecular weight, Crippen logP, and heavy-atom count. The raw-plus-heavy-atom table is not a candidate list and not a purchase list.
 - Re-docking at exhaustiveness 8 (Stage 5) leaves these conclusions unchanged (CIs overlap): the remaining bottleneck is receptor/pose modelling (rigid receptor, no interaction fingerprints), not docking sampling quality.
 - Additional validation such as redocking controls, molecular dynamics, or experimental assays would be required before biological claims.

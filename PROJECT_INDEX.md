@@ -10,6 +10,10 @@ The matched exam was run on 22 October 2026 and did not pass. Same-scaffold libr
 
 On 26 October 2026 the same Vina protocol was repeated with basic aliphatic amines protonated at pH 7.4. CHEMBL776 ranks 14,360 and CHEMBL434 ranks 14,362 of 14,586. The oriented five-conformation mean still follows Crippen logP (Spearman 0.445). The neutral-amine input does not account for that back rank. No model was trained. The public score table is `followup_2026-10-16/gpr53_2026-10-26/amine_five_scores.csv`, and the read is `followup_2026-10-16/gpr53_2026-10-26/amine_screen_read.json`. Supplier structures stay outside this repository. The five receptor files are `data/raw/receptors` and `data/processed/receptors`.
 
+Allowing Ser203 and Ser207 to move during Vina search on 3SN6 does not give CHEMBL434 or CHEMBL776 all three hydrogen bonds in one pose. Twelve property-matched library molecules were the negatives. The calipers were not widened. The record is `followup_2026-10-16/flex_ser203_207_2026-10-26`.
+
+Scoring the manual three-contact orciprenaline pose, without a new search, gives −4.376 kcal/mol. The best-energy flex modes of the same two drugs score −6.702 and −7.109 on the same call. Their phenolic oxygens reach the serines, and the hydrogens do not. Deposited 2Y03 isoprenaline has all three hydrogen bonds and misses the 2.6 Å line by 0.032 Å at the benzylic oxygen. The record is `followup_2026-10-16/verify_2026-10-26`.
+
 ## Start Here
 
 - `README.md` — project overview, methods, results, and reproduction commands.

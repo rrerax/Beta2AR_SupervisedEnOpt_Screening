@@ -1,0 +1,3 @@
+pool,method,source,n_pos,n_neg,top1_count,auroc,auroc_min,auroc_max,ef_1pct,ef_1pct_min,ef_1pct_max,seeds,refit
+unmatched_206_2978,learned_ranker_ten_seeds,followup_2026-10-16/week1_2026-10-16/week1_metrics.csv,,,,,0.6762,0.7147,,2.427,5.34,10,False
+logp_window_48_379,learned_ranker_ten_seeds,followup_2026-10-16/logp_match_2026-10-16/logp_match_metrics.csv,,,4.0,,0.5411,0.6584,,0.0,4.167,10,False

@@ -1,0 +1,530 @@
+{
+  "rules": {
+    "heavy_atoms": "deposited coordinates, altLoc blank or A, first model",
+    "phenol_h": "both in-plane flips, O-H 0.97 A, C-O-H 109.5 deg",
+    "amine_h": "two tetrahedral H at 1.01 A when nitrogen has two carbon neighbors",
+    "pass": "amine to Asp OD and both Ser203 and Ser207, clearance >= 2.6 A",
+    "ser204_and_water": "recorded, not allowed to turn a failure into a pass",
+    "docking": "none"
+  },
+  "structures": [
+    {
+      "pdb": "2Y03",
+      "chain": "A",
+      "ligand": {
+        "resn": "5FW",
+        "chain": "A",
+        "resi": 601,
+        "heavy_atoms": 15
+      },
+      "asp_file_resi": 121,
+      "serine_file_resi": {
+        "203": 211,
+        "204": 212,
+        "207": 215
+      },
+      "amine_neighbors": [
+        2
+      ],
+      "phenol_count": 2,
+      "amine_best": {
+        "passes": true,
+        "distance": 1.699,
+        "angle": 167.0
+      },
+      "phenol_contacts": [
+        {
+          "phenol_index": 0,
+          "oxygen_name": "OAC",
+          "serine": "203",
+          "file_resi": 211,
+          "oxygen_og": 3.163,
+          "best_flip": {
+            "passes": true,
+            "distance": 2.253,
+            "angle": 156.0
+          }
+        },
+        {
+          "phenol_index": 0,
+          "oxygen_name": "OAC",
+          "serine": "204",
+          "file_resi": 212,
+          "oxygen_og": 4.978,
+          "best_flip": {
+            "passes": false,
+            "distance": 4.464,
+            "angle": 116.9
+          }
+        },
+        {
+          "phenol_index": 0,
+          "oxygen_name": "OAC",
+          "serine": "207",
+          "file_resi": 215,
+          "oxygen_og": 3.336,
+          "best_flip": {
+            "passes": true,
+            "distance": 2.424,
+            "angle": 156.4
+          }
+        },
+        {
+          "phenol_index": 1,
+          "oxygen_name": "OAB",
+          "serine": "203",
+          "file_resi": 211,
+          "oxygen_og": 3.249,
+          "best_flip": {
+            "passes": true,
+            "distance": 2.316,
+            "angle": 161.0
+          }
+        },
+        {
+          "phenol_index": 1,
+          "oxygen_name": "OAB",
+          "serine": "204",
+          "file_resi": 212,
+          "oxygen_og": 4.802,
+          "best_flip": {
+            "passes": false,
+            "distance": 4.357,
+            "angle": 111.8
+          }
+        },
+        {
+          "phenol_index": 1,
+          "oxygen_name": "OAB",
+          "serine": "207",
+          "file_resi": 215,
+          "oxygen_og": 6.111,
+          "best_flip": {
+            "passes": false,
+            "distance": 5.528,
+            "angle": 123.0
+          }
+        }
+      ],
+      "pair_203_207": true,
+      "pair_oxygens": [
+        "OAB",
+        "OAC"
+      ],
+      "min_heavy_contact": 2.568,
+      "closest_other": {
+        "distance": 2.568,
+        "ligand_atom": "OAA",
+        "residue": "ASP",
+        "file_resi": 121,
+        "atom": "OD1"
+      },
+      "frozen_rule_pass": false,
+      "bridging_waters": [],
+      "nearest_water": {
+        "resi": 2005,
+        "phenol": "OAB",
+        "serine": "204",
+        "to_phenol_o": 12.021,
+        "to_og": 11.453,
+        "bridge": 12.021
+      }
+    },
+    {
+      "pdb": "2Y03",
+      "chain": "B",
+      "ligand": {
+        "resn": "5FW",
+        "chain": "B",
+        "resi": 601,
+        "heavy_atoms": 15
+      },
+      "asp_file_resi": 121,
+      "serine_file_resi": {
+        "203": 211,
+        "204": 212,
+        "207": 215
+      },
+      "amine_neighbors": [
+        2
+      ],
+      "phenol_count": 2,
+      "amine_best": {
+        "passes": true,
+        "distance": 2.033,
+        "angle": 140.4
+      },
+      "phenol_contacts": [
+        {
+          "phenol_index": 0,
+          "oxygen_name": "OAC",
+          "serine": "203",
+          "file_resi": 211,
+          "oxygen_og": 3.283,
+          "best_flip": {
+            "passes": true,
+            "distance": 2.34,
+            "angle": 163.8
+          }
+        },
+        {
+          "phenol_index": 0,
+          "oxygen_name": "OAC",
+          "serine": "204",
+          "file_resi": 212,
+          "oxygen_og": 5.426,
+          "best_flip": {
+            "passes": false,
+            "distance": 4.813,
+            "angle": 124.8
+          }
+        },
+        {
+          "phenol_index": 0,
+          "oxygen_name": "OAC",
+          "serine": "207",
+          "file_resi": 215,
+          "oxygen_og": 2.996,
+          "best_flip": {
+            "passes": true,
+            "distance": 2.184,
+            "angle": 140.4
+          }
+        },
+        {
+          "phenol_index": 1,
+          "oxygen_name": "OAB",
+          "serine": "203",
+          "file_resi": 211,
+          "oxygen_og": 2.839,
+          "best_flip": {
+            "passes": true,
+            "distance": 2.003,
+            "angle": 143.1
+          }
+        },
+        {
+          "phenol_index": 1,
+          "oxygen_name": "OAB",
+          "serine": "204",
+          "file_resi": 212,
+          "oxygen_og": 4.561,
+          "best_flip": {
+            "passes": false,
+            "distance": 4.299,
+            "angle": 99.5
+          }
+        },
+        {
+          "phenol_index": 1,
+          "oxygen_name": "OAB",
+          "serine": "207",
+          "file_resi": 215,
+          "oxygen_og": 5.611,
+          "best_flip": {
+            "passes": false,
+            "distance": 4.994,
+            "angle": 125.4
+          }
+        }
+      ],
+      "pair_203_207": true,
+      "pair_oxygens": [
+        "OAB",
+        "OAC"
+      ],
+      "min_heavy_contact": 2.558,
+      "closest_other": {
+        "distance": 2.558,
+        "ligand_atom": "OAA",
+        "residue": "ASP",
+        "file_resi": 121,
+        "atom": "OD1"
+      },
+      "frozen_rule_pass": false,
+      "bridging_waters": [],
+      "nearest_water": {
+        "resi": 2002,
+        "phenol": "OAB",
+        "serine": "204",
+        "to_phenol_o": 11.866,
+        "to_og": 11.184,
+        "bridge": 11.866
+      }
+    },
+    {
+      "pdb": "4LDO",
+      "chain": "A",
+      "ligand": {
+        "resn": "ALE",
+        "chain": "A",
+        "resi": 1402,
+        "heavy_atoms": 13
+      },
+      "asp_file_resi": 1113,
+      "serine_file_resi": {
+        "203": 1203,
+        "204": 1204,
+        "207": 1207
+      },
+      "amine_neighbors": [
+        2
+      ],
+      "phenol_count": 2,
+      "amine_best": {
+        "passes": true,
+        "distance": 2.123,
+        "angle": 124.4
+      },
+      "phenol_contacts": [
+        {
+          "phenol_index": 0,
+          "oxygen_name": "O1",
+          "serine": "203",
+          "file_resi": 1203,
+          "oxygen_og": 3.251,
+          "best_flip": {
+            "passes": true,
+            "distance": 2.496,
+            "angle": 134.6
+          }
+        },
+        {
+          "phenol_index": 0,
+          "oxygen_name": "O1",
+          "serine": "204",
+          "file_resi": 1204,
+          "oxygen_og": 4.764,
+          "best_flip": {
+            "passes": false,
+            "distance": 4.486,
+            "angle": 100.8
+          }
+        },
+        {
+          "phenol_index": 0,
+          "oxygen_name": "O1",
+          "serine": "207",
+          "file_resi": 1207,
+          "oxygen_og": 6.027,
+          "best_flip": {
+            "passes": false,
+            "distance": 5.281,
+            "angle": 137.0
+          }
+        },
+        {
+          "phenol_index": 1,
+          "oxygen_name": "O2",
+          "serine": "203",
+          "file_resi": 1203,
+          "oxygen_og": 3.746,
+          "best_flip": {
+            "passes": false,
+            "distance": 2.815,
+            "angle": 161.2
+          }
+        },
+        {
+          "phenol_index": 1,
+          "oxygen_name": "O2",
+          "serine": "204",
+          "file_resi": 1204,
+          "oxygen_og": 5.683,
+          "best_flip": {
+            "passes": false,
+            "distance": 4.98,
+            "angle": 132.7
+          }
+        },
+        {
+          "phenol_index": 1,
+          "oxygen_name": "O2",
+          "serine": "207",
+          "file_resi": 1207,
+          "oxygen_og": 3.532,
+          "best_flip": {
+            "passes": false,
+            "distance": 2.726,
+            "angle": 140.9
+          }
+        }
+      ],
+      "pair_203_207": false,
+      "pair_oxygens": null,
+      "min_heavy_contact": 2.792,
+      "closest_other": {
+        "distance": 2.792,
+        "ligand_atom": "N1",
+        "residue": "ASN",
+        "file_resi": 1312,
+        "atom": "OD1"
+      },
+      "frozen_rule_pass": false,
+      "bridging_waters": [],
+      "nearest_water": {
+        "resi": 1501,
+        "phenol": "O1",
+        "serine": "203",
+        "to_phenol_o": 5.829,
+        "to_og": 7.042,
+        "bridge": 7.042
+      }
+    },
+    {
+      "pdb": "4LDL",
+      "chain": "A",
+      "ligand": {
+        "resn": "XQC",
+        "chain": "A",
+        "resi": 1401,
+        "heavy_atoms": 23
+      },
+      "asp_file_resi": 1113,
+      "serine_file_resi": {
+        "203": 1203,
+        "204": 1204,
+        "207": 1207
+      },
+      "amine_neighbors": [
+        2
+      ],
+      "phenol_count": 3,
+      "amine_best": {
+        "passes": true,
+        "distance": 2.001,
+        "angle": 158.9
+      },
+      "phenol_contacts": [
+        {
+          "phenol_index": 0,
+          "oxygen_name": "OAI",
+          "serine": "203",
+          "file_resi": 1203,
+          "oxygen_og": 14.891,
+          "best_flip": {
+            "passes": false,
+            "distance": 15.096,
+            "angle": 76.0
+          }
+        },
+        {
+          "phenol_index": 0,
+          "oxygen_name": "OAI",
+          "serine": "204",
+          "file_resi": 1204,
+          "oxygen_og": 15.551,
+          "best_flip": {
+            "passes": false,
+            "distance": 15.591,
+            "angle": 85.9
+          }
+        },
+        {
+          "phenol_index": 0,
+          "oxygen_name": "OAI",
+          "serine": "207",
+          "file_resi": 1207,
+          "oxygen_og": 17.532,
+          "best_flip": {
+            "passes": false,
+            "distance": 17.797,
+            "angle": 72.7
+          }
+        },
+        {
+          "phenol_index": 1,
+          "oxygen_name": "OAT",
+          "serine": "203",
+          "file_resi": 1203,
+          "oxygen_og": 3.913,
+          "best_flip": {
+            "passes": false,
+            "distance": 2.957,
+            "angle": 168.5
+          }
+        },
+        {
+          "phenol_index": 1,
+          "oxygen_name": "OAT",
+          "serine": "204",
+          "file_resi": 1204,
+          "oxygen_og": 5.543,
+          "best_flip": {
+            "passes": false,
+            "distance": 5.05,
+            "angle": 115.9
+          }
+        },
+        {
+          "phenol_index": 1,
+          "oxygen_name": "OAT",
+          "serine": "207",
+          "file_resi": 1207,
+          "oxygen_og": 3.196,
+          "best_flip": {
+            "passes": true,
+            "distance": 2.362,
+            "angle": 143.7
+          }
+        },
+        {
+          "phenol_index": 2,
+          "oxygen_name": "OAV",
+          "serine": "203",
+          "file_resi": 1203,
+          "oxygen_og": 3.367,
+          "best_flip": {
+            "passes": false,
+            "distance": 2.568,
+            "angle": 139.7
+          }
+        },
+        {
+          "phenol_index": 2,
+          "oxygen_name": "OAV",
+          "serine": "204",
+          "file_resi": 1204,
+          "oxygen_og": 5.2,
+          "best_flip": {
+            "passes": false,
+            "distance": 4.849,
+            "angle": 106.0
+          }
+        },
+        {
+          "phenol_index": 2,
+          "oxygen_name": "OAV",
+          "serine": "207",
+          "file_resi": 1207,
+          "oxygen_og": 5.885,
+          "best_flip": {
+            "passes": false,
+            "distance": 5.196,
+            "angle": 131.6
+          }
+        }
+      ],
+      "pair_203_207": false,
+      "pair_oxygens": null,
+      "min_heavy_contact": 2.709,
+      "closest_other": {
+        "distance": 2.709,
+        "ligand_atom": "NAL",
+        "residue": "ASN",
+        "file_resi": 1312,
+        "atom": "OD1"
+      },
+      "frozen_rule_pass": false,
+      "bridging_waters": [],
+      "nearest_water": {
+        "resi": 1502,
+        "phenol": "OAV",
+        "serine": "203",
+        "to_phenol_o": 6.069,
+        "to_og": 7.384,
+        "bridge": 7.384
+      }
+    }
+  ]
+}

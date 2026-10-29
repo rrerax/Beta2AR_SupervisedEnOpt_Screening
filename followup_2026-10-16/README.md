@@ -33,9 +33,49 @@ before this window. The unmatched set already had 206 actives, so the failed
 gate is not a claim that a larger training set would pass.
 
 Where a docking score is required, use the oriented five-conformation mean.
-On the unmatched set the strongest single structure is 4LDE (AUROC 0.725).
-The five-structure mean is not a claim that every conformation is required,
-and it does not beat that single structure on global AUROC.
+That mean is a reporting choice. It is not evidence that all five
+conformations are required.
+
+## Five conformations, one at a time, 29 October 2026
+
+`conformation_2026-10-29/conformation_contribution.py` ranks the stored
+scores one conformation at a time. No model was fit. A more negative Vina
+score ranks first. Top-1% enrichment uses `k = max(int(0.01 × n), 1)`.
+The learned-ranker rows are the 16 October tables, not a new fit.
+
+On 206 actives and 2,978 decoys, the top 1% is 31 molecules:
+
+| Ranking | AUROC | Top-1% enrichment |
+|---|---:|---:|
+| 2RH1 alone | 0.690 | 2.43× |
+| 5D5A alone | 0.700 | 1.94× |
+| 3SN6 alone | 0.706 | 2.91× |
+| 4LDE alone | 0.725 | 2.43× |
+| 4LDL alone | 0.722 | 0 |
+| Oriented five-conformation mean | 0.719 | 1.94× |
+| Learned ranker, 10 stored seeds | 0.676–0.715 | 2.4–5.3× |
+
+4LDE alone is at least as high as the five-conformation mean on both AUROC
+and top-1% enrichment. 4LDL is close on AUROC and has no active in its top
+1%. The five conformations are not all required for this ranking.
+
+On the frozen logP window (48 actives, 379 decoys) the top 1% is 4
+molecules, so the enrichment is unstable:
+
+| Ranking | AUROC | Top-1% enrichment |
+|---|---:|---:|
+| 2RH1 alone | 0.592 | 0 |
+| 5D5A alone | 0.607 | 0 |
+| 3SN6 alone | 0.637 | 4.17× |
+| 4LDE alone | 0.620 | 2.08× |
+| 4LDL alone | 0.623 | 4.17× |
+| Oriented five-conformation mean | 0.621 | 0 |
+| Learned ranker, 10 stored seeds | 0.541–0.658 | 0–4.2× |
+
+Inside that window, 3SN6 and 4LDL each meet or beat the mean on both
+numbers, and the mean itself has no active in the top 1%. One or two
+conformations account for the ranking. The ensemble is not shown to be
+necessary.
 
 Stage 4's per-heavy-atom AUROC 0.751 and top-1% enrichment 7.3× describe the
 unmatched comparison. They are not a docking-feature gain over molecular
@@ -305,3 +345,73 @@ molecules and has median logP 3.812. Oriented 4LDE versus logP is Spearman
 forward, and the score still follows logP. The neutral-amine input does
 not account for the back rank. The learned ranker stays unused. This table
 is not an activity list.
+
+The top 1% of these 14,586 molecules, 146 rows, has median Crippen logP
+3.812, molecular weight 391.493, one hydrogen-bond donor, and 29 heavy
+atoms. The two controls have logP 1.129, molecular weight 211.261, four
+donors, and 15 heavy atoms. Both groups have formal charge +1. Six of the
+146 carry a PAINS flag and five carry a Brenk flag. The table is
+`flex_ser203_207_2026-10-26/top1_versus_controls.csv`.
+
+## Flexible Ser203 and Ser207, 26 October 2026
+
+`flex_ser203_207_2026-10-26/run_flex.py` keeps the October 22 calipers and
+the 2.5 Å / 120° hydrogen-bond rule. The receptor is 3SN6 chain R, the
+only structure on which a manual Ser203–Ser207 rotamer met all three
+contacts. Only those two side chains are flexible. Asp113 and every
+truncated deposited side chain stay as deposited. The box, exhaustiveness
+4, and seed 20260728 are the screen values. Nine modes are kept so the
+geometry check is not limited to the best energy. Vina energy is not the
+pass rule. The calipers returned 12 library molecules. They were not
+widened. No model was trained, and the 14,586-molecule screen was not
+repeated.
+
+A molecule passes only when one pose has the amine hydrogen on Asp113 and
+both phenolic hydrogens on Ser203 and Ser207, with every ligand–receptor
+heavy contact at least 2.6 Å, and both controls rank ahead of all 12
+negatives on hydrogen-bond count and clearance. `flex_pass` is false. The
+reason is `three_contacts_not_simultaneous`.
+
+On the geometry-best pose, CHEMBL434 has the amine hydrogen at 1.892 Å and
+167.3°, and CHEMBL776 has it at 2.222 Å and 146.9°. Neither pose has a
+phenolic hydrogen inside the serine rule. Their heavy-atom clearances are
+2.906 Å and 2.950 Å. The best Vina energies in the nine modes are −7.054
+and −6.677 kcal/mol. Ser203 OG moves by as much as 1.964 Å. Ser207 OG
+moves by as much as 2.066 Å for CHEMBL434 and stays within 0.065 Å of the
+crystal oxygen for every CHEMBL776 mode. The manual rotamer is not among
+these poses. The decision is `flex_ser203_207_2026-10-26/flex_decision.json`.
+
+## Score and crystal check, 26 October 2026
+
+`verify_2026-10-26` scores the accepted orciprenaline pose and measures
+deposited complexes. No new search was run. The October 20 phenolic
+hydrogen flip is restored before scoring; the written PDB had left that
+hydrogen pointing away from Ser203. Vina `score_only` on the screen
+receptor, with Ser203 and Ser207 at the accepted chi1, gives −4.376
+kcal/mol. The same call on the best-energy flex mode gives −6.702 for
+CHEMBL776 and −7.109 for CHEMBL434. The three-contact pose is the worse
+score. Raising exhaustiveness would not select it.
+
+In those best-energy modes the two phenolic oxygens are 2.75–3.22 Å from
+Ser203 and Ser207, as close as the deposited ligands. The hydrogens are
+not. No one of the nine modes puts both phenolic hydrogens inside 2.5 Å
+and 120° at the same time. For CHEMBL776 the best-energy angles are 45.4°
+and 55.8°.
+
+Deposited 2Y03, isoprenaline at 2.85 Å, meets the three hydrogen bonds on
+both chains: the amine hydrogen is 1.699 Å from Asp121 at 167.0°, and the
+phenolic hydrogens are 2.316 Å at 161.0° and 2.424 Å at 156.4°. Ser204 is
+not the acceptor. The nearest water is 9.3 Å from the ligand. The pose
+fails the frozen rule because the benzylic oxygen is 2.568 Å from Asp121
+OD1, 0.032 Å inside the 2.6 Å line. 4LDO adrenaline, at 3.20 Å, passes the
+amine and one phenol; the second phenol is 2.726 Å. 4LDL misses the second
+phenol by 0.068 Å. None of the three deposits uses a bridging water or
+Ser204 for these contacts. The catechol in 2Y03 reaches Ser203 and Ser207
+together, so the 4.7 Å resorcinol spacing is not a requirement for that
+pair.
+
+The Vina receptor used here carries partial charge 0 on every atom, so the
+score gap has no Coulomb term. A Gasteiger sum added afterwards is
+dominated by oxygen–oxygen repulsion and is not a hydrogen-bond energy.
+The records are `verify_2026-10-26/manual_score.json`,
+`crystal_contacts.json`, and `followup_eval.json`.

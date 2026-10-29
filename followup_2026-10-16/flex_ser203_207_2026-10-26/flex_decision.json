@@ -1,0 +1,542 @@
+{
+  "rules_fixed_before_poses": true,
+  "rules": {
+    "receptor": "3SN6 chain R, the only structure where a manual Ser203/Ser207 rotamer met the three-contact rule",
+    "flexible_residues": [
+      "Ser203",
+      "Ser207"
+    ],
+    "fixed_residues": [
+      "Asp113 and every other residue, including truncated deposited side chains"
+    ],
+    "calipers": {
+      "abs_logp": 0.5,
+      "abs_mw": 50.0,
+      "abs_hbd": 1,
+      "abs_hba": 1,
+      "formal_charge": "equal"
+    },
+    "calipers_not_widened": true,
+    "hbond": "H...acceptor <= 2.5 A and donor-H-acceptor >= 120 deg",
+    "clearance": "every ligand-receptor heavy contact >= 2.6 A",
+    "vina_energy_is_not_the_pass_rule": true,
+    "pass": "both controls satisfy all three hydrogen bonds and the clearance, and both rank ahead of every matched negative on (hydrogen-bond count, clearance)",
+    "exhaustiveness": 4,
+    "num_modes": 9,
+    "seed": 20260728,
+    "box": {
+      "center_x": 19.724,
+      "center_y": 6.018,
+      "center_z": -11.183,
+      "size_x": 24.501,
+      "size_y": 25.011,
+      "size_z": 25.452
+    }
+  },
+  "selection": {
+    "reference_logp": 1.129,
+    "reference_mw": 211.261,
+    "reference_hbd": 4,
+    "reference_hba": 4,
+    "reference_charge": 1,
+    "matched_negatives": 12,
+    "calipers_widened": false
+  },
+  "top1_versus_controls": [
+    {
+      "group": "top_1pct",
+      "n": 146,
+      "five_mean": -11.129,
+      "crippen_logp": 3.812,
+      "mw": 391.493,
+      "hbd": 1.0,
+      "hba": 3.0,
+      "hac": 29.0,
+      "formal_charge_pH74": 1.0,
+      "pains": 6,
+      "brenk": 5
+    },
+    {
+      "group": "controls",
+      "n": 2,
+      "five_mean": -7.282,
+      "crippen_logp": 1.129,
+      "mw": 211.261,
+      "hbd": 4.0,
+      "hba": 4.0,
+      "hac": 15.0,
+      "formal_charge_pH74": 1.0,
+      "pains": 1,
+      "brenk": 1
+    },
+    {
+      "group": "library",
+      "n": 14586,
+      "five_mean": -9.213,
+      "crippen_logp": 2.664,
+      "mw": 337.398,
+      "hbd": 1.0,
+      "hba": 4.0,
+      "hac": 24.0,
+      "formal_charge_pH74": 1.0,
+      "pains": 97,
+      "brenk": 361
+    }
+  ],
+  "flex_pass": false,
+  "reason": "three_contacts_not_simultaneous",
+  "model_trained": false,
+  "library_redocked": false,
+  "molecules": [
+    {
+      "ligand_id": "Z2440082639",
+      "role": "negative",
+      "status": "ready",
+      "vina_score_of_geometry_pose": -8.253,
+      "hydrogen_bonds": 1,
+      "amine_passes": true,
+      "amine_distance": 2.138,
+      "amine_angle": 159.9,
+      "phenol_bonds": 0,
+      "phenol_one": {
+        "passes": false,
+        "distance": null,
+        "angle": null,
+        "serine": null
+      },
+      "phenol_two": {
+        "passes": false,
+        "distance": null,
+        "angle": null,
+        "serine": null
+      },
+      "min_heavy_contact": 3.046,
+      "full_pass": false,
+      "rank_key_hbonds": 1,
+      "rank_key_clearance": 3.046
+    },
+    {
+      "ligand_id": "Z992049852",
+      "role": "negative",
+      "status": "ready",
+      "vina_score_of_geometry_pose": -6.883,
+      "hydrogen_bonds": 1,
+      "amine_passes": true,
+      "amine_distance": 2.368,
+      "amine_angle": 134.8,
+      "phenol_bonds": 0,
+      "phenol_one": {
+        "passes": false,
+        "distance": null,
+        "angle": null,
+        "serine": null
+      },
+      "phenol_two": {
+        "passes": false,
+        "distance": null,
+        "angle": null,
+        "serine": null
+      },
+      "min_heavy_contact": 3.023,
+      "full_pass": false,
+      "rank_key_hbonds": 1,
+      "rank_key_clearance": 3.023
+    },
+    {
+      "ligand_id": "Z1946606107",
+      "role": "negative",
+      "status": "ready",
+      "vina_score_of_geometry_pose": -6.197,
+      "hydrogen_bonds": 1,
+      "amine_passes": true,
+      "amine_distance": 2.317,
+      "amine_angle": 133.1,
+      "phenol_bonds": 0,
+      "phenol_one": {
+        "passes": false,
+        "distance": null,
+        "angle": null,
+        "serine": null
+      },
+      "phenol_two": {
+        "passes": false,
+        "distance": null,
+        "angle": null,
+        "serine": null
+      },
+      "min_heavy_contact": 2.991,
+      "full_pass": false,
+      "rank_key_hbonds": 1,
+      "rank_key_clearance": 2.991
+    },
+    {
+      "ligand_id": "CHEMBL776",
+      "role": "control",
+      "status": "ready",
+      "vina_score_of_geometry_pose": -5.705,
+      "hydrogen_bonds": 1,
+      "amine_passes": true,
+      "amine_distance": 2.222,
+      "amine_angle": 146.9,
+      "phenol_bonds": 0,
+      "phenol_one": {
+        "passes": false,
+        "distance": null,
+        "angle": null,
+        "serine": null
+      },
+      "phenol_two": {
+        "passes": false,
+        "distance": null,
+        "angle": null,
+        "serine": null
+      },
+      "min_heavy_contact": 2.95,
+      "full_pass": false,
+      "rank_key_hbonds": 1,
+      "rank_key_clearance": 2.95
+    },
+    {
+      "ligand_id": "Z2992687522",
+      "role": "negative",
+      "status": "ready",
+      "vina_score_of_geometry_pose": -6.508,
+      "hydrogen_bonds": 1,
+      "amine_passes": true,
+      "amine_distance": 2.294,
+      "amine_angle": 129.9,
+      "phenol_bonds": 0,
+      "phenol_one": {
+        "passes": false,
+        "distance": null,
+        "angle": null,
+        "serine": null
+      },
+      "phenol_two": {
+        "passes": false,
+        "distance": null,
+        "angle": null,
+        "serine": null
+      },
+      "min_heavy_contact": 2.919,
+      "full_pass": false,
+      "rank_key_hbonds": 1,
+      "rank_key_clearance": 2.919
+    },
+    {
+      "ligand_id": "CHEMBL434",
+      "role": "control",
+      "status": "ready",
+      "vina_score_of_geometry_pose": -5.634,
+      "hydrogen_bonds": 1,
+      "amine_passes": true,
+      "amine_distance": 1.892,
+      "amine_angle": 167.3,
+      "phenol_bonds": 0,
+      "phenol_one": {
+        "passes": false,
+        "distance": null,
+        "angle": null,
+        "serine": null
+      },
+      "phenol_two": {
+        "passes": false,
+        "distance": null,
+        "angle": null,
+        "serine": null
+      },
+      "min_heavy_contact": 2.906,
+      "full_pass": false,
+      "rank_key_hbonds": 1,
+      "rank_key_clearance": 2.906
+    },
+    {
+      "ligand_id": "Z2440944512",
+      "role": "negative",
+      "status": "ready",
+      "vina_score_of_geometry_pose": -8.059,
+      "hydrogen_bonds": 1,
+      "amine_passes": true,
+      "amine_distance": 2.217,
+      "amine_angle": 144.6,
+      "phenol_bonds": 0,
+      "phenol_one": {
+        "passes": false,
+        "distance": null,
+        "angle": null,
+        "serine": null
+      },
+      "phenol_two": {
+        "passes": false,
+        "distance": null,
+        "angle": null,
+        "serine": null
+      },
+      "min_heavy_contact": 2.859,
+      "full_pass": false,
+      "rank_key_hbonds": 1,
+      "rank_key_clearance": 2.859
+    },
+    {
+      "ligand_id": "Z2441071249",
+      "role": "negative",
+      "status": "ready",
+      "vina_score_of_geometry_pose": -6.42,
+      "hydrogen_bonds": 1,
+      "amine_passes": true,
+      "amine_distance": 2.335,
+      "amine_angle": 156.4,
+      "phenol_bonds": 0,
+      "phenol_one": {
+        "passes": false,
+        "distance": null,
+        "angle": null,
+        "serine": null
+      },
+      "phenol_two": {
+        "passes": false,
+        "distance": null,
+        "angle": null,
+        "serine": null
+      },
+      "min_heavy_contact": 2.794,
+      "full_pass": false,
+      "rank_key_hbonds": 1,
+      "rank_key_clearance": 2.794
+    },
+    {
+      "ligand_id": "Z2440030954",
+      "role": "negative",
+      "status": "ready",
+      "vina_score_of_geometry_pose": -7.698,
+      "hydrogen_bonds": 1,
+      "amine_passes": true,
+      "amine_distance": 2.102,
+      "amine_angle": 161.5,
+      "phenol_bonds": 0,
+      "phenol_one": {
+        "passes": false,
+        "distance": null,
+        "angle": null,
+        "serine": null
+      },
+      "phenol_two": {
+        "passes": false,
+        "distance": null,
+        "angle": null,
+        "serine": null
+      },
+      "min_heavy_contact": 2.729,
+      "full_pass": false,
+      "rank_key_hbonds": 1,
+      "rank_key_clearance": 2.729
+    },
+    {
+      "ligand_id": "Z2441023687",
+      "role": "negative",
+      "status": "ready",
+      "vina_score_of_geometry_pose": -7.505,
+      "hydrogen_bonds": 0,
+      "amine_passes": false,
+      "amine_distance": 3.833,
+      "amine_angle": 67.4,
+      "phenol_bonds": 0,
+      "phenol_one": {
+        "passes": false,
+        "distance": null,
+        "angle": null,
+        "serine": null
+      },
+      "phenol_two": {
+        "passes": false,
+        "distance": null,
+        "angle": null,
+        "serine": null
+      },
+      "min_heavy_contact": 3.184,
+      "full_pass": false,
+      "rank_key_hbonds": 0,
+      "rank_key_clearance": 3.184
+    },
+    {
+      "ligand_id": "Z1365532785",
+      "role": "negative",
+      "status": "ready",
+      "vina_score_of_geometry_pose": -6.184,
+      "hydrogen_bonds": 0,
+      "amine_passes": false,
+      "amine_distance": 12.687,
+      "amine_angle": 75.7,
+      "phenol_bonds": 0,
+      "phenol_one": {
+        "passes": false,
+        "distance": null,
+        "angle": null,
+        "serine": null
+      },
+      "phenol_two": {
+        "passes": false,
+        "distance": null,
+        "angle": null,
+        "serine": null
+      },
+      "min_heavy_contact": 3.174,
+      "full_pass": false,
+      "rank_key_hbonds": 0,
+      "rank_key_clearance": 3.174
+    },
+    {
+      "ligand_id": "Z2451656216",
+      "role": "negative",
+      "status": "ready",
+      "vina_score_of_geometry_pose": -6.508,
+      "hydrogen_bonds": 0,
+      "amine_passes": false,
+      "amine_distance": 4.0,
+      "amine_angle": 104.8,
+      "phenol_bonds": 0,
+      "phenol_one": {
+        "passes": false,
+        "distance": null,
+        "angle": null,
+        "serine": null
+      },
+      "phenol_two": {
+        "passes": false,
+        "distance": null,
+        "angle": null,
+        "serine": null
+      },
+      "min_heavy_contact": 3.089,
+      "full_pass": false,
+      "rank_key_hbonds": 0,
+      "rank_key_clearance": 3.089
+    },
+    {
+      "ligand_id": "Z2451856760",
+      "role": "negative",
+      "status": "ready",
+      "vina_score_of_geometry_pose": -8.431,
+      "hydrogen_bonds": 0,
+      "amine_passes": false,
+      "amine_distance": 2.841,
+      "amine_angle": 167.0,
+      "phenol_bonds": 0,
+      "phenol_one": {
+        "passes": false,
+        "distance": null,
+        "angle": null,
+        "serine": null
+      },
+      "phenol_two": {
+        "passes": false,
+        "distance": null,
+        "angle": null,
+        "serine": null
+      },
+      "min_heavy_contact": 3.003,
+      "full_pass": false,
+      "rank_key_hbonds": 0,
+      "rank_key_clearance": 3.003
+    },
+    {
+      "ligand_id": "Z2386240757",
+      "role": "negative",
+      "status": "ready",
+      "vina_score_of_geometry_pose": -6.91,
+      "hydrogen_bonds": 0,
+      "amine_passes": false,
+      "amine_distance": 9.204,
+      "amine_angle": 76.2,
+      "phenol_bonds": 0,
+      "phenol_one": {
+        "passes": false,
+        "distance": null,
+        "angle": null,
+        "serine": null
+      },
+      "phenol_two": {
+        "passes": false,
+        "distance": null,
+        "angle": null,
+        "serine": null
+      },
+      "min_heavy_contact": 2.982,
+      "full_pass": false,
+      "rank_key_hbonds": 0,
+      "rank_key_clearance": 2.982
+    }
+  ],
+  "serine_og_shift_angstrom": {
+    "CHEMBL434": {
+      "best_vina": -7.054,
+      "og_shift_203_max": 1.927,
+      "og_shift_207_max": 2.066
+    },
+    "CHEMBL776": {
+      "best_vina": -6.677,
+      "og_shift_203_max": 1.964,
+      "og_shift_207_max": 0.065
+    },
+    "Z1365532785": {
+      "best_vina": -7.719,
+      "og_shift_203_max": 2.011,
+      "og_shift_207_max": 2.101
+    },
+    "Z1946606107": {
+      "best_vina": -7.625,
+      "og_shift_203_max": 1.937,
+      "og_shift_207_max": 0.061
+    },
+    "Z2386240757": {
+      "best_vina": -8.301,
+      "og_shift_203_max": 1.951,
+      "og_shift_207_max": 0.078
+    },
+    "Z2440030954": {
+      "best_vina": -8.228,
+      "og_shift_203_max": 1.992,
+      "og_shift_207_max": 0.081
+    },
+    "Z2440082639": {
+      "best_vina": -8.441,
+      "og_shift_203_max": 1.963,
+      "og_shift_207_max": 0.082
+    },
+    "Z2440944512": {
+      "best_vina": -8.104,
+      "og_shift_203_max": 1.97,
+      "og_shift_207_max": 2.099
+    },
+    "Z2441023687": {
+      "best_vina": -8.555,
+      "og_shift_203_max": 1.954,
+      "og_shift_207_max": 0.08
+    },
+    "Z2441071249": {
+      "best_vina": -8.602,
+      "og_shift_203_max": 1.954,
+      "og_shift_207_max": 0.054
+    },
+    "Z2451656216": {
+      "best_vina": -8.472,
+      "og_shift_203_max": 1.959,
+      "og_shift_207_max": 2.036
+    },
+    "Z2451856760": {
+      "best_vina": -8.431,
+      "og_shift_203_max": 2.007,
+      "og_shift_207_max": 2.054
+    },
+    "Z2992687522": {
+      "best_vina": -6.956,
+      "og_shift_203_max": 1.971,
+      "og_shift_207_max": 0.08
+    },
+    "Z992049852": {
+      "best_vina": -6.883,
+      "og_shift_203_max": 1.966,
+      "og_shift_207_max": 0.081
+    }
+  }
+}

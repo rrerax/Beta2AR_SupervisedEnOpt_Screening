@@ -1,0 +1,13 @@
+pool,method,source,n_pos,n_neg,top1_count,auroc,auroc_se,ef_1pct
+unmatched_206_2978,single_2RH1,recomputed from stored Vina scores,206,2978,31,0.6895,0.021,2.427
+unmatched_206_2978,single_5D5A,recomputed from stored Vina scores,206,2978,31,0.6995,0.0209,1.942
+unmatched_206_2978,single_3SN6,recomputed from stored Vina scores,206,2978,31,0.7056,0.0208,2.913
+unmatched_206_2978,single_4LDE,recomputed from stored Vina scores,206,2978,31,0.7252,0.0205,2.427
+unmatched_206_2978,single_4LDL,recomputed from stored Vina scores,206,2978,31,0.7222,0.0206,0.0
+unmatched_206_2978,oriented_five_mean,recomputed from stored Vina scores,206,2978,31,0.7192,0.0206,1.942
+logp_window_48_379,single_2RH1,recomputed from stored Vina scores,48,379,4,0.5919,0.0454,0.0
+logp_window_48_379,single_5D5A,recomputed from stored Vina scores,48,379,4,0.6071,0.0454,0.0
+logp_window_48_379,single_3SN6,recomputed from stored Vina scores,48,379,4,0.6367,0.0452,4.167
+logp_window_48_379,single_4LDE,recomputed from stored Vina scores,48,379,4,0.6204,0.0453,2.083
+logp_window_48_379,single_4LDL,recomputed from stored Vina scores,48,379,4,0.6233,0.0453,4.167
+logp_window_48_379,oriented_five_mean,recomputed from stored Vina scores,48,379,4,0.6205,0.0453,0.0
